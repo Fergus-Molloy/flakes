@@ -1,3 +1,4 @@
+{ pkgs, ...}:
 let 
     host = "kirin";
 in {
@@ -18,17 +19,32 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-
-  # Configure keymap in X11
+  # Configure X11
   services.xserver = {
+    enable = true;
+    displayManager = {
+      lightdm.enable =true;
+      defaultSession = "none+i3";
+    };
+    windowManager = {
+      i3.enable = true;
+      i3.package = pkgs.i3;
+    };
+    libinput.mouse.accelProfile = "flat";
     layout = "gb";
     xkbVariant = "";
+  };
+
+  services.picom = {
+    enable = true;
+    vsync = true;
+    fade = true;
+    backend = "glx";
+    settings = {
+      glx-swap-method = 2;
+    };
+    # make some stuff sligtly transparent
+    # opacityRules = ["90:class_g = 'kitty'"];
   };
 
   # Enable CUPS to print documents.
@@ -51,6 +67,10 @@ in {
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  # Extra packages just for this system
+  environment.systemPackages = with pkgs; [
+    rustup  # rust stuff
+    clang   # compiler that can be used to speed up rust linking times
+    lld     # linker that can be used to speed up rust linking times
+  ];
 }

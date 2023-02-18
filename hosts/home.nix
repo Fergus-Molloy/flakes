@@ -21,5 +21,16 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [ htop ];
+  home.packages = with pkgs; [ 
+    firefox   # browser of choice
+    vscode    # advanced editor
+    kitty     # terminal of choice
+    exa       # better ls
+    flameshot # screenshot utility
+    neofetch  # for fun :)
+    ripgrep   # blazingly fast grep
+    xclip     # command line copy-pasting
+    bat       # prettier cat
+    fd        # faster find
+   ];
 }
