@@ -1,13 +1,18 @@
-{ lib, home-manager, user, ... }:
+{ lib, home-manager, user, nixpkgs, ... }:
 let
   system = "x86_64";
+  pkgs = import nixpkgs {
+    inherit system;
+    config.allowUnfree = true;
+  };
 in {
+  # desktop
   kirin = lib.nixosSystem {
     inherit system;
     specialArgs = { inherit user; };
     modules = [ 
+      ./kirin
       ./configuration.nix 
-      ./kirin/hardware-configuration.nix
       home-manager.nixosModules.home-manager {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;

@@ -1,10 +1,12 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
+
+# Global home-manager configuration
 
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "fergus";
-  home.homeDirectory = "/home/fergus";
+  home.username = "${user}";
+  home.homeDirectory = "/home/${user}";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
