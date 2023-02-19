@@ -1,4 +1,4 @@
-{config, ... }:
+{config, user, ... }:
 {
     programs.zsh = {
         enable = true;
@@ -7,7 +7,7 @@
         enableSyntaxHighlighting = true;
         autocd = true;
         history = {
-            path = "~/.cache/zsh/histfile";
+            path = "/home/${user}/.cache/zsh/histfile";
             save = 1000;
             share = true;
             size = 1000;

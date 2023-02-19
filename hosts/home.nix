@@ -34,5 +34,9 @@
     fd        # faster find
    ];
 
-   imports = [ ../modules/zsh/zsh.nix ];
+   imports = [ 
+    ../modules/zsh/zsh.nix
+    ../modules/starship/starship.nix
+    ../modules/neovim/neovim.nix
+    ];
 }
