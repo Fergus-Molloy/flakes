@@ -23,12 +23,13 @@ in {
   services.xserver = {
     enable = true;
     displayManager = {
-      lightdm.enable =true;
-      defaultSession = "none+i3";
+      sddm.enable =true;
     };
-    windowManager = {
-      i3.enable = true;
-      i3.package = pkgs.i3;
+    #windowManager = {
+    #  i3.enable = true;
+    #};
+    desktopManager = {
+      plasma5.enable = true;
     };
     libinput.mouse.accelProfile = "flat";
     layout = "gb";
@@ -37,7 +38,7 @@ in {
 
   services.picom = {
     enable = true;
-    vsync = true;
+    vSync = true;
     fade = true;
     backend = "glx";
     settings = {
