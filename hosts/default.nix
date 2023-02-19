@@ -6,7 +6,7 @@ let
     config.allowUnfree = true;
   };
 in {
-  # desktop
+  # vm
   kirin = lib.nixosSystem {
     inherit system;
     specialArgs = { inherit user; };

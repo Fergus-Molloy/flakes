@@ -12,16 +12,9 @@
             share = true;
             size = 1000;
         };
-        initExtra = [
-            ''
-            if [[ ! -e ~/.cache/zsh/histfile ]]; then
-                mkdir -p ~/.cache/zsh
-                touch ~/.cache/zsh/histfile
-            fi
+        initExtra = ''
             export PATH="/home/fergus/bin:$PATH"
-            export PATH="/home/fergus/.cargo/bin:$PATH"
-            ''
-        ];
+            export PATH="/home/fergus/.cargo/bin:$PATH"'';
         shellAliases = {
             # general aliases
             cl="clear";
