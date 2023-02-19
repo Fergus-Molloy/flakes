@@ -33,4 +33,6 @@
     bat       # prettier cat
     fd        # faster find
    ];
+
+   imports = [ ../modules/zsh/zsh.nix ];
 }
