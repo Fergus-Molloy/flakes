@@ -4,6 +4,6 @@
         owner="Fergus-Molloy";
         repo="nvim-pde";
         rev = "51ba38a";
-        sha256 = "sha256-DiWiz9dNf2k0OtMXXfTTwzrH2RnZlMh8IiQLAQpdOtg=";
+        sha256 = "1sacyyn4vxnhi4w2bivclvllqnn5nisc08iyxbpnhha5rwb4dxwx";
     };
 }
