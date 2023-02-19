@@ -1,9 +1,9 @@
-{config, ...}:
+{config, pkgs, ...}:
 {
-    home.file.".config/nvim".source = fetchFromGithub {
+    home.file.".config/nvim".source = pkgs.fetchFromGitHub {
         owner="Fergus-Molloy";
         repo="nvim-pde";
-        rev = "92f2b96";
-        sha256 = "00000000000000000000000000000000000000000000000000000000";
+        rev = "51ba38a";
+        sha256 = "sha256-DiWiz9dNf2k0OtMXXfTTwzrH2RnZlMh8IiQLAQpdOtg=";
     };
 }
