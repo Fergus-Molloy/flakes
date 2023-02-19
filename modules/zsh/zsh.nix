@@ -13,8 +13,8 @@
             size = 1000;
         };
         initExtra = ''
-            export PATH="/home/fergus/bin:$PATH"
-            export PATH="/home/fergus/.cargo/bin:$PATH"'';
+            export PATH="/home/${user}/bin:$PATH"
+            export PATH="/home/${user}/.cargo/bin:$PATH"'';
         shellAliases = {
             # general aliases
             cl="clear";
