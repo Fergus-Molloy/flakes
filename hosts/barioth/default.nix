@@ -4,8 +4,16 @@ let
 in {
   imports = [ 
     ./hardware-configuration.nix 
+    ./video.nix
     ../../modules/desktop-environments/plasma/plasma.nix 
   ];
+  # set freq govenor 
+  # "performance" - max speed all the time
+  # "powersave" - min speed all the time
+  # "ondemand" - scale speed based on load
+  # "conservative" - scale speed but in increments rather than big jumps
+  # "schedutil" - scale speed based on kernel scheduler
+  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
 
   networking.hostName = "${host}";
 

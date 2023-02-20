@@ -85,7 +85,7 @@
     libinput.mouse.accelSpeed = "-0.5";
     layout = "gb";
     xkbVariant = "";
-  }
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -32,6 +32,7 @@
     xclip     # command line copy-pasting
     bat       # prettier cat
     fd        # faster find
+    bpytop    # better htop
    ];
 
    imports = [ 
