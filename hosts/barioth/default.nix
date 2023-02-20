@@ -1,16 +1,17 @@
-{ pkgs, ...}:
+{ config, pkgs, ...}:
 let 
     host = "barioth";
 in {
   imports = [ ./hardware-configuration.nix ];
   networking.hostName = "${host}";
 
-  # Bootloader.
+  time.hardwareClockInLocalTime = true;
+  # Bootloader
   boot.loader.grub = {
     enable = true;
-    device = "nodev";
+    devices = ["nodev"];
     useOSProber = true;
-    version = 2;
+    efiSupport = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
@@ -54,7 +55,7 @@ in {
   # };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
