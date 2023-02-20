@@ -4,7 +4,6 @@ let
 in {
   imports = [ 
     ./hardware-configuration.nix 
-    ./video.nix
     ../../modules/desktop-environments/plasma/plasma.nix 
   ];
   # set freq govenor 
