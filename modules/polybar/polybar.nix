@@ -4,7 +4,7 @@
     polybar = {
       enable = true;
       package = pkgs.polybar.override {
-        i3GapsSupport = true;
+        i3Support = true;
         alsaSupport = true;
       };
       script = ''polybar top &'';
@@ -33,14 +33,21 @@
         };
         "bar/top" = {
           bottom = false;
-          offset-x = 5;
-          offset-y = 5;
-          radius = 2;
+          width = "100%";
+          height = 32;
+          radius = 6;
           background = "\${colors.bg}";
           foreground = "\${colors.fg}";
-          padding = 2;
-          font-0 = "NotoSans-Regular:size=14;2";
           separator = " ";
+          line-size = 3;
+          line-color = "\${colors.red}";
+          border-size = 4;
+          border-color = "#00000000";
+          padding-left = 0;
+          padding-right = 2;
+          module-margin-left = 1;
+          module-margin-right = 2;
+          font-0 = "NotoSans-Regular:size=14;2";
           modules-left = "i3";
           modules-center = "date";
           modules-right = "cpu memory battery time";
@@ -61,7 +68,7 @@
 
           # unfocused = Inactive workspace on any monitor
           label-unfocused = "%name%";
-          label-unfocused-padding = 1;;
+          label-unfocused-padding = 1;
           label-unfocused-foreground = "\${colors.fg-dark}";
           
           # visible = Active workspace on unfocused monitor
@@ -90,7 +97,6 @@
         };
         "module/cpu" = {
           type = "internal/cpu";
-          warn-percentage = 90;
           label = "%percentage%%";
           format-prefix = "util: ";
           format-underline = "\${colors.green}";

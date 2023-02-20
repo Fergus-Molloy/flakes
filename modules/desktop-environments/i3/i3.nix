@@ -1,6 +1,5 @@
 {config, ...}:
 {
-  home.file.".config/i3/config".source = ./config;
   services.xserver = {
     enable = true;
     displayManager = {
@@ -12,15 +11,16 @@
     };
   };
 
-  # services.picom = {
-  #   enable = true;
-  #   vSync = true;
-  #   fade = true;
-  #   backend = "glx";
-  #   settings = {
-  #     glx-swap-method = 2;
-  #   };
-  #   # make some stuff sligtly transparent
-  #   # opacityRules = ["90:class_g = 'kitty'"];
-  # };
+  services.picom = {
+    enable = true;
+    vSync = true;
+    fade = true;
+    fadeDelta = 1;
+    backend = "glx";
+    settings = {
+      glx-swap-method = 2;
+    };
+    # make some stuff sligtly transparent
+    # opacityRules = ["90:class_g = 'kitty'"];
+  };
 }

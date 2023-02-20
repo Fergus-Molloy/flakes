@@ -56,6 +56,12 @@ in {
     #media-session.enable = true;
   };
 
+  # fonts
+  fonts.fonts = with pkgs; [
+    twemoji-color-font
+  ];
+
+
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
     rustup  # rust stuff

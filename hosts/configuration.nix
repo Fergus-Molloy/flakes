@@ -37,6 +37,9 @@
     TERMINAL = "kitty";
   };
 
+  # need both shells otherwise weird things can happen with user accounts
+  environment.shells = with pkgs; [ bashInteractive zsh ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -71,18 +74,17 @@
 
   # Fonts
   fonts.fonts = with pkgs; [
-    fira-code
-    fira-code-symbols
     noto-fonts
     noto-fonts-emoji
     font-awesome
     source-code-pro
+    (nerdfonts.override { fonts = ["FiraCode"]; })
   ];
 
   # setup mouse and keyboard for xserver
   services.xserver = {
     libinput.mouse.accelProfile = "flat";
-    libinput.mouse.accelSpeed = "-0.5";
+    libinput.mouse.accelSpeed = "1";
     layout = "gb";
     xkbVariant = "";
   };
