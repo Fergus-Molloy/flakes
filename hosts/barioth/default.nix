@@ -4,7 +4,7 @@ let
 in {
   imports = [ 
     ./hardware-configuration.nix 
-    ../../modules/desktop-environments/plasma/plasma.nix 
+    ../../modules/desktop-environments/i3/i3.nix 
   ];
   # set freq govenor 
   # "performance" - max speed all the time
