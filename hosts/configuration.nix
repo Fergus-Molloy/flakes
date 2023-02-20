@@ -79,6 +79,13 @@
     source-code-pro
   ];
 
+  # setup mouse and keyboard for xserver
+  services.xserver = {
+    libinput.mouse.accelProfile = "flat";
+    layout = "gb";
+    xkbVariant = "";
+  }
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

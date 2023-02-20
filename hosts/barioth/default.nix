@@ -2,7 +2,11 @@
 let 
     host = "barioth";
 in {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ 
+    ./hardware-configuration.nix 
+    ../../modules/desktop-environments/plasma/plasma.nix 
+  ];
+
   networking.hostName = "${host}";
 
   time.hardwareClockInLocalTime = true;
@@ -25,37 +29,8 @@ in {
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Configure X11
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      lightdm.enable = true;
-    };
-    #windowManager = {
-    #  i3.enable = true;
-    #};
-    desktopManager = {
-      plasma5.enable = true;
-    };
-    libinput.mouse.accelProfile = "flat";
-    layout = "gb";
-    xkbVariant = "";
-  };
-
-  # services.picom = {
-  #   enable = true;
-  #   vSync = true;
-  #   fade = true;
-  #   backend = "glx";
-  #   settings = {
-  #     glx-swap-method = 2;
-  #   };
-  #   # make some stuff sligtly transparent
-  #   # opacityRules = ["90:class_g = 'kitty'"];
-  # };
-
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
