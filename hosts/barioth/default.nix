@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, lib, ...}:
 let 
     host = "barioth";
 in {
@@ -12,7 +12,7 @@ in {
   # "ondemand" - scale speed based on load
   # "conservative" - scale speed but in increments rather than big jumps
   # "schedutil" - scale speed based on kernel scheduler
-  powerManagement.cpuFreqGovernor = lib.mkDefault "ondemand";
+  powerManagement.cpuFreqGovernor = lib.mkDefault "schedutil";
 
   networking.hostName = "${host}";
 
