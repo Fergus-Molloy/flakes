@@ -1,10 +1,11 @@
-{ config, pkgs, lib, ...}:
-let 
-    host = "barioth";
-in {
-  imports = [ 
-    ./hardware-configuration.nix 
-    ../../modules/desktop-environments/i3/i3.nix 
+{ config, pkgs, lib, user, ... }:
+let
+  host = "barioth";
+in
+{
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/desktop-environments/i3/i3.nix
   ];
   # set freq govenor 
   # "performance" - max speed all the time
@@ -20,7 +21,7 @@ in {
   # Bootloader
   boot.loader.grub = {
     enable = true;
-    devices = ["nodev"];
+    devices = [ "nodev" ];
     useOSProber = true;
     efiSupport = true;
   };
@@ -64,8 +65,27 @@ in {
 
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
-    rustup  # rust stuff
-    clang   # compiler that can be used to speed up rust linking times
-    lld     # linker that can be used to speed up rust linking times
+  ];
+
+  users.users.${user}.packages = with pkgs; [
+    rustup # rust stuff
+    clang # compiler that can be used to speed up rust linking times
+    lld # linker that can be used to speed up rust linking times
+    discord # chat app
+
+  ];
+
+  nixpkgs.overlays = [
+    # This overlay will pull the latest version of Discord
+    (self: super: {
+      discord = super.discord.overrideAttrs (
+        _: {
+          src = builtins.fetchTarball {
+            url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+            sha256 = "1z980p3zmwmy29cdz2v8c36ywrybr7saw8n0w7wlb74m63zb9gpi";
+          };
+        }
+      );
+    })
   ];
 }

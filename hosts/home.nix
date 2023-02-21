@@ -35,6 +35,13 @@
     bpytop    # better htop
    ];
 
+   # extra programs that utilise bat
+   programs.bat.extraPackages = with pkgs.bat-extras; [
+    batman
+    batdiff
+   ];
+
+
    imports = [ 
     ../modules/zsh/zsh.nix
     ../modules/starship/starship.nix

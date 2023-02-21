@@ -28,6 +28,9 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     initialPassword = "password";
     shell = pkgs.zsh;
+    packages = with pkgs; [
+      nodejs
+    ];
   };
 
   environment.variables = {
@@ -71,6 +74,7 @@
     # gnugrep
     # gnumake
   ];
+
 
   # Fonts
   fonts.fonts = with pkgs; [
