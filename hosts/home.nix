@@ -38,6 +38,5 @@
    imports = [ 
     ../modules/zsh/zsh.nix
     ../modules/starship/starship.nix
-    ../modules/neovim/neovim.nix
     ];
 }

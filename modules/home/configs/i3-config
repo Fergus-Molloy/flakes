@@ -146,13 +146,8 @@ bindsym Mod1+r mode "resize"
 #Start Polybar
 exec_always --no-startup-id systemctl --user restart polybar
 
-#Set background image
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/bg.png
-
 #Open flameshot
 exec --no-startup-id flameshot
-
-exec --no-startup-id setxkbmap gb
 
 #assign zathura, discord and spotify to workspaces
 assign [class="discord"] $ws3

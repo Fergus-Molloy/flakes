@@ -5,5 +5,6 @@
         ../../modules/neofetch/neofetch.nix
         ../../modules/home/i3.nix
     ];
-    home.file.".config/wall".source = ../../modules/wall-1440;
+    home.file.".background-image".source = ../../modules/wall-1440;
+    programs.feh.enable = true;
 }
