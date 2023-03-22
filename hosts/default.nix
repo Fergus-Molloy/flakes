@@ -23,6 +23,23 @@ in {
       }
       ];
   };
+# laptop
+  diablos = lib.nixosSystem {
+    inherit system;
+    specialArgs = { inherit user; };
+    modules = [ 
+      ./diablos
+      ./configuration.nix 
+      home-manager.nixosModules.home-manager {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = { inherit user; };
+        home-manager.users.${user} = {
+          imports = [ ./home.nix ./diablos/home.nix ];
+        };
+      }
+      ];
+  };
   # vm
   kirin = lib.nixosSystem {
     inherit system;

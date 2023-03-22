@@ -72,7 +72,6 @@ in
     clang # compiler that can be used to speed up rust linking times
     lld # linker that can be used to speed up rust linking times
     discord # chat app
-
   ];
 
   nixpkgs.overlays = [

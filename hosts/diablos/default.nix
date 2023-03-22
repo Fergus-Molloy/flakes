@@ -35,7 +35,7 @@ in
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  # networking.networkmanager.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -64,6 +64,16 @@ in
   environment.systemPackages = with pkgs; [
   ];
 
+  # for backlight
+  programs.light.enable = true;
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
+      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+    ];
+  };
+
   users.users.${user}.packages = with pkgs; [
     rustup # rust stuff
     clang # compiler that can be used to speed up rust linking times
@@ -79,7 +89,7 @@ in
         _: {
           src = builtins.fetchTarball {
             url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-            sha256 = "1z980p3zmwmy29cdz2v8c36ywrybr7saw8n0w7wlb74m63zb9gpi";
+            sha256 = "12yrhlbigpy44rl3icir3jj2p5fqq2ywgbp5v3m1hxxmbawsm6wi";
           };
         }
       );

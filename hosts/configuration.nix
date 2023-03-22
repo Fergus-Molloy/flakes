@@ -53,6 +53,7 @@
     neovim
     git
     curl
+    unzip
 
     # most of the programs from base-devel:
     # autoconf
@@ -87,6 +88,7 @@
 
   # setup mouse and keyboard for xserver
   services.xserver = {
+    libinput.enable = true;
     libinput.mouse.accelProfile = "flat";
     libinput.mouse.accelSpeed = "1";
     layout = "gb";
