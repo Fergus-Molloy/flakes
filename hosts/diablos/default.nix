@@ -39,7 +39,7 @@ in
   # > set_network 0 psk "password"
   # > enable_network 0
   # > save_config
-  # we can now load this config after restarts with `wpa_supplicant -B -i wlo1 -c /ect/wpa_supplicant/example.conf`
+  # we can now load this config after restarts with `wpa_supplicant -B -i wlo1 -c /run/wpa_supplicant/wpa_supplicant.conf`
 
 
   # Enable sound with pipewire.
