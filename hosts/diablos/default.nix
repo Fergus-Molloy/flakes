@@ -29,13 +29,18 @@ in
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.wireless.userControlled.enable = true;
+  # to setup wifi do the following
+  # $ wpa_cli
+  # > scan
+  # > scan_results
+  # > add_network
+  # > set_network 0 ssid "SSID"
+  # > set_network 0 psk "password"
+  # > enable_network 0
+  # > save_config
+  # we can now load this config after restarts with `wpa_supplicant -B -i wlo1 -c /ect/wpa_supplicant/example.conf`
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  # networking.networkmanager.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
