@@ -29,7 +29,7 @@
     initialPassword = "password";
     shell = pkgs.zsh;
     packages = with pkgs; [
-      nodejs
+      nodejs-16_x # using v16 as i need that for dev
     ];
   };
 

@@ -52,6 +52,15 @@
           modules-center = "date";
           modules-right = "cpu memory battery time";
         };
+        "module/battey" = {
+          type = "internal/battery";
+          full-at = 99;
+          # format-low once this charge percentage is reached
+          low-at = 20;
+          battery = "BAT0";
+          adapter = "AC0";
+          poll-interval = 5;
+        };
         "module/i3" = {
           type = "internal/i3";
           show-urgent = true;

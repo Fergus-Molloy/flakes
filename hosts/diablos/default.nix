@@ -28,8 +28,8 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.wireless.userControlled.enable = true;
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.userControlled.enable = true;
   # to setup wifi do the following
   # $ wpa_cli
   # > scan
@@ -40,6 +40,7 @@ in
   # > enable_network 0
   # > save_config
   # we can now load this config after restarts with `wpa_supplicant -B -i wlo1 -c /run/wpa_supplicant/wpa_supplicant.conf`
+  networking.networkmanager.enable = true;
 
 
   # Enable sound with pipewire.
@@ -67,7 +68,16 @@ in
 
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
+    dotnet-sdk_7
+    dotnet-aspnetcore_7
+    docker-compose
+    udisks # for mounting usb devices
   ];
+  virtualisation.docker.enable = true;
+
+  # for mounting usb devices
+  services.udisks2.enable = true;
+
 
   # for backlight
   programs.light.enable = true;
@@ -81,6 +91,7 @@ in
 
   users.users.${user}.packages = with pkgs; [
     rustup # rust stuff
+    rust-analyzer
     clang # compiler that can be used to speed up rust linking times
     lld # linker that can be used to speed up rust linking times
     discord # chat app
