@@ -1,9 +1,11 @@
 {config, user, ... }:
 {
+    home.file.".docker-completion.zsh" = ./.docker-completion.zsh;
     programs.zsh = {
         enable = true;
         enableAutosuggestions = true;
-        enableCompletion = true;
+        enableCompletion = false;
+        #enableGlobalCompInit = false;
         enableSyntaxHighlighting = true;
         autocd = true;
         history = {
@@ -14,7 +16,10 @@
         };
         initExtra = ''
             export PATH="/home/${user}/bin:$PATH"
-            export PATH="/home/${user}/.cargo/bin:$PATH"'';
+            export PATH="/home/${user}/.cargo/bin:$PATH"
+            fpath=(~/.docker-completion.zsh $fpath)
+            autoload -U compinit
+            compinit'';
         shellAliases = {
             # general aliases
             cl="clear";
