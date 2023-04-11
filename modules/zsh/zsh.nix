@@ -1,11 +1,10 @@
 {config, user, ... }:
 {
-    home.file.".docker-completion.zsh" = ./.docker-completion.zsh;
+    home.file.".docker-completion.zsh".source = ./.docker-completion.zsh;
     programs.zsh = {
         enable = true;
         enableAutosuggestions = true;
-        enableCompletion = false;
-        #enableGlobalCompInit = false;
+        enableCompletion = true;
         enableSyntaxHighlighting = true;
         autocd = true;
         history = {

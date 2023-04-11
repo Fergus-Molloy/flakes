@@ -32,7 +32,7 @@
     xclip     # command line copy-pasting
     bat       # prettier cat
     fd        # faster find
-    bpytop    # better htop
+    btop    # better htop
    ];
 
    # extra programs that utilise bat

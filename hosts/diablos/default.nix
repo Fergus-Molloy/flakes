@@ -74,6 +74,7 @@ in
     udisks # for mounting usb devices
   ];
   virtualisation.docker.enable = true;
+  programs.zsh.enable = true;
 
   # for mounting usb devices
   services.udisks2.enable = true;
