@@ -1,8 +1,6 @@
 { config, pkgs, lib, user, ... }:
-let
-  host = "diablos";
-in
-{
+let host = "diablos";
+in {
   imports = [
     ./hardware-configuration.nix
     ../../modules/desktop-environments/i3/i3.nix
@@ -42,7 +40,6 @@ in
   # we can now load this config after restarts with `wpa_supplicant -B -i wlo1 -c /run/wpa_supplicant/wpa_supplicant.conf`
   networking.networkmanager.enable = true;
 
-
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
@@ -61,10 +58,7 @@ in
   };
 
   # fonts
-  fonts.fonts = with pkgs; [
-    twemoji-color-font
-  ];
-
+  fonts.fonts = with pkgs; [ twemoji-color-font ];
 
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
@@ -79,14 +73,21 @@ in
   # for mounting usb devices
   services.udisks2.enable = true;
 
-
   # for backlight
   programs.light.enable = true;
   services.actkbd = {
     enable = true;
     bindings = [
-      { keys = [ 225 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -A 10"; }
-      { keys = [ 224 ]; events = [ "key" ]; command = "/run/current-system/sw/bin/light -U 10"; }
+      {
+        keys = [ 225 ];
+        events = [ "key" ];
+        command = "/run/current-system/sw/bin/light -A 10";
+      }
+      {
+        keys = [ 224 ];
+        events = [ "key" ];
+        command = "/run/current-system/sw/bin/light -U 10";
+      }
     ];
   };
 
@@ -97,20 +98,19 @@ in
     lld # linker that can be used to speed up rust linking times
     discord # chat app
     stylua # lua formatter
-
+    flutter
+    dart
   ];
 
   nixpkgs.overlays = [
     # This overlay will pull the latest version of Discord
     (self: super: {
-      discord = super.discord.overrideAttrs (
-        _: {
-          src = builtins.fetchTarball {
-            url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-            sha256 = "12yrhlbigpy44rl3icir3jj2p5fqq2ywgbp5v3m1hxxmbawsm6wi";
-          };
-        }
-      );
+      discord = super.discord.overrideAttrs (_: {
+        src = builtins.fetchTarball {
+          url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+          sha256 = "12yrhlbigpy44rl3icir3jj2p5fqq2ywgbp5v3m1hxxmbawsm6wi";
+        };
+      });
     })
   ];
 }

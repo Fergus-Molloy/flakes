@@ -1,5 +1,4 @@
-{ config, pkgs, user, ... }:
-{
+{ config, pkgs, user, ... }: {
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -28,9 +27,10 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     initialPassword = "password";
     shell = pkgs.zsh;
-    packages = with pkgs; [
-      nodejs-16_x # using v16 as i need that for dev
-    ];
+    packages = with pkgs;
+      [
+        nodejs-16_x # using v16 as i need that for dev
+      ];
   };
 
   environment.variables = {
@@ -54,6 +54,8 @@
     git
     curl
     unzip
+    rnix-lsp # nix language server
+    nixfmt # obviously want to format nix code :)
 
     # most of the programs from base-devel:
     # autoconf
@@ -76,14 +78,13 @@
     # gnumake
   ];
 
-
   # Fonts
   fonts.fonts = with pkgs; [
     noto-fonts
     noto-fonts-emoji
     font-awesome
     source-code-pro
-    (nerdfonts.override { fonts = ["FiraCode"]; })
+    (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
   # setup mouse and keyboard for xserver
