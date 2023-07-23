@@ -40,7 +40,10 @@
     batman
     batdiff
    ];
-
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
    imports = [ 
     ../modules/zsh/zsh.nix
