@@ -1,30 +1,26 @@
 {
-  description = "A devShell example";
+  description = "All my dev shells";
 
   inputs = {
-    nixpkgs.url      = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     rust-overlay.url = "github:oxalica/rust-overlay";
-    flake-utils.url  = "github:numtide/flake-utils";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, rust-overlay, flake-utils, ... }:
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlays = [ (import rust-overlay) ];
-        pkgs = import nixpkgs {
-          inherit system overlays;
-        };
+        pkgs = import nixpkgs { inherit system overlays; };
       in
-      with pkgs;
-      {
+      with pkgs; {
         devShells = {
-          rust= mkShell {
+          nix = mkShellNoCC { buildInputs = [ nil nixpkgs-fmt ]; };
+          lua = mkShellNoCC { buildInputs = [ lua-language-server stylua ]; };
+          rust = mkShell {
             buildInputs = [
               openssl
               pkg-config
-              exa
-              fd
-              ripgrep
               rust-bin.stable.latest.default
               rust-analyzer
             ];
@@ -33,16 +29,11 @@
             buildInputs = [
               openssl
               pkg-config
-              exa
-              fd
-              ripgrep
               nodejs_20
               rust-bin.stable.latest.default
               rust-analyzer
             ];
           };
         };
-      }
-    );
+      });
 }
-

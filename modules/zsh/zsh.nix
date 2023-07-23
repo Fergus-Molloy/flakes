@@ -5,7 +5,7 @@
         enable = true;
         enableAutosuggestions = true;
         enableCompletion = true;
-        enableSyntaxHighlighting = true;
+        syntaxHighlighting.enable = true;
         autocd = true;
         history = {
             path = "/home/${user}/.cache/zsh/histfile";
@@ -17,8 +17,9 @@
             export PATH="/home/${user}/bin:$PATH"
             export PATH="/home/${user}/.cargo/bin:$PATH"
             fpath=(~/.docker-completion.zsh $fpath)
-            autoload -U compinit
-            compinit'';
+            autoload -U compinit && compinit
+            zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+            '';
         shellAliases = {
             # general aliases
             cl="clear";
