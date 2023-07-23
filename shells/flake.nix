@@ -18,6 +18,17 @@
       with pkgs;
       {
         devShells = {
+          rust= mkShell {
+            buildInputs = [
+              openssl
+              pkg-config
+              exa
+              fd
+              ripgrep
+              rust-bin.stable.latest.default
+              rust-analyzer
+            ];
+          };
           rustNode = mkShell {
             buildInputs = [
               openssl
@@ -29,13 +40,6 @@
               rust-bin.stable.latest.default
               rust-analyzer
             ];
-
-            shellHook = ''
-              alias ls='exa -lh -s=name --git --group-directories-first --no-permissions --no-user --icons'
-              alias find=fd
-              alias grep=rg
-              alias v=nvim
-            '';
           };
         };
       }
