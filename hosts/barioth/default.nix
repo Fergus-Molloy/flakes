@@ -57,20 +57,19 @@ in
     #media-session.enable = true;
   };
 
-  # fonts
-  fonts.fonts = with pkgs; [
-    twemoji-color-font
-  ];
-
-
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
+    udisks # for mounting usb devices
   ];
+  virtualisation.docker.enable = true;
+
+  # user shell
+  programs.zsh.enable = true;
+
+  # for mounting usb devices
+  services.udisks2.enable = true;
 
   users.users.${user}.packages = with pkgs; [
-    rustup # rust stuff
-    clang # compiler that can be used to speed up rust linking times
-    lld # linker that can be used to speed up rust linking times
     discord # chat app
   ];
 
@@ -81,7 +80,7 @@ in
         _: {
           src = builtins.fetchTarball {
             url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-            sha256 = "1z980p3zmwmy29cdz2v8c36ywrybr7saw8n0w7wlb74m63zb9gpi";
+            sha256 = "0pml1x6pzmdp6h19257by1x5b25smi2y60l1z40mi58aimdp59ss";
           };
         }
       );
