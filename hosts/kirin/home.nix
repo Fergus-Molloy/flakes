@@ -1,7 +1,7 @@
-{pkgs, user, ...}:
+{ pkgs, user, ... }:
 {
-    imports = [ 
-        ../../modules/kitty/kitty.nix 
-        ../../modules/neofetch/neofetch.nix
-    ];
+  imports = [
+    ../../modules/kitty.nix
+    ../../modules/neofetch.nix
+  ];
 }
