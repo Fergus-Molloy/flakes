@@ -3,7 +3,7 @@ let host = "diablos";
 in {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/desktop-environments/i3.nix
+    ../../modules/desktop-environments/xfce.nix
   ];
   # set freq govenor 
   # "performance" - max speed all the time
