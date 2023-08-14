@@ -23,7 +23,6 @@
 
   home.packages = with pkgs; [
     firefox # browser of choice
-    vscode # advanced editor
     kitty # terminal of choice
     exa # better ls
     flameshot # screenshot utility
@@ -34,6 +33,12 @@
     fd # faster find
     btop # better htop
   ];
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [ astro-build.astro-vscode ];
+  };
+
 
   # extra programs that utilise bat
   programs.bat.extraPackages = with pkgs.bat-extras; [
