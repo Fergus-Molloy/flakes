@@ -17,6 +17,7 @@
         devShells = {
           nix = mkShellNoCC { buildInputs = [ nil nixpkgs-fmt ]; };
           lua = mkShellNoCC { buildInputs = [ lua-language-server stylua ]; };
+          node = mkShellNoCC { buildInputs = [ nodejs_20 ]; };
           rust = mkShell {
             buildInputs = [
               openssl
