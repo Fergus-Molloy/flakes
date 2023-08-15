@@ -21,29 +21,37 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  home.packages = with pkgs; [ 
-    firefox   # browser of choice
-    vscode    # advanced editor
-    kitty     # terminal of choice
-    exa       # better ls
+  home.packages = with pkgs; [
+    firefox # browser of choice
+    kitty # terminal of choice
+    exa # better ls
     flameshot # screenshot utility
-    neofetch  # for fun :)
-    ripgrep   # blazingly fast grep
-    xclip     # command line copy-pasting
-    bat       # prettier cat
-    fd        # faster find
-    btop    # better htop
-   ];
+    neofetch # for fun :)
+    ripgrep # blazingly fast grep
+    xclip # command line copy-pasting
+    bat # prettier cat
+    fd # faster find
+    btop # better htop
+  ];
 
-   # extra programs that utilise bat
-   programs.bat.extraPackages = with pkgs.bat-extras; [
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [ astro-build.astro-vscode ];
+  };
+
+
+  # extra programs that utilise bat
+  programs.bat.extraPackages = with pkgs.bat-extras; [
     batman
     batdiff
-   ];
+  ];
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
 
-
-   imports = [ 
-    ../modules/zsh/zsh.nix
-    ../modules/starship/starship.nix
-    ];
+  imports = [
+    ../modules/zsh.nix
+    ../modules/starship.nix
+  ];
 }

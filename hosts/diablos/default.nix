@@ -3,7 +3,7 @@ let host = "diablos";
 in {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/desktop-environments/i3/i3.nix
+    ../../modules/desktop-environments/i3.nix
   ];
   # set freq govenor 
   # "performance" - max speed all the time
@@ -57,14 +57,8 @@ in {
     #media-session.enable = true;
   };
 
-  # fonts
-  fonts.fonts = with pkgs; [ twemoji-color-font ];
-
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
-    dotnet-sdk_7
-    dotnet-aspnetcore_7
-    docker-compose
     udisks # for mounting usb devices
   ];
   virtualisation.docker.enable = true;
@@ -92,14 +86,7 @@ in {
   };
 
   users.users.${user}.packages = with pkgs; [
-    rustup # rust stuff
-    rust-analyzer
-    clang # compiler that can be used to speed up rust linking times
-    lld # linker that can be used to speed up rust linking times
     discord # chat app
-    stylua # lua formatter
-    flutter
-    dart
   ];
 
   nixpkgs.overlays = [

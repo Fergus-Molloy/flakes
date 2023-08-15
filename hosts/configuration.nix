@@ -27,10 +27,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     initialPassword = "password";
     shell = pkgs.zsh;
-    packages = with pkgs;
-      [
-        nodejs-16_x # using v16 as i need that for dev
-      ];
+    packages = with pkgs;[ ];
   };
 
   environment.variables = {
@@ -54,28 +51,6 @@
     git
     curl
     unzip
-    rnix-lsp # nix language server
-    nixfmt # obviously want to format nix code :)
-
-    # most of the programs from base-devel:
-    # autoconf
-    # automake
-    # binutils
-    # bison
-    # debugedit
-    # fakeroot
-    # file
-    # findutils
-    # flex
-    # gcc
-    # clang
-    # gettext
-    # groff
-    # libtool
-    # m4
-    # texinfo
-    # gnugrep
-    # gnumake
   ];
 
   # Fonts
@@ -83,7 +58,7 @@
     noto-fonts
     noto-fonts-emoji
     font-awesome
-    source-code-pro
+    twemoji-color-font
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
   ];
 
@@ -95,6 +70,7 @@
     layout = "gb";
     xkbVariant = "";
   };
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -121,7 +97,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 
   # Configure automatic garbage collection
   nix.gc = {
