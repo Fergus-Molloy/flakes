@@ -1,7 +1,6 @@
 { pkgs, user, ... }:
 {
   imports = [
-    ../../modules/nvim.nix
     ../../modules/kitty.nix
     ../../modules/neofetch.nix
     ../../modules/tmux.nix
