@@ -14,12 +14,13 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/ca6a75c0-4a3c-4047-8c24-94bd27db3cc1";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/2400a26d-a919-4e21-adf0-583c20db70a7";
+      fsType = "btrfs";
+      options = [ "subvol=@" ];
     };
 
   fileSystems."/boot/efi" =
-    { device = "/dev/disk/by-uuid/B606-F05C";
+    { device = "/dev/disk/by-uuid/8D4E-8C31";
       fsType = "vfat";
     };
 
@@ -36,5 +37,5 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   # high-resolution display
-  hardware.video.hidpi.enable = lib.mkDefault true;
+  # hardware.video.hidpi.enable = lib.mkDefault true;
 }
