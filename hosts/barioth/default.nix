@@ -7,6 +7,9 @@ in
     ./hardware-configuration.nix
     ../../modules/desktop-environments/i3.nix
   ];
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   # set freq govenor 
   # "performance" - max speed all the time
   # "powersave" - min speed all the time

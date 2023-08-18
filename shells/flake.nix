@@ -17,7 +17,8 @@
         devShells = {
           nix = mkShellNoCC { buildInputs = [ nil nixpkgs-fmt ]; };
           lua = mkShellNoCC { buildInputs = [ lua-language-server stylua ]; };
-          node = mkShellNoCC { buildInputs = [ nodejs_20 ]; };
+          astro = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" nodePackages."@astrojs/language-server" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
+          node = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" ]; };
           rust = mkShell {
             buildInputs = [
               openssl

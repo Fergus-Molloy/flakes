@@ -33,7 +33,7 @@
       v = "nvim";
       vim = "nvim";
       grep = "rg";
-      top = "bpytop";
+      top = "btop";
       cat = "bat";
       find = "fd";
       #better ls

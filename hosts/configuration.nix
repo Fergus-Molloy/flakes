@@ -51,6 +51,7 @@
     git
     curl
     unzip
+    keepassxc
   ];
 
   # Fonts
