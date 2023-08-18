@@ -36,7 +36,7 @@
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [ astro-build.astro-vscode ];
+    extensions = with pkgs.vscode-extensions; [ astro-build.astro-vscode vscodevim.vim mkhl.direnv ];
   };
 
 
