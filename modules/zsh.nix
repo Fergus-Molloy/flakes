@@ -1,6 +1,6 @@
-{ config, user, ... }:
+{ config, user, pkgs, ... }:
 {
-  home.file.".docker-completion.zsh".source = ./configs/docker-completion.zsh;
+  home.file.".docker-completion.zsh".source = "${pkgs.docker}/share/zsh/site-functions/_docker";
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
