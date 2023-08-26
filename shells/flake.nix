@@ -19,6 +19,17 @@
           lua = mkShellNoCC { buildInputs = [ lua-language-server stylua ]; };
           astro = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" nodePackages."@astrojs/language-server" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
           node = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" ]; };
+          treesitter = mkShell {
+            buildInputs = [
+              gcc
+              nodejs
+              neovim
+              tree-sitter
+              (python39.withPackages (pp: with pp; [
+                pynvim
+              ]))
+            ];
+          };
           rust = mkShell {
             buildInputs = [
               openssl
