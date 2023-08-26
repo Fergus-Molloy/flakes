@@ -48,11 +48,29 @@
   environment.systemPackages = with pkgs; [
     wget
     neovim
-    git
     curl
     unzip
     keepassxc
   ];
+
+  programs.git = {
+    enable = true;
+    config = {
+      user = {
+        name = "Fergus Molloy";
+        email = "fergus@molloy.xyz";
+      };
+      checkout = {
+        defaultRemote = "origin";
+        guess = true;
+      };
+      init = { defaultBranch = "main"; };
+      branch = { autoSetupRebase = "always"; };
+      push = { autoSetupRemote = true; };
+      # create this manually on each machine, to store gpg stuff
+      include = { path = ".gituser"; };
+    };
+  };
 
   # Fonts
   fonts.packages = with pkgs; [
