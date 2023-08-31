@@ -14,7 +14,7 @@
       size = 1000;
     };
     initExtra = ''
-      export PATH="/home/${user}/bin:$PATH"
+      export PATH="/home/${user}/.local/bin:$PATH"
       export PATH="/home/${user}/.cargo/bin:$PATH"
       fpath=(~/.docker-completion.zsh $fpath)
       autoload -U compinit && compinit
