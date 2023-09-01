@@ -51,6 +51,7 @@
     curl
     unzip
     keepassxc
+    fzf
   ];
 
   programs.git = {
