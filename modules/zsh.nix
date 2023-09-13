@@ -19,6 +19,7 @@
       fpath=(~/.docker-completion.zsh $fpath)
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      export TERM=xterm-kitty
     '';
     shellAliases = {
       # general aliases
@@ -29,6 +30,7 @@
       mkdir = "mkdir -p";
       c = "cargo";
       cr = "cargo run";
+      ":q" = "exit";
       # better tools
       v = "nvim";
       vim = "nvim";
