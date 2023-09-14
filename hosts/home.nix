@@ -24,7 +24,7 @@
   home.packages = with pkgs; [
     firefox # browser of choice
     kitty # terminal of choice
-    exa # better ls
+    eza # better ls
     flameshot # screenshot utility
     neofetch # for fun :)
     ripgrep # blazingly fast grep
