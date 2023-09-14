@@ -40,6 +40,9 @@ in
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # enable mullvad daemon
+  services.mullvad-vpn.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -63,6 +66,7 @@ in
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
     udisks # for mounting usb devices
+    mullvad-vpn # mullvad vpn
   ];
   virtualisation.docker.enable = true;
 
