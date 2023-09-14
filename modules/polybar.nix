@@ -51,7 +51,12 @@
           modules-left = "i3";
           modules-center = "date";
           modules-right = "cpu memory battery time";
+          tray-position = "right";
         };
+        # v3.7.0 only (unreleased 09/2023)
+        # "module/tray" = {
+        #     type = "internal/tray";
+        # };
         "module/battery" = {
           type = "internal/battery";
           full-at = 99;
