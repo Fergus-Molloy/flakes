@@ -39,10 +39,10 @@
       cat = "bat";
       find = "fd";
       #better ls
-      ls = "exa -lh -s=name --git --group-directories-first --no-permissions --no-user --icons";
-      lsa = "exa -lha -s=name --git --group-directories-first --no-permissions --no-user --icons";
-      lsp = "exa -lha -s=name --git --group-directories-first --icons";
-      lsg = "exa -lh -s=name --git --group-directories-first --git-ignore --no-permissions --no-user --icons";
+      ls = "eza -lh -s=name --git --group-directories-first --no-permissions --no-user --icons";
+      lsa = "eza -lha -s=name --git --group-directories-first --no-permissions --no-user --icons";
+      lsp = "eza -lha -s=name --git --group-directories-first --icons";
+      lsg = "eza -lh -s=name --git --group-directories-first --git-ignore --no-permissions --no-user --icons";
       # git aliases
       gaa = "git add --all";
       gc = "git commit";
