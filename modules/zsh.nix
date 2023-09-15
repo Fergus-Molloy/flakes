@@ -20,6 +20,7 @@
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       export TERM=xterm-kitty
+      neofetch
     '';
     shellAliases = {
       # general aliases

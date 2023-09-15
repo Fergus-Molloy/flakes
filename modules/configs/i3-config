@@ -147,7 +147,9 @@ bindsym Mod1+r mode "resize"
 exec_always --no-startup-id systemctl --user restart polybar
 
 #Open flameshot
-exec --no-startup-id flameshot
+exec --no-startup-id command -v flameshot && flameshot
+
+exec --no-startup-id command -v mullvad-vpn && mullvad-vpn
 
 #assign zathura, discord and spotify to workspaces
 assign [class="discord"] $ws3
