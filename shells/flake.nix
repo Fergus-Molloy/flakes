@@ -36,6 +36,8 @@
               pkg-config
               rust-bin.stable.latest.default
               rust-analyzer
+              cargo-criterion
+              gnuplot
             ];
           };
           rustNode = mkShell {
