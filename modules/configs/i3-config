@@ -142,19 +142,21 @@ bindsym Mod1+r mode "resize"
 #######################################
 # Start of User Config
 #######################################
+#assign discord and mullvad to workspaces
+assign [class="discord"] $ws3
+assign [class="Mullvad VPN"] $ws10
 
-#Start Polybar
+# Start Polybar
 exec_always --no-startup-id systemctl --user restart polybar
 
-#Open flameshot
+# Open flameshot
 exec --no-startup-id command -v flameshot && flameshot
 
+# Start Mullvad if it exists
 exec --no-startup-id command -v mullvad-vpn && mullvad-vpn
 
-#assign zathura, discord and spotify to workspaces
-assign [class="discord"] $ws3
 
-#Start up applictions
+# Start up applictions
 exec --no-startup-id kitty
 
 # Change borders
@@ -182,9 +184,8 @@ set $mod Alt_L
 bindsym --release Mod1+g exec firefox
 bindsym --release Mod1+i exec i3lock-fancy -p
 bindsym --release Mod1+Shift+s exec flameshot gui
-#bindsym --release Mod1+c exec rofi -show window
-bindsym --release Mod1+s exec rofi -show ssh
+# bindsym --release Mod1+c exec rofi -show window
+# bindsym --release Mod1+s exec rofi -show ssh
 bindsym --release Mod1+d exec rofi -show run
 bindsym Mod1+Return exec "kitty"
-bindsym Mod1+Shift+Return exec "kitty nvim"
 
