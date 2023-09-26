@@ -37,6 +37,7 @@
               rust-bin.stable.latest.default
               rust-analyzer
               cargo-criterion
+              cargo-nextest
               gnuplot
               clang
               llvmPackages.bintools
