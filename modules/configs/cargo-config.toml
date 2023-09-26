@@ -1,0 +1,6 @@
+[build]
+rustflags = ["-C", "target-cpu=native"]
+
+# the below can make compile times faster but may have an effect on performance
+# [target.x86_64-unknown-linux-gnu]
+# rustflags = ["-C", "linker=clang", "-C", "link-arg=-fuse-ld=lld"]

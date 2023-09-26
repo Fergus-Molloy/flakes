@@ -38,6 +38,8 @@
               rust-analyzer
               cargo-criterion
               gnuplot
+              clang
+              llvmPackages.bintools
             ];
           };
           rustNode = mkShell {
