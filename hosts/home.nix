@@ -54,5 +54,6 @@
     ../modules/zsh.nix
     ../modules/starship.nix
     ../modules/scripts.nix
+    ../modules/cargo.nix
   ];
 }
