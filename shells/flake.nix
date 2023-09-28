@@ -43,6 +43,19 @@
               llvmPackages.bintools
             ];
           };
+          rustNightly = mkShell {
+            buildInputs = [
+              openssl
+              pkg-config
+              rust-bin.nightly.latest.default
+              rust-analyzer
+              cargo-criterion
+              cargo-nextest
+              gnuplot
+              clang
+              llvmPackages.bintools
+            ];
+          };
           rustNode = mkShell {
             buildInputs = [
               openssl
