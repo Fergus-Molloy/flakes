@@ -122,8 +122,8 @@
   # Configure automatic garbage collection
   nix.gc = {
     automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
+    dates = "daily";
+    options = "--delete-generations +5";
   };
   nix.settings.auto-optimise-store = true;
 
