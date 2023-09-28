@@ -4,6 +4,7 @@ in {
   imports = [
     ./hardware-configuration.nix
     ../../modules/desktop-environments/i3.nix
+    ../../modules/steam.nix
   ];
   # set freq govenor 
   # "performance" - max speed all the time
