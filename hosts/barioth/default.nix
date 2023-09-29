@@ -6,6 +6,7 @@ in
   imports = [
     ./hardware-configuration.nix
     ../../modules/desktop-environments/i3.nix
+    ../../modules/steam.nix
   ];
 
   services.xserver.videoDrivers = [ "nvidia" ];
