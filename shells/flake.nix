@@ -12,6 +12,7 @@
       let
         overlays = [ (import rust-overlay) ];
         pkgs = import nixpkgs { inherit system overlays; };
+        ocamlPackages = pkgs.ocaml-ng.ocamlPackages_4_12;
       in
       with pkgs; {
         devShells = {
@@ -20,6 +21,10 @@
           astro = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" nodePackages."@astrojs/language-server" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
           node = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" ]; };
           elixir = mkShellNoCC { buildInputs = [ elixir libnotify ];};
+          ocaml = mkShell {
+            nativeBuildInputs = with ocamlPackages; [ ocaml findlib dune_3 ocaml-lsp utop ocamlformat odoc ];
+            buildInputs = with ocamlPackages; [ ocamlgraph ocamlPackages.core ocamlPackages.core_unix];
+          };
           treesitter = mkShell {
             buildInputs = [
               gcc
