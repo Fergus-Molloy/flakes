@@ -19,6 +19,7 @@
           lua = mkShellNoCC { buildInputs = [ lua-language-server stylua ]; };
           astro = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" nodePackages."@astrojs/language-server" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
           node = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" ]; };
+          elixir = mkShellNoCC { buildInputs = [ elixir libnotify ];};
           treesitter = mkShell {
             buildInputs = [
               gcc
