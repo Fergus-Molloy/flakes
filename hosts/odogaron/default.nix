@@ -1,6 +1,6 @@
 { config, pkgs, lib, user, ... }:
 let
-  host = "barioth";
+  host = "odogaron";
 in
 {
   imports = [
