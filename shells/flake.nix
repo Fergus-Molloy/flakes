@@ -25,6 +25,7 @@
             nativeBuildInputs = with ocamlPackages; [ ocaml findlib dune_3 ocaml-lsp utop ocamlformat odoc ];
             buildInputs = with ocamlPackages; [ ocamlgraph ocamlPackages.core ocamlPackages.core_unix];
           };
+          dotnet = mkShell { buildInputs = [ omnisharp-roslyn dotnetCorePackages.sdk_7_0 nodejs_20 ]; };
           treesitter = mkShell {
             buildInputs = [
               gcc
