@@ -146,6 +146,9 @@ bindsym Mod1+r mode "resize"
 assign [class="discord"] $ws3
 assign [class="Mullvad VPN"] $ws10
 
+# Setup Screens
+exec_always --no-startup-id [ -f "~/.screen-setup" ] && ~/.screen-setup
+
 # Start Polybar
 exec_always --no-startup-id systemctl --user restart polybar
 
