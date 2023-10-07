@@ -5,7 +5,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/desktop-environments/i3.nix
+    ../../modules/desktop-environments/xfce.nix
   ];
 
   # set freq govenor 
@@ -19,7 +19,7 @@ in
   networking.hostName = "${host}";
 
   time.hardwareClockInLocalTime = true;
-  # Bootloader
+ # Bootloader
   boot.loader.grub = {
     enable = true;
     devices = [ "nodev" ];
@@ -27,7 +27,6 @@ in
     efiSupport = true;
   };
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
