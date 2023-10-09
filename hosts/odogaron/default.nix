@@ -5,7 +5,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/desktop-environments/xfce.nix
+    ../../modules/desktop-environments/i3.nix
   ];
 
   # set freq govenor 
@@ -70,5 +70,6 @@ in
   services.udisks2.enable = true;
 
   users.users.${user}.packages = with pkgs; [
+    slack
   ];
 }

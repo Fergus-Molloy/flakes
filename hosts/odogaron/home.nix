@@ -8,6 +8,7 @@
   ];
   home.file.".background-image".source = ../../modules/wall-1440;
   home.file.".screen-setup" = {
+    enable = true;
     executable = true;
     text = ''
       #!/usr/bin/env bash
