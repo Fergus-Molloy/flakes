@@ -1,7 +1,8 @@
-{ pkgs, ...}:
-let 
-    host = "kirin";
-in {
+{ pkgs, ... }:
+let
+  host = "kirin";
+in
+{
   imports = [ ./hardware-configuration.nix ];
   networking.hostName = "${host}";
 
@@ -23,7 +24,7 @@ in {
   services.xserver = {
     enable = true;
     displayManager = {
-      sddm.enable =true;
+      sddm.enable = true;
     };
     #windowManager = {
     #  i3.enable = true;
@@ -70,8 +71,8 @@ in {
 
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
-    rustup  # rust stuff
-    clang   # compiler that can be used to speed up rust linking times
-    lld     # linker that can be used to speed up rust linking times
+    rustup # rust stuff
+    clang # compiler that can be used to speed up rust linking times
+    lld # linker that can be used to speed up rust linking times
   ];
 }

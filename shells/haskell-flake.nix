@@ -39,14 +39,14 @@
           # };
 
           devShell = {
-           # Enabled by default
-           enable = true;  
+            # Enabled by default
+            enable = true;
 
-           # Programs you want to make available in the shell.
-           # Default programs can be disabled by setting to 'null'
-           tools = hp: { fourmolu = hp.fourmolu; ghcid = null; haskell-language-server = hp.haskell-language-server; };
+            # Programs you want to make available in the shell.
+            # Default programs can be disabled by setting to 'null'
+            tools = hp: { fourmolu = hp.fourmolu; ghcid = null; haskell-language-server = hp.haskell-language-server; };
 
-           hlsCheck.enable = true;
+            hlsCheck.enable = true;
           };
         };
 

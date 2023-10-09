@@ -84,6 +84,7 @@
 
   # setup mouse and keyboard for xserver
   services.xserver = {
+    exludePackages = with pkgs; [ xterm uxterm ];
     libinput.enable = true;
     libinput.mouse.accelProfile = "flat";
     libinput.mouse.accelSpeed = "1";
@@ -127,5 +128,5 @@
   };
   nix.settings.auto-optimise-store = true;
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
