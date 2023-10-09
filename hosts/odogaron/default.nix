@@ -19,7 +19,7 @@ in
   networking.hostName = "${host}";
 
   time.hardwareClockInLocalTime = true;
- # Bootloader
+  # Bootloader
   boot.loader.grub = {
     enable = true;
     devices = [ "nodev" ];
