@@ -52,7 +52,9 @@
     unzip
     keepassxc
     fzf
+    keybase
   ];
+
 
   programs.git = {
     enable = true;
@@ -99,6 +101,7 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  services.keybase.enable = true;
 
   # List services that you want to enable:
 
