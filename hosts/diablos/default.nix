@@ -61,6 +61,7 @@ in {
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
     udisks # for mounting usb devices
+    tmuxinator
   ];
   virtualisation.docker.enable = true;
   programs.zsh.enable = true;

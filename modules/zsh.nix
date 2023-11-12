@@ -16,6 +16,7 @@
     initExtra = ''
       export PATH="/home/${user}/.local/bin:$PATH"
       export PATH="/home/${user}/.cargo/bin:$PATH"
+      export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E\n'
       fpath=(~/.docker-completion.zsh $fpath)
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
