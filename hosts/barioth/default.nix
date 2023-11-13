@@ -68,6 +68,7 @@ in
   environment.systemPackages = with pkgs; [
     udisks # for mounting usb devices
     mullvad-vpn # mullvad vpn
+    tmuxinator
   ];
   virtualisation.docker.enable = true;
 
