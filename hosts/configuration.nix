@@ -53,6 +53,7 @@
     keepassxc
     fzf
     keybase
+    lazygit
   ];
 
 
