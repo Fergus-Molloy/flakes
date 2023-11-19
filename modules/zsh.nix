@@ -49,12 +49,15 @@
       lsg = "eza -lh -s=name --git --group-directories-first --git-ignore --no-permissions --no-user --icons";
       # git aliases
       gaa = "git add --all";
+      gau = "git add -u";
+      gst = "git status";
       gc = "git commit";
-      gcm = "git commit -m";
+      gC = "git commit -m";
       gp = "git pull";
-      gpu = "git push";
+      gP = "git push";
       gs = "git switch";
-      gsc = "git switch -c";
+      gS = "git switch -c";
+      gr = "git rebase";
     };
   };
 }
