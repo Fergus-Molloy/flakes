@@ -59,6 +59,8 @@
       gs = "git switch";
       gS = "git switch -c";
       gr = "git rebase";
+      gmf = "git merge --ff-only";
+      gprc = "gh pr create";
     };
   };
 }
