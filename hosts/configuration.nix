@@ -51,9 +51,12 @@
     curl
     unzip
     keepassxc
-    fzf
-    keybase
+    fzf # nvim $(fzf)
+    keybase # gpg identity verifier
+
+    # git tools
     lazygit
+    gh
   ];
 
 
