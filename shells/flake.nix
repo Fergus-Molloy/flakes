@@ -18,8 +18,9 @@
         devShells = {
           nix = mkShellNoCC { buildInputs = [ nil nixpkgs-fmt ]; };
           lua = mkShellNoCC { buildInputs = [ lua-language-server stylua ]; };
-          astro = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" nodePackages."@astrojs/language-server" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
-          node = mkShellNoCC { buildInputs = [ nodejs_20 nodePackages."vscode-langservers-extracted" ]; };
+          astro = mkShellNoCC { buildInputs = [ nodejs_18 nodePackages."vscode-langservers-extracted" nodePackages."@astrojs/language-server" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
+          node = mkShellNoCC { buildInputs = [ nodejs_18 nodePackages."vscode-langservers-extracted" ]; };
+          solid = mkShellNoCC { buildInputs = [ nodejs_18 nodePackages."prettier" nodePackages."vscode-langservers-extracted" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
           elixir = mkShellNoCC { buildInputs = [ elixir libnotify inotify-tools ]; };
           ocaml = mkShell {
             nativeBuildInputs = with ocamlPackages; [ ocaml findlib dune_3 ocaml-lsp utop ocamlformat odoc ];
