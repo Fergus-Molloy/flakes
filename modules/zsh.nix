@@ -37,6 +37,7 @@
       ":q" = "exit";
       # better tools
       v = "nvim";
+      vf = "nvim $(fzf)";
       vim = "nvim";
       grep = "rg";
       top = "btop";
