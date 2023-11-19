@@ -21,6 +21,7 @@
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       export TERM=xterm-kitty
+      export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
       [[ ! -r /home/fergus/.opam/opam-init/init.zsh ]] || source /home/fergus/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
       neofetch
     '';
@@ -48,12 +49,15 @@
       lsg = "eza -lh -s=name --git --group-directories-first --git-ignore --no-permissions --no-user --icons";
       # git aliases
       gaa = "git add --all";
+      gau = "git add -u";
+      gst = "git status";
       gc = "git commit";
-      gcm = "git commit -m";
+      gC = "git commit -m";
       gp = "git pull";
-      gpu = "git push";
+      gP = "git push";
       gs = "git switch";
-      gsc = "git switch -c";
+      gS = "git switch -c";
+      gr = "git rebase";
     };
   };
 }
