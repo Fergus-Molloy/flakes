@@ -17,11 +17,12 @@
       export PATH="/home/${user}/.local/bin:$PATH"
       export PATH="/home/${user}/.cargo/bin:$PATH"
       export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E\n'
+      export TERM=xterm-kitty
+      export GPG_TTY=$(tty)
+      export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
       fpath=(~/.docker-completion.zsh $fpath)
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-      export TERM=xterm-kitty
-      export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
       [[ ! -r /home/fergus/.opam/opam-init/init.zsh ]] || source /home/fergus/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
       neofetch
     '';

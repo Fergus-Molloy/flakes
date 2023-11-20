@@ -65,6 +65,9 @@ in {
   ];
   virtualisation.docker.enable = true;
   programs.zsh.enable = true;
+  programs.gnupg.agent = {
+    enable = true;
+  };
 
   # for mounting usb devices
   services.udisks2.enable = true;
