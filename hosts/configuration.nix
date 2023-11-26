@@ -81,6 +81,7 @@
 
   # Fonts
   fonts.packages = with pkgs; [
+    fira-code
     noto-fonts
     noto-fonts-emoji
     font-awesome
