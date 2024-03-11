@@ -47,7 +47,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
-    neovim
     curl
     unzip
     keepassxc

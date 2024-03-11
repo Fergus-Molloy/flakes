@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user, ... }:
+{ config, pkgs, lib, user, nixvim, ... }:
 let
   host = "barioth";
 in
@@ -69,6 +69,7 @@ in
     udisks # for mounting usb devices
     mullvad-vpn # mullvad vpn
     tmuxinator
+    (nixvim.legacyPackages."${system}".makeNixvimWithModule { inherit pkgs; module = import ../../modules/nvim/config; })
   ];
   virtualisation.docker.enable = true;
 
