@@ -116,5 +116,13 @@
         silent = true;
       };
     }
-  ];
+    {
+      mode = "n";
+      key = "<leader>fo";
+      action = "<cmd>Oil --float<cr>";
+      options = {
+        silent = true;
+      };
+    }
+  ] ++ import ./toggleterm.nix;
 }

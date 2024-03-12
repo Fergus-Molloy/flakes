@@ -36,6 +36,7 @@
       c = "cargo";
       cr = "cargo run";
       ":q" = "exit";
+      mux = "tmuxinator";
       # better tools
       v = "nvim";
       vf = "nvim $(fzf)";

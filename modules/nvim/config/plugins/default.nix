@@ -46,7 +46,7 @@
     };
     toggleterm = {
       enable = true;
-      openMapping = "<leader>tt";
+      openMapping = "<c-s-t>tt";
       shadeTerminals = false;
     };
     oil = {
@@ -83,6 +83,9 @@
         theme = "auto";
         componentSeparators = { left = "|"; right = "|"; };
         sectionSeparators = { left = ""; right = ""; };
+        tabline = {
+          lualine_a = [ "buffers" ];
+        };
         sections = {
           lualine_a = [ "mode" ];
           lualine_b = [ "branch" "diff" "diagnostics" ];
