@@ -5,4 +5,7 @@
     lua = [ "stylua" ];
     nix = [ "nixpkgs_fmt" ];
   };
+  formatOnSave = {
+    lspFallback = true;
+  };
 }
