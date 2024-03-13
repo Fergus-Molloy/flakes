@@ -69,6 +69,7 @@ in
     udisks # for mounting usb devices
     mullvad-vpn # mullvad vpn
     tmuxinator
+    element-desktop
     (nixvim.legacyPackages."${system}".makeNixvimWithModule { inherit pkgs; module = import ../../modules/nvim; })
   ];
   virtualisation.docker.enable = true;
