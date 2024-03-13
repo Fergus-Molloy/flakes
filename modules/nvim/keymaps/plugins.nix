@@ -15,4 +15,21 @@
       silent = true;
     };
   }
+  # sneak
+  {
+    mode = "n";
+    key = "s";
+    action = "<Plug>Sneak_s<cr>";
+    options = {
+      silent = true;
+    };
+  }
+  {
+    mode = "n";
+    key = "S";
+    action = "<Plug>Sneak_S<cr>";
+    options = {
+      silent = true;
+    };
+  }
 ]

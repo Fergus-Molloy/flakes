@@ -35,7 +35,7 @@
   }
   {
     mode = "n";
-    key = "<C-h>";
+    key = "<c-h>";
     action = "<cmd>nohl<cr>";
     options = {
       silent = true;

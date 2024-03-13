@@ -11,4 +11,10 @@
     action = "<cmd>Lspsaga rename<cr>";
     options.silent = true;
   }
+  {
+    mode = "n";
+    key = "k";
+    action = "<cmd>Lspsaga hover_doc<cr>";
+    options.silent = true;
+  }
 ]
