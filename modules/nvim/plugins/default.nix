@@ -1,14 +1,30 @@
 {
-  colorschemes.kanagawa.enable = true;
-  colorschemes.gruvbox.enable = false;
+  colorschemes.kanagawa.enable = false;
+  colorschemes.base16 = {
+    enable = true;
+    colorscheme = "gruvbox-material-dark-soft";
+    setUpBar = false;
+  };
+  # colorschemes.bamboo = {
+  #   enable = true;
+  #
+  #   settings = {
+  #     colors = {
+  #       green = "#00ffaa";
+  #     };
+  #     highlights = {
+  #       TSString = { fg = "$blue"; };
+  #     };
+  #   };
+  # };
+
   colorschemes.rose-pine.enable = false;
-  # not available yet
-  # colorschemes.bamboo.enable = false;
 
   plugins = {
     which-key.enable = true;
     comment-nvim.enable = true;
     better-escape.enable = true;
+    better-escape.mapping = [ "jk" ];
     lastplace.enable = true;
     # quick-scope.enable = true;
     # vim-sneak.enable = true;

@@ -8,7 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
-      url = "github:nix-community/nixvim";
+      url = "github:fergus-molloy/nixvim";
     };
   };
   outputs = { self, nixpkgs, home-manager, nixvim }:
