@@ -1,4 +1,5 @@
 {
   keymaps = import ./normal.nix
-    ++ import ./toggleterm.nix;
+    ++ import ./plugins.nix
+    ++ import ./lspsaga.nix;
 }
