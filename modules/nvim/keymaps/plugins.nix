@@ -19,7 +19,7 @@
   {
     mode = "n";
     key = "s";
-    action = "<Plug>Sneak_s<cr>";
+    action = "<Plug>Sneak_s";
     options = {
       silent = true;
     };
@@ -27,7 +27,7 @@
   {
     mode = "n";
     key = "S";
-    action = "<Plug>Sneak_S<cr>";
+    action = "<Plug>Sneak_S";
     options = {
       silent = true;
     };

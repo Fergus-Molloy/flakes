@@ -8,15 +8,6 @@
   }
   {
     mode = "n";
-    key = ";";
-    action = ":";
-    options = {
-      silent = true;
-      nowait = true;
-    };
-  }
-  {
-    mode = "n";
     key = "n";
     action = "nzz";
     options = {

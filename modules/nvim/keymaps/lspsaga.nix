@@ -13,7 +13,7 @@
   }
   {
     mode = "n";
-    key = "k";
+    key = "K";
     action = "<cmd>Lspsaga hover_doc<cr>";
     options.silent = true;
   }
