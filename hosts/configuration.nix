@@ -93,8 +93,10 @@
     libinput.enable = true;
     libinput.mouse.accelProfile = "flat";
     libinput.mouse.accelSpeed = "1";
-    layout = "gb";
-    xkbVariant = "";
+    xkb = {
+      layout = "gb";
+      variant = "";
+    };
   };
 
 
