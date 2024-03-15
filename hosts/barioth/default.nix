@@ -70,7 +70,7 @@ in
     mullvad-vpn # mullvad vpn
     tmuxinator
     element-desktop
-    ferium
+
     (nixvim.legacyPackages."${system}".makeNixvimWithModule { inherit pkgs; module = import ../../modules/nvim; })
   ];
   virtualisation.docker.enable = true;
