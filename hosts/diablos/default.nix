@@ -5,7 +5,11 @@ in {
     ./hardware-configuration.nix
     ../../modules/desktop-environments/i3.nix
     ../../modules/steam.nix
+    ../../modules/nvidia.nix
   ];
+
+  services.xserver.videoDrivers = [ "nvidia" ];
+
   # set freq govenor 
   # "performance" - max speed all the time
   # "powersave" - min speed all the time

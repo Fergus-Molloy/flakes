@@ -7,6 +7,7 @@ in
     ./hardware-configuration.nix
     ../../modules/desktop-environments/i3.nix
     ../../modules/steam.nix
+    ../../modules/nvidia.nix
   ];
 
   services.xserver.videoDrivers = [ "nvidia" ];
