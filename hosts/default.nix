@@ -28,7 +28,7 @@ in
   # laptop
   diablos = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit user; };
+    specialArgs = { inherit user nixvim; };
     modules = [
       ./diablos
       ./configuration.nix
