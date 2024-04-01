@@ -61,25 +61,6 @@
       expr = true;
     };
   }
-  # navigate buffers
-  {
-    mode = "n";
-    key = "<c-n>";
-    action = "<cmd>bn<cr>";
-    options = {
-      silent = true;
-      desc = "Next buffer";
-    };
-  }
-  {
-    mode = "n";
-    key = "<c-p>";
-    action = "<cmd>bp<cr>";
-    options = {
-      silent = true;
-      desc = "Previous buffer";
-    };
-  }
   {
     mode = "n";
     key = "<leader>x";
