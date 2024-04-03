@@ -105,17 +105,17 @@ in
     discord # chat app
   ];
 
-  #  nixpkgs.overlays = [
-  #    # This overlay will pull the latest version of Discord
-  #    (self: super: {
-  #      discord = super.discord.overrideAttrs (
-  #        _: {
-  #          src = builtins.fetchTarball {
-  #            url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-  #            sha256 = "0pml1x6pzmdp6h19257by1x5b25smi2y60l1z40mi58aimdp59ss";
-  #          };
-  #        }
-  #      );
-  #    })
-  #  ];
+  nixpkgs.overlays = [
+    # This overlay will pull the latest version of Discord
+    (self: super: {
+      discord = super.discord.overrideAttrs (
+        _: {
+          src = builtins.fetchTarball {
+            url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+            sha256 = "0f4m3dzbzir2bdg33sysqx1xi6qigf5lbrdgc8dgnqnqssk7q5mr";
+          };
+        }
+      );
+    })
+  ];
 }
