@@ -10,7 +10,23 @@ in
     ../../modules/nvidia.nix
   ];
 
+  system.stateVersion = "23.11"; # Did you read the comment?
+
   services.xserver.videoDrivers = [ "nvidia" ];
+
+  # wipe root on every boot
+  boot.initrd.postDeviceCommands = lib.mkAfter ''
+    mkdir /mnt
+    mount -t btrfs /dev/mapper/enc /mnt
+    btrfs subvolume delete /mnt/root
+    btrfs subvolume snapshot /mnt/root-blank /mnt/root
+  '';
+
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "monthly";
+    fileSystems = [ "/" ];
+  };
 
   # set freq govenor 
   # "performance" - max speed all the time
@@ -23,15 +39,18 @@ in
   networking.hostName = "${host}";
 
   time.hardwareClockInLocalTime = true;
-  # Bootloader
-  boot.loader.grub = {
-    enable = true;
-    devices = [ "nodev" ];
-    useOSProber = true;
-    efiSupport = true;
-  };
+  # Use the systemd-boot EFI boot loader.
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  # Bootloader
+  # boot.loader.grub = {
+  #   enable = true;
+  #   devices = [ "nodev" ];
+  #   useOSProber = true;
+  #   efiSupport = true;
+  # };
+  # boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -86,17 +105,17 @@ in
     discord # chat app
   ];
 
-  nixpkgs.overlays = [
-    # This overlay will pull the latest version of Discord
-    (self: super: {
-      discord = super.discord.overrideAttrs (
-        _: {
-          src = builtins.fetchTarball {
-            url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-            sha256 = "0pml1x6pzmdp6h19257by1x5b25smi2y60l1z40mi58aimdp59ss";
-          };
-        }
-      );
-    })
-  ];
+  #  nixpkgs.overlays = [
+  #    # This overlay will pull the latest version of Discord
+  #    (self: super: {
+  #      discord = super.discord.overrideAttrs (
+  #        _: {
+  #          src = builtins.fetchTarball {
+  #            url = "https://discord.com/api/download?platform=linux&format=tar.gz";
+  #            sha256 = "0pml1x6pzmdp6h19257by1x5b25smi2y60l1z40mi58aimdp59ss";
+  #          };
+  #        }
+  #      );
+  #    })
+  #  ];
 }
