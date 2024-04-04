@@ -1,6 +1,7 @@
 { config, user, pkgs, ... }:
 {
   home.file.".docker-completion.zsh".source = "${pkgs.docker}/share/zsh/site-functions/_docker";
+  home.file.".eza-completion.zsh".source = "${pkgs.eza}/share/zsh/site-functions/_eza";
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -20,7 +21,8 @@
       export TERM=xterm-kitty
       export GPG_TTY=$(tty)
       export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
-      fpath=(~/.docker-completion.zsh $fpath)
+      fpath=(${pkgs.docker}/share/zsh/site-functions/_docker $fpath)
+      fpath=(${pkgs.eza}/share/zsh/site-functions/_eza $fpath)
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       [[ ! -r /home/fergus/.opam/opam-init/init.zsh ]] || source /home/fergus/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
@@ -46,10 +48,10 @@
       cat = "bat";
       find = "fd";
       #better ls
-      ls = "eza -lh -s=name --git --group-directories-first --no-permissions --no-user --icons";
-      lsa = "eza -lha -s=name --git --group-directories-first --no-permissions --no-user --icons";
-      lsp = "eza -lha -s=name --git --group-directories-first --icons";
-      lsg = "eza -lh -s=name --git --group-directories-first --git-ignore --no-permissions --no-user --icons";
+      ls = "eza -lh -s=name --git --group-directories-first --no-permissions --icons --no-user";
+      lsa = "eza -lha -s=name --git --group-directories-first --no-permissions --icons --no-user";
+      lsp = "eza -lha -s=name --git --icons --group-directories-first";
+      lsg = "eza -lh -s=name --git --group-directories-first --git-ignore --no-permissions --icons --no-user";
       # git aliases
       gaa = "git add --all";
       gau = "git add -u";
