@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   # Import all your configuration modules here
   imports = [
     ./options.nix
@@ -22,5 +22,15 @@
       group = highlight_group,
       pattern = '*',
     })
+    local success, base16 = pcall(require, "base16-colorscheme")
+    if(success) then
+      if(base16.colors.base0A == '#d8a657') then
+        vim.api.nvim_set_hl(0, 'DiffChange', { fg=base16.colors.base0A, underdashed=true })
+      else
+        print("WARNING: not using gruvbox-material-dark-soft")
+      end
+    else
+        print("WARNING: not using base16 colorscheme")
+    end
   '';
 }

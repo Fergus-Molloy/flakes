@@ -1,10 +1,10 @@
 { pkgs, ... }: {
   colorschemes = {
-    kanagawa.enable = false;
+    kanagawa.enable = true;
     rose-pine.enable = false;
 
     base16 = {
-      enable = true;
+      enable = false;
       colorscheme = "gruvbox-material-dark-soft";
       setUpBar = false;
     };
@@ -31,6 +31,7 @@
     comment-nvim.enable = true;
     better-escape.enable = true;
     lastplace.enable = true;
+    diffview.enable = true;
     better-escape.mapping = [ "jk" ];
 
     fzf-lua = {
