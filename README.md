@@ -23,8 +23,10 @@ alt+g -> new firefox window
 alt+d -> open rofi (application launcher)
 
 ## neovim / dev shells
-Assuming you are using my vimrc then you may notice that when you go to edit code files you get an error saying that the languager servers are not installed.
-Normally you would then install these using mason.nvim, however i have not included this in my config as we can instead use nix development shells to install language servers.
-You can see the configured dev shells in `~/.flake/shells/flake.nix`, to use one of these shells run `echo "use flake ~/.flake/shells#<shellName>" > .envrc && direnv allow`,
-I recommend running this in the directory you want to use the tools from. This will then install and add the configured programs to your PATH.
-When you leave the directory in which you ran that command these tools will be removed from your PATH.
+Neovim is automatically installed and configured using nixvim, this includes language servers.
+When developing a project, tools specific to that project should be installed via a devshell.
+There are several pre-configured devshells in shells/flake.nix to use these run `direnv-create <shell>`.
+This will automatically create an `.envrc` and allow direnv to run. If the folder is a git repo it will also add
+`.envrc` and `.direnv` to `.git/info/exclude` (local only .gitignore).
+
+If the project uses a `flake.nix` then run `echo "use flake" > .envrc && direnv allow` to use the already configured tools.
