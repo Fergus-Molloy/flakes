@@ -3,7 +3,7 @@
   home.file.".docker-completion.zsh".source = "${pkgs.docker}/share/zsh/site-functions/_docker";
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autocd = true;
