@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 
-if [ $# -ne 1 ]; then
+if [ $# -gt 1 ]; then
 	echo "only supply the name of the shell you want to use"
 	exit 1;
 fi
 
-echo "use flake ~/.flake/shells#$1" > .envrc && direnv allow
+if [ $# -eq 1 ]; then
+  echo "use flake ~/.flake/shells#$1" > .envrc && direnv allow
+else
+  echo "using local flake"
+  echo "use flake" > .envrc && direnv allow
+fi
 
 if [ -d "$PWD/.git" ]; then
 	echo "git dir detected..."

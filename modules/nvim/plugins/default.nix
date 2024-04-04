@@ -34,6 +34,12 @@
     diffview.enable = true;
     better-escape.mapping = [ "jk" ];
 
+    alpha = {
+      enable = true;
+      theme = "dashboard";
+      iconsEnabled = true;
+    };
+
     fzf-lua = {
       enable = true;
       iconsEnabled = true;
