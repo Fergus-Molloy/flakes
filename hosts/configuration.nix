@@ -74,7 +74,7 @@
       branch = { autoSetupRebase = "always"; };
       push = { autoSetupRemote = true; };
       # create this manually on each machine, to store gpg stuff
-      include = { path = ".gituser"; };
+      include = { path = "/home/${user}/.gituser"; };
     };
   };
 

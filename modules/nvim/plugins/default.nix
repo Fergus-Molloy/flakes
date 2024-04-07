@@ -22,7 +22,7 @@
     };
   };
 
-  extraPlugins = with pkgs.vimPlugins; [ vim-sneak ];
+  extraPlugins = with pkgs.vimPlugins; [ vim-sneak lazygit-nvim ];
 
   plugins = {
     cmp_luasnip.enable = true;
@@ -30,9 +30,9 @@
     surround.enable = true;
     comment-nvim.enable = true;
     better-escape.enable = true;
+    better-escape.mapping = [ "jk" ];
     lastplace.enable = true;
     diffview.enable = true;
-    better-escape.mapping = [ "jk" ];
 
     alpha = {
       enable = true;

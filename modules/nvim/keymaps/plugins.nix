@@ -40,4 +40,12 @@
       silent = true;
     };
   }
+  {
+    mode = "n";
+    key = "<leader>gg";
+    action = "<cmd>LazyGit<cr>";
+    options = {
+      silent = true;
+    };
+  }
 ]

@@ -64,6 +64,9 @@ in
   # enable mullvad daemon
   services.mullvad-vpn.enable = true;
 
+  # enable keybase daemon
+  services.kbfs.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -90,10 +93,18 @@ in
     mullvad-vpn # mullvad vpn
     tmuxinator
     element-desktop
+    gnupg
+    pinentry-qt
+    pinentry-tty
 
     (nixvim.legacyPackages."${system}".makeNixvimWithModule { inherit pkgs; module = import ../../modules/nvim; })
   ];
   virtualisation.docker.enable = true;
+
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
 
   # user shell
   programs.zsh.enable = true;
