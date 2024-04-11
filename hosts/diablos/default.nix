@@ -7,6 +7,8 @@ in {
     ../../modules/steam.nix
   ];
 
+  system.stateVersion = "23.05"; # Did you read the comment?
+
   # services.xserver.videoDrivers = [ "nvidia" ];
 
   # set freq govenor 
@@ -43,6 +45,9 @@ in {
   # > save_config
   # we can now load this config after restarts with `wpa_supplicant -B -i wlo1 -c /run/wpa_supplicant/wpa_supplicant.conf`
   networking.networkmanager.enable = true;
+
+  # enable mullvad daemon
+  services.mullvad-vpn.enable = true;
 
   # Enable sound with pipewire.
   sound.enable = true;
