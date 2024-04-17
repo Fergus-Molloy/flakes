@@ -93,6 +93,8 @@ in
     mullvad-vpn # mullvad vpn
     tmuxinator
     element-desktop
+    autorandr
+
     gnupg
     pinentry-qt
     pinentry-tty
@@ -111,6 +113,29 @@ in
 
   # for mounting usb devices
   services.udisks2.enable = true;
+
+  # setup screens
+  services.autorandr = {
+    enable = true;
+    defaultTarget = "desktop";
+    profiles = {
+      "desktop" = {
+        fingerprint = {
+          "DP-0" = "00ffffffffffff0004729004db2f00910a1d0104a53c227806ee91a3544c99260f505421080001010101010101010101010101010101565e00a0a0a029503020350056502100001a000000ff00234153504b7276575a43327664000000fd001e9022de3b010a202020202020000000fc00584232373148550a20202020200172020312412309070183010000654b040001015a8700a0a0a03b503020350056502100001a5aa000a0a0a046503020350056502100001a6fc200a0a0a055503020350056502100001a22e50050a0a0675008203a0056502100001e1c2500a0a0a011503020350056502100001a0000000000000000000000000000000000000019";
+        };
+        config = {
+          "DP-0" = {
+            enable = true;
+            crtc = 0;
+            primary = true;
+            mode = "2560x1440";
+            rate = "144.00";
+            position = "0x0";
+          };
+        };
+      };
+    };
+  };
 
   users.users.${user}.packages = with pkgs; [
     discord # chat app

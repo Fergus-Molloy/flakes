@@ -26,7 +26,7 @@
     kitty # terminal of choice
     eza # better ls
     flameshot # screenshot utility
-    neofetch # for fun :)
+    fastfetch # for fun :)
     ripgrep # blazingly fast grep
     xclip # command line copy-pasting
     bat # prettier cat

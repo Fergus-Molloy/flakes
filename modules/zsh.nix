@@ -24,7 +24,7 @@
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       [[ ! -r /home/fergus/.opam/opam-init/init.zsh ]] || source /home/fergus/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
-      neofetch
+      ${pkgs.fastfetch}/bin/fastfetch
     '';
     shellAliases = {
       # general aliases

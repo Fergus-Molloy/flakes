@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ ... }:
 {
   imports = [
     ../../modules/kitty.nix
@@ -7,5 +7,8 @@
     ../../modules/tmux.nix
   ];
   home.file.".background-image".source = ../../modules/wall-1440;
+  home.file.".xprofile".text = ''
+    autorandr --load desktop
+  '';
   programs.feh.enable = true;
 }
