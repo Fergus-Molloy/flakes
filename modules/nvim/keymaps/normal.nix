@@ -87,4 +87,22 @@
       silent = true;
     };
   }
+  {
+    mode = "n";
+    key = "<c-k>";
+    action = "<cmd>bp<cr>";
+    options = {
+      silent = true;
+      desc = "Prev buffer";
+    };
+  }
+  {
+    mode = "n";
+    key = "<c-j>";
+    action = "<cmd>bn<cr>";
+    options = {
+      silent = true;
+      desc = "Next buffer";
+    };
+  }
 ]
