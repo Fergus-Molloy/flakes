@@ -32,5 +32,6 @@
     else
         print("WARNING: not using base16 colorscheme")
     end
+    require('nvim-surround').setup({})
   '';
 }
