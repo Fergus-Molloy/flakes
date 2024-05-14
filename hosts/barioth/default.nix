@@ -94,6 +94,8 @@ in
     tmuxinator
     element-desktop
     autorandr
+    obsidian
+    rclone
 
     gnupg
     pinentry-qt
