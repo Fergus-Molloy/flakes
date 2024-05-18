@@ -2,17 +2,30 @@
   enable = true;
   servers = {
     nil_ls.enable = true;
-    html.enable = true;
+    html = {
+      enable = true;
+      filetypes = [ "html" ];
+    };
+    cssls.enable = true;
+    emmet_ls = {
+      enable = true;
+      filetypes = [ "html" "heex" ];
+    };
     elixirls.enable = true;
     hls.enable = true;
     tsserver.enable = true;
+    tailwindcss = {
+      enable = true;
+      filetypes = [ "html" "heex" ];
+    };
+
     #clangd.enable = true;
     #csharp-ls.enable = true;
     # needs more config
     # rust-analyzer = { enable = true; };
   };
   onAttach = ''
-          local nmap = function(keys, func, desc)
+      local nmap = function(keys, func, desc)
       if desc then
         desc = 'LSP: ' .. desc
       end
