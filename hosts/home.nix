@@ -50,6 +50,9 @@
     nix-direnv.enable = true;
   };
 
+  home.file.".wallpaper".source = ../modules/wall-1440;
+  programs.feh.enable = true;
+
   imports = [
     ../modules/zsh.nix
     ../modules/starship.nix

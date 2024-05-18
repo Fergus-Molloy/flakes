@@ -146,8 +146,7 @@ bindsym Mod1+r mode "resize"
 assign [class="discord"] $ws3
 assign [class="Mullvad VPN"] $ws10
 
-# Setup Screens
-exec_always --no-startup-id [ -f "home/fergus/.screen-setup" ] && /home/fergus/.screen-setup
+exec_always --no-startup-id feh --bg-fill $HOME/.wallpaper
 
 # Start Polybar
 exec_always --no-startup-id systemctl --user restart polybar
@@ -192,3 +191,5 @@ bindsym --release Mod1+Shift+s exec flameshot gui
 bindsym --release Mod1+d exec rofi -show run
 bindsym Mod1+Return exec "kitty"
 
+# Moving workspaces between screens 
+bindsym Mod1+p move workspace to output next
