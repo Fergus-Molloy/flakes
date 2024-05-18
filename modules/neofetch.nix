@@ -1,5 +1,5 @@
-{ config, ... }:
+{ ... }:
 {
   programs.kitty.enable = true;
-  home.file.".config/neofetch/config.conf".source = ./configs/neofetch.conf;
+  home.file.".config/fastfetch/config.jsonc".source = ./configs/fastfetch.jsonc;
 }
