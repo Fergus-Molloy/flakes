@@ -81,11 +81,12 @@
   # Fonts
   fonts.packages = with pkgs; [
     fira-code
+    jetbrains-mono
     noto-fonts
     noto-fonts-emoji
     font-awesome
     twemoji-color-font
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
   ];
 
   # setup mouse and keyboard for xserver

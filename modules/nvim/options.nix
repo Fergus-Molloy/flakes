@@ -37,7 +37,7 @@
 
     # Font
     termguicolors = true;
-    guifont = "Fira Code:h16";
+    guifont = "JetBrains Mono:h16";
 
     # better cursor visibility
     cursorline = true;
