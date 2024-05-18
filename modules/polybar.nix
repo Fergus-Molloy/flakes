@@ -1,5 +1,14 @@
 { config, lib, pkgs, ... }:
 {
+  home.file.".polybar" = {
+    enable = true;
+    executable = true;
+    text = ''
+      for m in $(polybar --list-monitors | cut -d":" -f1); do
+        MONITOR=$m polybar top &
+      done
+    '';
+  };
   services = {
     polybar = {
       enable = true;
@@ -32,6 +41,7 @@
           orange-bright = "#fe8019";
         };
         "bar/top" = {
+          monitor = "\${env:MONITOR:}";
           bottom = false;
           width = "100%";
           height = 32;

@@ -149,8 +149,7 @@ assign [class="Mullvad VPN"] $ws10
 exec_always --no-startup-id feh --bg-fill $HOME/.wallpaper
 
 # Start Polybar
-exec_always --no-startup-id systemctl --user restart polybar
-
+exec_always --no-startup-id $HOME/.polybar
 # Open flameshot
 exec --no-startup-id command -v flameshot && flameshot
 
