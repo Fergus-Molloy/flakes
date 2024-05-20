@@ -50,7 +50,6 @@
     curl
     unzip
     keepassxc
-    fzf # nvim $(fzf)
     keybase # gpg identity verifier
 
     # git tools

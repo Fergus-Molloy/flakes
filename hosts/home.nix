@@ -53,6 +53,13 @@
   home.file.".wallpaper".source = ../modules/wall-1440;
   programs.feh.enable = true;
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+    defaultCommand = "fd --type f --strip-cwd-prefix --hidden --follow --exclude .git";
+    tmux.enableShellIntegration = true;
+  };
+
   imports = [
     ../modules/zsh.nix
     ../modules/scripts.nix
