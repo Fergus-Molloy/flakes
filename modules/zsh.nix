@@ -31,13 +31,13 @@ in
       share = true;
       size = 1000;
     };
+    sessionVariables = {
+      PATH = "/home/${user}/.local/bin:/home/${user}/.cargo/bin:$PATH";
+      TIMEFMT = "$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E\n'";
+      TERM = "xterm-kitty";
+      GPG_TTY = "$(tty)";
+    };
     initExtra = ''
-      export PATH="/home/${user}/.local/bin:$PATH"
-      export PATH="/home/${user}/.cargo/bin:$PATH"
-      export TIMEFMT=$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E\n'
-      export TERM=xterm-kitty
-      export GPG_TTY=$(tty)
-      export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
       fpath=(${pkgs.docker}/share/zsh/site-functions/_docker $fpath)
       fpath=(${pkgs.eza}/share/zsh/site-functions/_eza $fpath)
       fpath+=($HOME/.zsh/pure)
