@@ -21,13 +21,17 @@ in
   home.file.".zsh/pure".source = pure;
   programs.zsh = {
     enable = true;
+    defaultKeymap = "emacs";
     autosuggestion.enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autocd = true;
     history = {
       path = "/home/${user}/.cache/zsh/histfile";
-      save = 1000;
+      ignoreAllDups = true;
+      ignoreDups = true;
+      ignoreSpace = true;
+      save = 5000;
       share = true;
       size = 1000;
     };
@@ -41,10 +45,16 @@ in
       fpath=(${pkgs.docker}/share/zsh/site-functions/_docker $fpath)
       fpath=(${pkgs.eza}/share/zsh/site-functions/_eza $fpath)
       fpath+=($HOME/.zsh/pure)
+
       autoload -U promptinit; promptinit
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+      zstyle ':completion:*' list-colors "$\{(s.:.)LS_COLORS}"
       [[ ! -r /home/fergus/.opam/opam-init/init.zsh ]] || source /home/fergus/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+      bindkey '^p' history-search-backward
+      bindkey '^n' history-search-forward
+
       ${pkgs.fastfetch}/bin/fastfetch
       prompt pure
     '';
