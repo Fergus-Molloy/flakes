@@ -9,17 +9,17 @@
       setUpBar = false;
     };
 
-    bamboo = {
-      enable = false;
-      settings = {
-        colors = {
-          green = "#00ffaa";
-        };
-        highlights = {
-          TSString = { fg = "$blue"; };
-        };
-      };
-    };
+    # bamboo = {
+    #   enable = false;
+    #   settings = {
+    #     colors = {
+    #       green = "#00ffaa";
+    #     };
+    #     highlights = {
+    #       TSString = { fg = "$blue"; };
+    #     };
+    #   };
+    # };
   };
 
   extraPlugins = with pkgs.vimPlugins; [ vim-sneak lazygit-nvim nvim-surround ];
@@ -27,7 +27,7 @@
   plugins = {
     cmp_luasnip.enable = true;
     which-key.enable = true;
-    comment-nvim.enable = true;
+    comment.enable = true;
     better-escape.enable = true;
     better-escape.mapping = [ "jk" ];
     lastplace.enable = true;
@@ -55,7 +55,7 @@
 
     gitsigns = {
       enable = true;
-      signs = {
+      settings.signs = {
         add.text = "+";
         change.text = "~";
         delete.text = "_";
@@ -65,19 +65,21 @@
     };
     indent-blankline = {
       enable = true;
-      scope = {
+      settings.scope = {
         enabled = true;
-        highlight = [ "@function" "@label" "@keyword" "@namespace" ];
+        highlight = [ "@function" "@label" "@keyword" "@module" ];
       };
     };
     toggleterm = {
       enable = true;
-      openMapping = "<c-s-t>tt";
-      shadeTerminals = false;
+      settings = {
+        openMapping = "<c-s-t>tt";
+        shadeTerminals = false;
+      };
     };
     oil = {
       enable = true;
-      skipConfirmForSimpleEdits = true;
+      settings.skipConfirmForSimpleEdits = true;
     };
     mini = {
       enable = true;

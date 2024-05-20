@@ -1,5 +1,5 @@
 {
-  config.options = {
+  config.opts = {
     # search options
     hlsearch = true;
     ignorecase = true;

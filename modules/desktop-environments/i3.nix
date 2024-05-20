@@ -2,13 +2,14 @@
 {
   services.xserver = {
     enable = true;
-    displayManager = {
-      lightdm.enable = true;
-      defaultSession = "none+i3";
-    };
+    displayManager.lightdm.enable = true;
     windowManager = {
       i3.enable = true;
     };
+  };
+
+  services.displayManager = {
+    defaultSession = "none+i3";
   };
 
   services.picom = {

@@ -90,13 +90,15 @@
 
   # setup mouse and keyboard for xserver
   services.xserver = {
-    libinput.enable = true;
-    libinput.mouse.accelProfile = "flat";
-    libinput.mouse.accelSpeed = "1";
     xkb = {
       layout = "gb";
       variant = "";
     };
+  };
+  services.libinput = {
+    enable = true;
+    mouse.accelProfile = "flat";
+    mouse.accelSpeed = "1";
   };
 
 
