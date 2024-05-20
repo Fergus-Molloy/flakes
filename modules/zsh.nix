@@ -15,6 +15,21 @@ let
       cp -r . $out/
     '';
   };
+
+  fzfTab = pkgs.stdenv.mkDerivation {
+    name = "fzf-tab";
+    version = "1.1.2";
+    src = pkgs.fetchFromGitHub {
+      owner = "aloxaf";
+      repo = "fzf-tab";
+      rev = "refs/tags/v1.1.2";
+      hash = "sha256-Qv8zAiMtrr67CbLRrFjGaPzFZcOiMVEFLg1Z+N6VMhg=";
+    };
+    installPhase = ''
+      mkdir -p $out
+      cp -r . $out/
+    '';
+  };
 in
 {
   # comp warns that /nix/store is insecure so link to somewhere secure
@@ -48,8 +63,14 @@ in
 
       autoload -U promptinit; promptinit
       autoload -U compinit && compinit
+
+      source ${fzfTab}/fzf-tab.plugin.zsh
+
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       zstyle ':completion:*' list-colors "$\{(s.:.)LS_COLORS}"
+      zstyle ':completion:*' menu no
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
       [[ ! -r /home/fergus/.opam/opam-init/init.zsh ]] || source /home/fergus/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
       bindkey '^p' history-search-backward
@@ -77,6 +98,7 @@ in
       top = "btop";
       cat = "bat";
       find = "fd";
+      lg = "lazygit";
       #better ls
       ls = "eza -lh -s=name --git --group-directories-first --no-permissions --icons --no-user";
       lsa = "eza -lha -s=name --git --group-directories-first --no-permissions --icons --no-user";
