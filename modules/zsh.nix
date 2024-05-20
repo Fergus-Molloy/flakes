@@ -1,5 +1,24 @@
 { user, pkgs, ... }:
+let
+  # pure zsh prompt
+  pure = pkgs.stdenv.mkDerivation {
+    name = "pure";
+    version = "1.23.0";
+    src = pkgs.fetchFromGitHub {
+      owner = "sindresorhus";
+      repo = "pure";
+      rev = "refs/tags/v1.23.0";
+      hash = "sha256-BmQO4xqd/3QnpLUitD2obVxL0UulpboT8jGNEh4ri8k=";
+    };
+    installPhase = ''
+      mkdir -p $out
+      cp -r . $out/
+    '';
+  };
+in
 {
+  # comp warns that /nix/store is insecure so link to somewhere secure
+  home.file.".zsh/pure".source = pure;
   programs.zsh = {
     enable = true;
     autosuggestion.enable = true;
@@ -21,10 +40,13 @@
       export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git'
       fpath=(${pkgs.docker}/share/zsh/site-functions/_docker $fpath)
       fpath=(${pkgs.eza}/share/zsh/site-functions/_eza $fpath)
+      fpath+=($HOME/.zsh/pure)
+      autoload -U promptinit; promptinit
       autoload -U compinit && compinit
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       [[ ! -r /home/fergus/.opam/opam-init/init.zsh ]] || source /home/fergus/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
       ${pkgs.fastfetch}/bin/fastfetch
+      prompt pure
     '';
     shellAliases = {
       # general aliases
