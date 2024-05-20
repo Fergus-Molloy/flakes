@@ -51,6 +51,7 @@
     unzip
     keepassxc
     keybase # gpg identity verifier
+    killall
 
     # git tools
     lazygit
