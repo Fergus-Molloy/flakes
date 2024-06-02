@@ -37,8 +37,10 @@
     TERMINAL = "kitty";
   };
 
+
   # need both shells otherwise weird things can happen with user accounts
-  environment.shells = with pkgs; [ bashInteractive zsh ];
+  environment.shells = with pkgs;
+    [ bashInteractive zsh ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -121,7 +123,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

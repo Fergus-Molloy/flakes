@@ -37,6 +37,12 @@ in
   powerManagement.cpuFreqGovernor = lib.mkDefault "schedutil";
 
   networking.hostName = "${host}";
+  networking.firewall.allowedTCPPorts = [ 80 443 18080 18089 37889 37888 ];
+  networking.firewall.allowedUDPPortRanges = [
+    { from = "4000"; to = "4007"; }
+    { from = "8000"; to = "8010"; }
+  ];
+
 
   time.hardwareClockInLocalTime = true;
   # Use the systemd-boot EFI boot loader.
@@ -97,6 +103,9 @@ in
     obsidian
     rclone
 
+    monero-gui
+    p2pool
+
     gnupg
     pinentry-qt
     pinentry-tty
@@ -115,6 +124,30 @@ in
 
   # for mounting usb devices
   services.udisks2.enable = true;
+
+  services.monero = {
+
+    enable = true;
+    extraConfig = ''
+      # RPC configuration
+      public-node=1                             # Advertise the RPC-restricted port over p2p peer lists
+      rpc-restricted-bind-ip=0.0.0.0            # Bind restricted RPC to all interfaces
+      rpc-restricted-bind-port=18089            # Bind restricted RPC on custom port to differentiate from default unrestricted RPC (18081)
+      no-igd=1                                  # Disable UPnP port mapping
+
+      # ZMQ configuration
+      zmq-pub=tcp://127.0.0.1:18083
+
+      out-peers=32
+      in-peers=64
+      add-priority-node=p2pmd.xmrvsbeast.com:18080
+      add-priority-node=nodes.hashvault.pro:18080
+      disable-dns-checkpoints=1
+
+      # Block known-malicious nodes from a DNSBL
+      enable-dns-blocklist=1
+    '';
+  };
 
   # setup screens
   services.autorandr = {
