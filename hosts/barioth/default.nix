@@ -10,7 +10,7 @@ in
     ../../modules/nvidia.nix
   ];
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "24.05"; # Did you read the comment?
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
@@ -37,7 +37,7 @@ in
   powerManagement.cpuFreqGovernor = lib.mkDefault "schedutil";
 
   networking.hostName = "${host}";
-  networking.firewall.allowedTCPPorts = [ 80 443 18080 18089 37889 37888 ];
+  networking.firewall.allowedTCPPorts = [ 80 443 18080 18081 18089 37889 37888 ];
   networking.firewall.allowedUDPPortRanges = [
     { from = "4000"; to = "4007"; }
     { from = "8000"; to = "8010"; }
@@ -100,7 +100,9 @@ in
     tmuxinator
     element-desktop
     autorandr
+
     obsidian
+    keepassxc
     rclone
 
     monero-gui
