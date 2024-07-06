@@ -24,6 +24,8 @@
               node = mkShellNoCC { buildInputs = [ nodejs_18 nodePackages."vscode-langservers-extracted" ]; };
               solid = mkShellNoCC { buildInputs = [ nodejs_18 nodePackages."prettier" nodePackages."vscode-langservers-extracted" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
               elixir = mkShellNoCC { buildInputs = [ elixir elixir-ls libnotify inotify-tools ]; };
+              erlang = mkShellNoCC { buildInputs = [ beam.packages.erlangR24.erlang erlang-ls rebar3 ]; };
+              go = mkShellNoCC { buildInputs = [ go gopls goimports-reviser ]; };
               ocaml = mkShell {
                 nativeBuildInputs = with ocamlPackages; [ ocaml findlib dune_3 ocaml-lsp utop ocamlformat odoc ];
                 buildInputs = with ocamlPackages; [ ocamlgraph ocamlPackages.core ocamlPackages.core_unix ];

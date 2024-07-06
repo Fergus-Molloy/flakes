@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user, nixvim, ... }:
+{ config, pkgs, lib, user, ... }:
 let
   host = "barioth";
 in
@@ -9,7 +9,6 @@ in
     ../../modules/steam.nix
     ../../modules/nvidia.nix
   ];
-
   system.stateVersion = "24.05"; # Did you read the comment?
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -112,7 +111,6 @@ in
     pinentry-qt
     pinentry-tty
 
-    (nixvim.legacyPackages."${system}".makeNixvimWithModule { inherit pkgs; module = import ../../modules/nvim; })
   ];
   virtualisation.docker.enable = true;
 
@@ -128,7 +126,6 @@ in
   services.udisks2.enable = true;
 
   services.monero = {
-
     enable = true;
     extraConfig = ''
       # RPC configuration

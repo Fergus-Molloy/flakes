@@ -1,4 +1,4 @@
-{ pkgs, lib, user, nixvim, ... }:
+{ pkgs, lib, user, ... }:
 let host = "diablos";
 in {
   imports = [
@@ -71,7 +71,6 @@ in {
     udisks # for mounting usb devices
     mullvad-vpn # mullvad vpn
     tmuxinator
-    (nixvim.legacyPackages."${system}".makeNixvimWithModule { inherit pkgs; module = import ../../modules/nvim; })
   ];
   virtualisation.docker.enable = true;
   programs.zsh.enable = true;

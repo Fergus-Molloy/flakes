@@ -7,11 +7,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim = {
-      url = "github:nix-community/nixvim";
-    };
   };
-  outputs = { self, nixpkgs, home-manager, nixvim }:
+  outputs = { self, nixpkgs, home-manager }:
     let
       user = "fergus";
     in
@@ -19,7 +16,7 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit nixpkgs home-manager user nixvim;
+          inherit nixpkgs home-manager user;
         }
       );
     };

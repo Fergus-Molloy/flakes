@@ -54,6 +54,7 @@
     keepassxc
     keybase # gpg identity verifier
     killall
+    neovim
 
     # git tools
     lazygit
