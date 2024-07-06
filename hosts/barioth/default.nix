@@ -1,6 +1,7 @@
-{ config, pkgs, lib, user, myVim, ... }:
+{ config, pkgs, lib, user, inputs, ... }:
 let
   host = "barioth";
+  nixCats = import ../../modules/nixcats {inherit inputs;};
 in
 {
   imports = [
@@ -8,12 +9,12 @@ in
     ../../modules/desktop-environments/i3.nix
     ../../modules/steam.nix
     ../../modules/nvidia.nix
-    myVim.systemModule
+    nixCats.nixosModules
   ];
 
-myVim = {
+nixCats = {
 enable =true;
-packageNames = ["myVim"];
+packageNames = ["nixCats"];
 nixpkgs_version = pkgs;
 };
 

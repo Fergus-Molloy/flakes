@@ -1,4 +1,4 @@
-{ lib, home-manager, user, nixpkgs,myVim, ... }:
+{ lib, home-manager, user, nixpkgs,inputs, ... }:
 let
   system = "x86_64";
   pkgs = import nixpkgs {
@@ -10,7 +10,7 @@ in
   # Desktop
   barioth = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit user myVim; };
+    specialArgs = { inherit user inputs; };
     modules = [
       ./barioth
       ./configuration.nix

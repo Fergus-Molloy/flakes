@@ -13,13 +13,12 @@
   outputs = { self, nixpkgs, home-manager, ...}@inputs:
     let
       user = "fergus";
-      myVim = import ../modules/nixcats {inherit inputs;};
     in
     {
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit nixpkgs home-manager user myVim;
+          inherit nixpkgs home-manager user inputs;
         }
       );
     };
