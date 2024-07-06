@@ -1,4 +1,4 @@
-{ config, pkgs, lib, user, ... }:
+{ config, pkgs, lib, user, myVim, ... }:
 let
   host = "barioth";
 in
@@ -8,10 +8,19 @@ in
     ../../modules/desktop-environments/i3.nix
     ../../modules/steam.nix
     ../../modules/nvidia.nix
+    myVim.systemModule
   ];
+
+myVim = {
+enable =true;
+packageNames = ["myVim"];
+nixpkgs_version = pkgs;
+};
+
   system.stateVersion = "24.05"; # Did you read the comment?
 
   services.xserver.videoDrivers = [ "nvidia" ];
+
 
   # wipe root on every boot
   boot.initrd.postDeviceCommands = lib.mkAfter ''
@@ -110,7 +119,6 @@ in
     gnupg
     pinentry-qt
     pinentry-tty
-
   ];
   virtualisation.docker.enable = true;
 
