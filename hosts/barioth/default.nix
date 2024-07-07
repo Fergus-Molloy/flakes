@@ -9,13 +9,12 @@ in
     ../../modules/desktop-environments/i3.nix
     ../../modules/steam.nix
     ../../modules/nvidia.nix
-    nixCats.nixosModules
+    nixCats.nixosModules.default
   ];
 
 nixCats = {
 enable =true;
 packageNames = ["nixCats"];
-nixpkgs_version = pkgs;
 };
 
   system.stateVersion = "24.05"; # Did you read the comment?

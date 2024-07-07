@@ -91,9 +91,9 @@ in
       ":q" = "exit";
       mux = "tmuxinator";
       # better tools
-      v = "nvim";
-      vf = "nvim $(fzf)";
-      vim = "nvim";
+      v = "nixCats";
+      vf = "nixCats $(fzf)";
+      vim = "nixCats";
       grep = "rg";
       top = "btop";
       cat = "bat";
