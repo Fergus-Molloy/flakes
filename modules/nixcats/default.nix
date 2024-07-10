@@ -67,6 +67,8 @@ let
         lua-language-server
         stylua
         nixd
+        gopls
+        goimports-reviser
       ];
     };
 
@@ -77,26 +79,42 @@ let
       ];
       general = [
         lualine-nvim
+        oil-nvim
+        fidget-nvim
         comment-nvim
         which-key-nvim
-        oil-nvim
         indent-blankline-nvim
         vim-lastplace
-        fidget-nvim
         undotree
         nvim-surround
+        better-escape-nvim
+        toggleterm-nvim
+        vim-sneak
 
         fzf-lua
 
         nvim-web-devicons
+        plenary-nvim
       ];
       gitPlugins = [
         gitsigns-nvim
         lazygit-nvim
+        diffview-nvim
       ];
       lsps = [
         nvim-treesitter-textobjects
         nvim-treesitter.withAllGrammars
+
+        nvim-lspconfig
+        cmp-nvim-lsp
+        neodev-nvim
+
+        nvim-cmp
+        luasnip
+        cmp_luasnip
+        cmp-buffer
+        cmp-path
+        cmp-nvim-lua
       ];
       format = [
         conform-nvim
@@ -170,6 +188,7 @@ let
         format = true;
         lsps = true;
         generalBuildInputs = true;
+        gitPlugins = true;
         test = true;
         colorscheme = "melange";
         example = {
