@@ -49,63 +49,44 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 local lspconfig = require("lspconfig")
 
-local function tricky_setups()
-	lspconfig.lua_ls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		settings = {
-			Lua = {
-				runtime = { version = "LuaJIT" },
-				diagnostics = { globals = { "vim" } },
-				workspace = {
-					library = vim.api.nvim_get_runtime_file("", true),
-					checkThirdParty = false,
-				},
-				telemetery = {
-					enable = false,
-				},
-			},
-		},
-	})
-	lspconfig.rust_analyzer.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		settings = {
-			["rust-analyzer"] = {
-				checkOnSave = true,
-				check = {
-					command = "clippy",
-					extraArgs = { "--", "-W", "clippy::pedantic" },
-				},
-			},
-		},
-	})
-end
+lspconfig.gopls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
 
--- register servers
-if require("nixCatsUtils").isNixCats then
-	for _, lsp in ipairs(servers) do
-		lspconfig[lsp].setup({
-			on_attach = on_attach,
-			capabilities = capabilities,
-			settings = servers[lsp],
-			filetypes = (servers[lsp] or {}).filetypes,
-		})
-	end
-	tricky_setups()
-else
-	require("mason").setup()
-	local mason_lspconfig = require("mason-lspconfig")
-	mason_lspconfig.setup({})
-	mason_lspconfig.setup_handlers({
-		function(server_name)
-			require("lspconfig")[server_name].setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				settings = (servers[server_name] or {}).settings,
-				filetypes = (servers[server_name] or {}).filetypes,
-			})
-		end,
-	})
-	tricky_setups()
-end
+lspconfig.erlangls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
+lspconfig.lua_ls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		Lua = {
+			runtime = { version = "LuaJIT" },
+			diagnostics = { globals = { "vim" } },
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true),
+				checkThirdParty = false,
+			},
+			telemetery = {
+				enable = false,
+			},
+		},
+	},
+})
+
+lspconfig.rust_analyzer.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		["rust-analyzer"] = {
+			checkOnSave = true,
+			check = {
+				command = "clippy",
+				extraArgs = { "--", "-W", "clippy::pedantic" },
+			},
+		},
+	},
+})

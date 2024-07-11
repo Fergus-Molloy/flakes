@@ -69,6 +69,7 @@ let
         nixd
         gopls
         goimports-reviser
+        erlang-ls
       ];
     };
 

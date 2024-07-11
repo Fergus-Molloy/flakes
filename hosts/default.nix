@@ -1,4 +1,4 @@
-{ lib, home-manager, user, nixpkgs,inputs, ... }:
+{ lib, home-manager, user, nixpkgs, inputs, ... }:
 let
   system = "x86_64";
   pkgs = import nixpkgs {
@@ -28,7 +28,7 @@ in
   # laptop
   diablos = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit user; };
+    specialArgs = { inherit user inputs; };
     modules = [
       ./diablos
       ./configuration.nix

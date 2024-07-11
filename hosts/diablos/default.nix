@@ -1,11 +1,20 @@
-{ pkgs, lib, user, ... }:
-let host = "diablos";
-in {
+{ pkgs, lib, user, inputs, ... }:
+let
+  host = "diablos";
+  nixCats = import ../../modules/nixcats { inherit inputs; };
+in
+{
   imports = [
     ./hardware-configuration.nix
     ../../modules/desktop-environments/i3.nix
     ../../modules/steam.nix
+    nixCats.nixosModules.default
   ];
+
+  nixCats = {
+    enable = true;
+    packageNames = [ "nixCats" ];
+  };
 
   system.stateVersion = "23.05"; # Did you read the comment?
 

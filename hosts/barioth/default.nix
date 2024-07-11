@@ -1,7 +1,7 @@
 { config, pkgs, lib, user, inputs, ... }:
 let
   host = "barioth";
-  nixCats = import ../../modules/nixcats {inherit inputs;};
+  nixCats = import ../../modules/nixcats { inherit inputs; };
 in
 {
   imports = [
@@ -12,10 +12,10 @@ in
     nixCats.nixosModules.default
   ];
 
-nixCats = {
-enable =true;
-packageNames = ["nixCats"];
-};
+  nixCats = {
+    enable = true;
+    packageNames = [ "nixCats" ];
+  };
 
   system.stateVersion = "24.05"; # Did you read the comment?
 

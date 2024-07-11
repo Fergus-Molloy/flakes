@@ -1,3 +1,7 @@
+if not require("utils").hasModernGit() then
+	return
+end
+
 require("gitsigns").setup({
 	signs = {
 		add = { text = "+" },
