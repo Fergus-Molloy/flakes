@@ -25,6 +25,7 @@ require("nixCatsUtils.catPacker").setup({
 	--[[ ------------------------------------------ ]]
 	{ "savq/melange-nvim" },
 	{ "f4z3r/gruvbox-material.nvim" },
+	{ "rebelot/kanagawa.nvim" },
 	{ "nvim-tree/nvim-web-devicons" },
 	{ "nvim-lua/plenary.nvim" },
 	{ "farmergreg/vim-lastplace" },

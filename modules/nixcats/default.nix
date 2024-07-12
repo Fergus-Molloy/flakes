@@ -77,6 +77,7 @@ let
       colorschemes = [
         melange-nvim
         gruvbox-material
+        kanagawa-nvim
       ];
       general = [
         lualine-nvim

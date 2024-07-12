@@ -3,7 +3,6 @@ local plugins = {
 	"ibl",
 	"which-key",
 	"nvim-surround",
-	"fidget",
 	"better_escape",
 }
 
@@ -25,7 +24,21 @@ require("toggleterm").setup({
 	open_mapping = [[<c-\>]], -- unused mapping
 	shade_terminals = false,
 })
-vim.keymap.set("n", "<leader>tt", "<cmd>1ToggleTerm<cr>", { nowait = true, desc = "Folder Open" })
+vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>ToggleTerm<cr>", { nowait = true, desc = "Toggle last terminal" })
+vim.keymap.set(
+	{ "n", "t" },
+	"<leader>tv",
+	"<cmd>101ToggleTerm direction=vertical size=80<cr>",
+	{ nowait = true, desc = "Toggle vertical terminal" }
+)
+
+require("fidget").setup({
+	progress = {
+		display = {
+			progress_ttl = 10000,
+		},
+	},
+})
 
 -- vim sneak
 vim.keymap.set("n", "s", "<Plug>Sneak_s", { desc = "sneak forward" })
