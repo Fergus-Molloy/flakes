@@ -53,10 +53,7 @@ let
       melange = pkgs.vimUtils.buildVimPlugin {
         name = "melange-nvim";
         patches = [
-          (pkgs.fetchpatch {
-            url = "https://gist.githubusercontent.com/Fergus-Molloy/45851e615bed83972e929b219a608caf/raw/3e63f3b3a517f6bff46d37fe5b55ffb170ad7879/melange-patch.patch";
-            sha256 = "oWK7PwV8DK9QcANqttb3H4Leq+H9s1Ber/6UUawTJFs=";
-          })
+          ./patches/melange.patch
         ];
         src = pkgs.fetchFromGitHub {
           owner = "savq";
