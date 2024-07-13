@@ -117,6 +117,8 @@ in
       gr = "git rebase";
       gmf = "git merge --ff-only";
       gprc = "gh pr create";
+      gd = "git diff -w";
+      gD = "git diff --staged -w";
     };
   };
 }

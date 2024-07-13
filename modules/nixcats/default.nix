@@ -47,126 +47,145 @@ let
     in
     { inherit dependencyOverlays; })) dependencyOverlays;
 
-  categoryDefinitions = { pkgs, settings, categories, name, ... }@packageDef: {
-
-    propagatedBuildInputs = {
-      generalBuildInputs = with pkgs; [
-      ];
-    };
-
-    lspsAndRuntimeDeps = {
-      general = with pkgs; [
-        fzf
-        ripgrep
-        fd
-        lazygit
-      ];
-      lsps = with pkgs; [
-        nix-doc
-        nil
-        lua-language-server
-        stylua
-        nixd
-        gopls
-        goimports-reviser
-        erlang-ls
-      ];
-    };
-
-    startupPlugins = with pkgs.vimPlugins;{
-      colorschemes = [
-        melange-nvim
-        gruvbox-material
-        kanagawa-nvim
-      ];
-      general = [
-        lualine-nvim
-        oil-nvim
-        fidget-nvim
-        comment-nvim
-        which-key-nvim
-        indent-blankline-nvim
-        vim-lastplace
-        undotree
-        nvim-surround
-        better-escape-nvim
-        toggleterm-nvim
-        vim-sneak
-
-        fzf-lua
-
-        nvim-web-devicons
-        plenary-nvim
-      ];
-      gitPlugins = [
-        gitsigns-nvim
-        lazygit-nvim
-        diffview-nvim
-      ];
-      lsps = [
-        nvim-treesitter-textobjects
-        nvim-treesitter.withAllGrammars
-
-        nvim-lspconfig
-        cmp-nvim-lsp
-        neodev-nvim
-
-        nvim-cmp
-        luasnip
-        cmp_luasnip
-        cmp-buffer
-        cmp-path
-        cmp-nvim-lua
-      ];
-      format = [
-        conform-nvim
-      ];
-    };
-
-
-    optionalPlugins = {
-      customPlugins = with pkgs.nixCatsBuilds; [ ];
-      gitPlugins = with pkgs.neovimPlugins; [ ];
-      general = with pkgs.vimPlugins; [ ];
-    };
-
-    # shared libraries to be added to LD_LIBRARY_PATH
-    # variable available to nvim runtime
-    sharedLibraries = {
-      general = with pkgs; [
-        # libgit2
-      ];
-    };
-
-    environmentVariables = {
-      test = {
-        CATTESTVAR = "It worked!";
+  categoryDefinitions = { pkgs, settings, categories, name, ... }@packageDef:
+    let
+      # this probably wants to be an overlay at somepoint
+      melange = pkgs.vimUtils.buildVimPlugin {
+        name = "melange-nvim";
+        patches = [
+          (pkgs.fetchpatch {
+            url = "https://gist.githubusercontent.com/Fergus-Molloy/45851e615bed83972e929b219a608caf/raw/3e63f3b3a517f6bff46d37fe5b55ffb170ad7879/melange-patch.patch";
+            sha256 = "oWK7PwV8DK9QcANqttb3H4Leq+H9s1Ber/6UUawTJFs=";
+          })
+        ];
+        src = pkgs.fetchFromGitHub {
+          owner = "savq";
+          repo = "melange-nvim";
+          rev = "f626d41b9110e6ab853538d8b939979a0f1adfeb";
+          sha256 = "+U+G8xHvon3e2UpOcary03HOa244K7lVCYAAgMCYqqc=";
+        };
       };
-    };
+    in
+    {
 
-    extraWrapperArgs = {
-      # https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/setup-hooks/make-wrapper.sh
-      test = [
-        '' --set CATTESTVAR2 "It worked again!"''
-      ];
-    };
+      propagatedBuildInputs = {
+        generalBuildInputs = with pkgs; [
+        ];
+      };
 
-    # lists of the functions you would have passed to
-    # python.withPackages or lua.withPackages
+      lspsAndRuntimeDeps = {
+        general = with pkgs; [
+          fzf
+          ripgrep
+          fd
+          lazygit
+        ];
+        lsps = with pkgs; [
+          nix-doc
+          nil
+          lua-language-server
+          stylua
+          nixd
+          gopls
+          goimports-reviser
+          erlang-ls
+        ];
+      };
 
-    # get the path to this python environment
-    # in your lua config via
-    # vim.g.python3_host_prog
-    # or run from nvim terminal via :!<packagename>-python3
-    extraPython3Packages = {
-      test = (_: [ ]);
-    };
-    # populates $LUA_PATH and $LUA_CPATH
-    extraLuaPackages = {
-      test = [ (_: [ ]) ];
-    };
+      startupPlugins = with pkgs.vimPlugins;{
+        colorschemes = [
+          melange
+          gruvbox-material
+          kanagawa-nvim
+        ];
+        general = [
+          lualine-nvim
+          oil-nvim
+          fidget-nvim
+          comment-nvim
+          which-key-nvim
+          indent-blankline-nvim
+          vim-lastplace
+          undotree
+          nvim-surround
+          better-escape-nvim
+          toggleterm-nvim
+          vim-sneak
 
-  };
+          fzf-lua
+
+          nvim-web-devicons
+          plenary-nvim
+        ];
+        gitPlugins = [
+          gitsigns-nvim
+          lazygit-nvim
+          diffview-nvim
+        ];
+        lsps = [
+          nvim-treesitter-textobjects
+          nvim-treesitter.withAllGrammars
+
+          nvim-lspconfig
+          cmp-nvim-lsp
+          neodev-nvim
+
+          nvim-cmp
+          luasnip
+          cmp_luasnip
+          cmp-buffer
+          cmp-path
+          cmp-nvim-lua
+        ];
+        format = [
+          conform-nvim
+        ];
+      };
+
+
+      optionalPlugins = {
+        customPlugins = with pkgs.nixCatsBuilds; [ ];
+        gitPlugins = with pkgs.neovimPlugins; [ ];
+        general = with pkgs.vimPlugins; [ ];
+      };
+
+      # shared libraries to be added to LD_LIBRARY_PATH
+      # variable available to nvim runtime
+      sharedLibraries = {
+        general = with pkgs; [
+          # libgit2
+        ];
+      };
+
+      environmentVariables = {
+        test = {
+          CATTESTVAR = "It worked!";
+        };
+      };
+
+      extraWrapperArgs = {
+        # https://github.com/NixOS/nixpkgs/blob/master/pkgs/build-support/setup-hooks/make-wrapper.sh
+        test = [
+          '' --set CATTESTVAR2 "It worked again!"''
+        ];
+      };
+
+      # lists of the functions you would have passed to
+      # python.withPackages or lua.withPackages
+
+      # get the path to this python environment
+      # in your lua config via
+      # vim.g.python3_host_prog
+      # or run from nvim terminal via :!<packagename>-python3
+      extraPython3Packages = {
+        test = (_: [ ]);
+      };
+      # populates $LUA_PATH and $LUA_CPATH
+      extraLuaPackages = {
+        test = [ (_: [ ]) ];
+      };
+
+    };
 
   packageDefinitions = {
     nixCats = { pkgs, ... }: {

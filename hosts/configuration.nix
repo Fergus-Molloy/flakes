@@ -31,7 +31,7 @@
   };
 
   environment.variables = {
-    EDITOR = "nvim";
+    EDITOR = "nixCats";
     SHELL = "zsh";
     TERM = "kitty";
     TERMINAL = "kitty";
