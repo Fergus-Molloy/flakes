@@ -61,26 +61,3 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = highlight_group,
 	pattern = "*",
 })
-
-vim.api.nvim_create_user_command("FormatToggle", function(args)
-	local toggleOff = false
-	if vim.g.disable_autoformat then
-		vim.g.disable_autoformat = false
-		toggleOff = true
-	end
-	if vim.b.disable_autoformat then
-		vim.b.disable_autoformat = false
-		toggleOff = true
-	end
-
-	if not toggleOff then
-		if args.bang then
-			vim.b.disable_autoformat = true
-		else
-			vim.g.disable_autoformat = true
-		end
-	end
-end, {
-	desc = "Toggle autoformatting on save",
-	bang = true,
-})

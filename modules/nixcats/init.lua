@@ -1,6 +1,6 @@
 -- NOTE: These 2 need to be set up before any plugins are loaded.
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 --[[
 NOTE:
@@ -22,9 +22,9 @@ Of course, if you only ever download nvim with nix, this isnt needed.]]
 --[[ function so that it will not throw  ]]
 --[[ an error if not loaded via nixCats  ]]
 --[[ ----------------------------------- ]]
-require('nixCatsUtils').setup {
-  non_nix_value = true,
-}
+require("nixCatsUtils").setup({
+	non_nix_value = true,
+})
 -- then load the plugins via pckr
 -- YOU are in charge of putting the plugin
 -- urls and build steps in there, which will only be used when not on nix,
@@ -65,4 +65,4 @@ and then disable the build steps when not on nix.
 -- that directory is addable via the luaUtils template
 
 -- ok thats enough for 1 file. Off to lua/myLuaConf/init.lua
-require('config')
+require("config")
