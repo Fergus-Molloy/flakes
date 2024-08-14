@@ -86,6 +86,7 @@ let
           gopls
           goimports-reviser
           erlang-ls
+          erlfmt
         ];
       };
 

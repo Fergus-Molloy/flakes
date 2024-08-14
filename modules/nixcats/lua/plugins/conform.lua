@@ -8,6 +8,7 @@ require("conform").setup({
 		javacriptreact = { "prettier" },
 		javascript = { "prettier" },
 		go = { "gofmt", "goimports-reviser" },
+		erlang = { "erlfmt" },
 	},
 	format_on_save = function(bufnr)
 		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then

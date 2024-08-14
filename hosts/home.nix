@@ -64,5 +64,6 @@
     ../modules/zsh.nix
     ../modules/scripts.nix
     ../modules/cargo.nix
+    ../modules/lazygit.nix
   ];
 }

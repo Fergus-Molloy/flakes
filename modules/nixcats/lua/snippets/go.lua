@@ -35,8 +35,23 @@ return {
 		t({ "", "}" }),
 	}),
 	s({ trig = "enil", name = "err is nil", description = "check if err is nil" }, {
-		t({ "if err != nil {", "\t" }),
-		i(1),
+		t("if "),
+		i(1, "err"),
+		t({ " != nil {", "\t" }),
+		i(2),
+		t({ "", "}" }),
+	}),
+	s({ trig = "snil", name = "err is nil (surround)", description = "check if err is nil (surround)" }, {
+		t("if "),
+		i(1, "err"),
+		t({ " != nil {", "" }),
+		f(function(_, snip)
+			local res, env = {}, snip.env
+			for _, ele in ipairs(env.LS_SELECT_RAW) do
+				table.insert(res, ele)
+			end
+			return res
+		end, {}),
 		t({ "", "}" }),
 	}),
 }

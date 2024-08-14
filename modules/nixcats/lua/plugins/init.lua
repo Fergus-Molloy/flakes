@@ -44,6 +44,8 @@ require("fidget").setup({
 vim.keymap.set("n", "s", "<Plug>Sneak_s", { desc = "sneak forward" })
 vim.keymap.set("n", "S", "<Plug>Sneak_S", { desc = "sneak backward" })
 
+vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open lazygit" })
+
 require("plugins.treesitter")
 require("plugins.conform")
 require("plugins.fzf")

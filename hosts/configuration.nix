@@ -57,7 +57,6 @@
     neovim
 
     # git tools
-    lazygit
     gh
   ];
 

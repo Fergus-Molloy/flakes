@@ -1,7 +1,9 @@
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 require("luasnip.loaders.from_lua").lazy_load({ paths = { "./snippets" } })
-luasnip.config.setup({})
+require("luasnip").add_snippets("go", require("snippets.go"))
+require("luasnip").add_snippets("erlang", require("snippets.erlang"))
+luasnip.config.setup({ store_selection_keys = "<Tab>" })
 
 cmp.setup({
 	snippet = {

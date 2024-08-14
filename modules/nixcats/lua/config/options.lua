@@ -61,3 +61,22 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = highlight_group,
 	pattern = "*",
 })
+
+vim.o.spell = true
+vim.o.spelllang = "en_gb"
+
+vim.api.nvim_create_autocmd("TermOpen", {
+	desc = "disable spell in terminals",
+	pattern = "*",
+	callback = function(_)
+		vim.wo[0].spell = false
+	end,
+})
+
+vim.api.nvim_create_autocmd("BufRead", {
+	desc = "disable spell for certain filetypes",
+	pattern = { ".out", "*.log" },
+	callback = function(_)
+		vim.wo[0].spell = false
+	end,
+})

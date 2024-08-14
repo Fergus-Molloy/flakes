@@ -17,7 +17,8 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 vim.keymap.set("n", "<leader>j", "<cmd>bprev<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<leader>k", "<cmd>bnext<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<leader>b", "<cmd>b#<CR>", { desc = "Last buffer" })
-vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "delete buffer" })
+vim.keymap.set("n", "<leader>x", "<cmd>bdelete<CR>", { desc = "Delete buffer" })
+vim.keymap.set("n", "<c-w>b", "<cmd>w<bar>%db<bar>e#<bar>bd#<CR>", { desc = "Delete all buffers apart from current" })
 
 -- better pasting
 vim.keymap.set("x", "p", "pgvy", { silent = true })

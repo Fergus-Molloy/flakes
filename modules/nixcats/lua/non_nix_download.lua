@@ -83,6 +83,7 @@ require("nixCatsUtils.catPacker").setup({
 	{ "akinsho/toggleterm.nvim" },
 	{ "justinmk/vim-sneak" },
 	{ "ibhagwan/fzf-lua" },
+	{ "kdheepak/lazygit.nvim" },
 
 	-- all the rest of the setup will be done using the normal setup functions later,
 	-- thus working regardless of what method loads the plugins.
