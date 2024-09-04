@@ -62,6 +62,24 @@ let
           sha256 = "+U+G8xHvon3e2UpOcary03HOa244K7lVCYAAgMCYqqc=";
         };
       };
+      neotest-golang = pkgs.vimUtils.buildVimPlugin {
+        name = "neotest-golang";
+        src = pkgs.fetchFromGitHub {
+          owner = "fredrikaverpil";
+          repo = "neotest-golang";
+          rev = "baa2cf4be671a368c6b75eccbc78672df8b0c124";
+          sha256 = "I6YeTDTs0xnJlB4Sy1rKd7/TuHV9JTdvzYhNFS9apjg=";
+        };
+      };
+      persistent-breakpoints-nvim = pkgs.vimUtils.buildVimPlugin {
+        name = "persistent-breakpoints-nvim";
+        src = pkgs.fetchFromGitHub {
+          owner = "Weissle";
+          repo = "persistent-breakpoints.nvim";
+          rev = "4b199b1dcfd136cac8b0fa9c8dbbdeb81463f7a9";
+          sha256 = "euwc9XD02g8W52Z8SzjSInLnatS3aGLY44Frvd+yDTc=";
+        };
+      };
     in
     {
 
@@ -119,6 +137,7 @@ let
           gitsigns-nvim
           lazygit-nvim
           diffview-nvim
+          vim-fugitive
         ];
         lsps = [
           nvim-treesitter-textobjects
@@ -134,6 +153,17 @@ let
           cmp-buffer
           cmp-path
           cmp-nvim-lua
+        ];
+        dap = [
+          nvim-dap-ui
+          nvim-dap-virtual-text
+          nvim-dap-go
+          nvim-dap
+          nvim-nio
+          persistent-breakpoints-nvim
+          neotest
+          plenary-nvim
+          neotest-golang
         ];
         format = [
           conform-nvim
@@ -206,6 +236,7 @@ let
         colorschemes = true;
         format = true;
         lsps = true;
+        dap = true;
         generalBuildInputs = true;
         gitPlugins = true;
         test = true;

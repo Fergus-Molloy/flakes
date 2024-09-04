@@ -61,15 +61,17 @@ require("nixCatsUtils.catPacker").setup({
 	},
 	{ "stevearc/conform.nvim" },
 
-	-- {
-	-- 	"mfussenegger/nvim-dap",
-	-- 	requires = {
-	-- 		{ "nvim-neotest/nvim-nio" },
-	-- 		{ "rcarriga/nvim-dap-ui" },
-	-- 		{ "theHamsta/nvim-dap-virtual-text" },
-	-- 		{ "jay-babu/mason-nvim-dap.nvim" },
-	-- 	},
-	-- },
+	{
+		"mfussenegger/nvim-dap",
+		requires = {
+			{ "nvim-neotest/nvim-nio" },
+			{ "rcarriga/nvim-dap-ui" },
+			{ "theHamsta/nvim-dap-virtual-text" },
+			{ "jay-babu/mason-nvim-dap.nvim" },
+			{ "leoluz/nvim-dap-go" },
+			{ "weissle/persistent-breakpoints.nvim" },
+		},
+	},
 
 	{ "stevearc/oil.nvim" },
 	{ "mbbill/undotree" },
@@ -84,6 +86,18 @@ require("nixCatsUtils.catPacker").setup({
 	{ "justinmk/vim-sneak" },
 	{ "ibhagwan/fzf-lua" },
 	{ "kdheepak/lazygit.nvim" },
+	{ "sindrets/diffview.nvim" },
+	{ "tpop/vim-fugitive" },
+
+	{
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"fredrikaverpil/neotest-golang",
+		},
+	},
 
 	-- all the rest of the setup will be done using the normal setup functions later,
 	-- thus working regardless of what method loads the plugins.

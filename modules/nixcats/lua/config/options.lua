@@ -51,6 +51,10 @@ vim.o.guifont = "JetBrains Mono:h16"
 -- don't show mode in command bar
 vim.o.showmode = false
 
+-- split in sane directions
+vim.o.splitbelow = true
+vim.o.splitright = true
+
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
