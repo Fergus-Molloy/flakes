@@ -80,6 +80,15 @@ let
           sha256 = "euwc9XD02g8W52Z8SzjSInLnatS3aGLY44Frvd+yDTc=";
         };
       };
+      yeet-nvim = pkgs.vimUtils.buildVimPlugin {
+        name = "yeet-nvim";
+        src = pkgs.fetchFromGitHub {
+          owner = "samharju";
+          repo = "yeet.nvim";
+          rev = "a471b0d7d9164d57d9344d6bc839530eb05e9241";
+          sha256 = "ysjHywKClq3WncltXnK0xDcm+T7xqW1FLZxNesseau8=";
+        };
+      };
     in
     {
 
@@ -127,6 +136,9 @@ let
           better-escape-nvim
           toggleterm-nvim
           vim-sneak
+          noice-nvim
+          yeet-nvim
+          nui-nvim
 
           fzf-lua
 

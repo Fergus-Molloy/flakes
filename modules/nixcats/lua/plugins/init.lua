@@ -32,13 +32,13 @@ vim.keymap.set(
 	{ nowait = true, desc = "Toggle vertical terminal" }
 )
 
-require("fidget").setup({
-	progress = {
-		display = {
-			progress_ttl = 10000,
-		},
-	},
-})
+-- require("fidget").setup({
+-- 	progress = {
+-- 		display = {
+-- 			progress_ttl = 10000,
+-- 		},
+-- 	},
+-- })
 
 -- vim sneak
 vim.keymap.set("n", "s", "<Plug>Sneak_s", { desc = "sneak forward" })
@@ -55,3 +55,5 @@ require("plugins.lsps")
 require("plugins.cmp")
 require("plugins.neotest")
 require("plugins.dap")
+require("plugins.yeet")
+require("plugins.noice")

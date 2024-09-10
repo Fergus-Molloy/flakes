@@ -88,6 +88,13 @@ require("nixCatsUtils.catPacker").setup({
 	{ "kdheepak/lazygit.nvim" },
 	{ "sindrets/diffview.nvim" },
 	{ "tpop/vim-fugitive" },
+	{ "samharju/yeet.nvim" },
+	{
+		"folke/noice",
+		requires = {
+			"MunifTannjim/nui.nvim",
+		},
+	},
 
 	{
 		"nvim-neotest/neotest",
