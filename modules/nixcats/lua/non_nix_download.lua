@@ -24,6 +24,7 @@ require("nixCatsUtils.catPacker").setup({
 	--[[ we dont have to write it twice.            ]]
 	--[[ ------------------------------------------ ]]
 	{ "savq/melange-nvim" },
+	{ "yorumicolors/yorumi.nvim" },
 	{ "f4z3r/gruvbox-material.nvim" },
 	{ "rebelot/kanagawa.nvim" },
 	{ "nvim-tree/nvim-web-devicons" },
@@ -90,7 +91,7 @@ require("nixCatsUtils.catPacker").setup({
 	{ "tpop/vim-fugitive" },
 	{ "samharju/yeet.nvim" },
 	{
-		"folke/noice",
+		"folke/noice.nvim",
 		requires = {
 			"MunifTannjim/nui.nvim",
 		},

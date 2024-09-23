@@ -18,4 +18,19 @@ require("noice").setup({
 	messages = {
 		enabled = false,
 	},
+	-- filter out annoying erlangls messages
+	routes = {
+		{
+			filter = {
+				event = "lsp",
+				kind = "progress",
+				find = "Indexing",
+				cond = function(message)
+					local client = vim.tbl_get(message.opts, "progress", "client")
+					return client == "erlangls"
+				end,
+			},
+			opts = { skip = true },
+		},
+	},
 })

@@ -69,7 +69,25 @@ return {
 		t(" }"),
 	}),
 	s({ trig = "DOWN", name = "Down message", description = "down message for matching" }, {
-		t("{ 'DOWN', Ref, process, Pid, Reason }"),
+		t("{'DOWN', Ref, process, Pid, Reason}"),
+	}),
+	s({ trig = "mexp", name = "merge exports", description = "merge multiple lines of exports into one" }, {
+		t("-export(["),
+		f(function(_, snip)
+			local all_exports = ""
+			local is_first = true
+			for _, line in ipairs(snip.env.LS_SELECT_RAW) do
+				local exports = line:gsub("-export%(%[(.*)%]%).", "%1")
+				if is_first then
+					all_exports = all_exports .. exports
+					is_first = false
+				else
+					all_exports = all_exports .. "," .. exports
+				end
+			end
+			return all_exports
+		end, {}),
+		t("])."),
 	}),
 	s({ trig = "server", name = "gen server template", description = "create gen server outline" }, {
 		t({
@@ -88,7 +106,7 @@ return {
 			"handle_info(_Event, State) ->",
 			"\t{noreply, State}.",
 			"",
-			"terminate(_Reason, State) ->",
+			"terminate(_Reason, _State) ->",
 			"\tok.",
 			"",
 			"code_change(_OldSvn, State, _Extra) ->",

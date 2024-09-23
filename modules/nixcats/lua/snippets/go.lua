@@ -54,4 +54,20 @@ return {
 		end, {}),
 		t({ "", "}" }),
 	}),
+	s({ trig = "erris", name = "errors.Is", description = "repalce err == with errors.Is" }, {
+		t("error.Is("),
+		f(function(_, snip)
+			local line = snip.env.LS_SELECT_RAW[1]
+			return line:gsub(" ?== ?", ", ")
+		end, {}),
+		t(")"),
+	}),
+	s({ trig = "errnis", name = "not errors.Is", description = "repalce err != with !errors.Is" }, {
+		t("!error.Is("),
+		f(function(_, snip)
+			local line = snip.env.LS_SELECT_RAW[1]
+			return line:gsub(" ?!= ?", ", ")
+		end, {}),
+		t(")"),
+	}),
 }

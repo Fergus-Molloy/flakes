@@ -1,5 +1,6 @@
 require("yeet").setup({
 	clear_before_yeet = false,
+	interrupt_before_yeet = true,
 })
 
 local keys = {
@@ -32,6 +33,13 @@ local keys = {
 		"<leader>yo",
 		function()
 			require("yeet").toggle_post_write()
+			if vim.g.yeetaucmd then
+				vim.g.yeetaucmd = false
+				vim.notify("disabled yeet aucmd")
+			else
+				vim.g.yeetaucmd = true
+				vim.notify("enabled yeet aucmd")
+			end
 		end,
 		{ desc = "Toggle post write yeet aucmd" },
 	},

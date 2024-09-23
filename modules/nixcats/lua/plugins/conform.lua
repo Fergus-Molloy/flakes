@@ -7,7 +7,7 @@ require("conform").setup({
 		typescript = { "prettier" },
 		javacriptreact = { "prettier" },
 		javascript = { "prettier" },
-		go = { "gofmt", "goimports-reviser" },
+		go = { "gofmt", "goimports" },
 		erlang = { "erlfmt" },
 	},
 	format_on_save = function(bufnr)

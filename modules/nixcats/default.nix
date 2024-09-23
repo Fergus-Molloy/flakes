@@ -62,6 +62,15 @@ let
           sha256 = "+U+G8xHvon3e2UpOcary03HOa244K7lVCYAAgMCYqqc=";
         };
       };
+      yorumi = pkgs.vimUtils.buildVimPlugin {
+        name = "yorumi-nvim";
+        src = pkgs.fetchFromGitHub {
+          owner = "yorumicolors";
+          repo = "yorumi.nvim";
+          rev = "7bd484b82d1d7748d2ed73a12dbafad016c558fe";
+          sha256 = "P1yV7vSiNNQgl7ZEKw7F8PwD7nfujNUkfl7XvPt1Hsw=";
+        };
+      };
       neotest-golang = pkgs.vimUtils.buildVimPlugin {
         name = "neotest-golang";
         src = pkgs.fetchFromGitHub {
@@ -119,7 +128,7 @@ let
 
       startupPlugins = with pkgs.vimPlugins;{
         colorschemes = [
-          melange
+          yorumi
           gruvbox-material
           kanagawa-nvim
         ];
@@ -252,7 +261,7 @@ let
         generalBuildInputs = true;
         gitPlugins = true;
         test = true;
-        colorscheme = "melange";
+        colorscheme = "yorumi";
         example = {
           youCan = "add more than just booleans";
           toThisSet = [

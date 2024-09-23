@@ -30,9 +30,9 @@ vim.api.nvim_create_autocmd({ "FileType", "BufReadPost" }, {
 	group = vim.api.nvim_create_augroup("gitcommit_cmds", {}),
 	callback = function()
 		vim.keymap.set("n", "<leader>gt", function()
-			local branches = vim.system({ "git", "branch" })
-			local currentBranch = vim.system({ "sed", "/^[^\\*]/d" }, branches)
-			local ticket = vim.system({ "sed", "s/^\\* [^\\/]*[\\/ ](\\w+-\\w+)/\\1/" }, currentBranch)
+			local branches = vim.fn.system({ "git", "branch" })
+			local currentBranch = vim.fn.system({ "sed", "/^[^\\*]/d" }, branches)
+			local ticket = vim.fn.system({ "sed", "-r", "s/^\\* [^\\/]*[\\/ ](\\w+-\\w+)-?.*/\\1/" }, currentBranch)
 			ticket = ticket:gsub("[\n\r]", "")
 
 			local pos = vim.api.nvim_win_get_cursor(0)

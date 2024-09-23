@@ -65,10 +65,7 @@ require("gitsigns").setup({
 		map("n", "<leader>hB", function()
 			gitsigns.blame_line({ full = true })
 		end, { desc = "Show current line blame" })
-		map("n", "<leader>hd", gitsigns.diffthis)
-		map("n", "<leader>hD", function()
-			gitsigns.diffthis("~")
-		end)
+		map("n", "<leader>hd", "<cmd>DiffviewOpen<cr>", { desc = "Open diffview" })
 		-- map("n", "<leader>td", gitsigns.toggle_deleted)
 
 		-- Text object
