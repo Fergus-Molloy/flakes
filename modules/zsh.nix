@@ -76,6 +76,9 @@ in
       bindkey '^p' history-search-backward
       bindkey '^n' history-search-forward
 
+      if ! [ $(tmux has-session -t dev) ]; then
+        ${pkgs.tmux}/bin/tmux start-server
+      fi
       ${pkgs.fastfetch}/bin/fastfetch
       prompt pure
     '';

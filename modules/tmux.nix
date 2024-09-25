@@ -24,7 +24,10 @@
       bind l select-pane -R
 
       bind c new-window -c "#{pane_current_path}"
+      bind \" split-pane -c "#{pane_current_path}"
+      bind % split-pane -h -c "#{pane_current_path}"
+
+      new-session -d -s dev
     '';
-    #set-option -ga terminal-overrides ",xterm-256color:Tc"
   };
 }
