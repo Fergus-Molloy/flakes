@@ -145,6 +145,7 @@ let
           noice-nvim
           yeet-nvim
           nui-nvim
+          tabout-nvim
 
           fzf-lua
 

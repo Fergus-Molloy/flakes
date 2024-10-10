@@ -131,8 +131,23 @@ in
   # for mounting usb devices
   services.udisks2.enable = true;
 
+  systemd.services."rclone-sync" = {
+    serviceConfig.Type = "oneshot";
+    path = [ pkgs.bash ];
+    script = ''
+      ${pkgs.rclone}/bin/rclone bisync gCloud: /home/fergus/gDrive --create-empty-src-dirs --compare size,modtime,checksum --slow-hash-sync-only --resilient -MvP --drive-skip-gdocs --fix-case --resync --config /home/fergus/.config/rclone/rclone.conf
+    '';
+  };
+  systemd.timers."rclone-sync" = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnCalendar = "*:0/1";
+      Unit = "rclone-sync.service";
+    };
+  };
+
   services.monero = {
-    enable = true;
+    enable = false;
     extraConfig = ''
       # RPC configuration
       public-node=1                             # Advertise the RPC-restricted port over p2p peer lists

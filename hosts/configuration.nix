@@ -55,6 +55,7 @@
     keybase # gpg identity verifier
     killall
     neovim
+    rclone
 
     # git tools
     gh

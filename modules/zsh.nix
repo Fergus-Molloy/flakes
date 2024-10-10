@@ -76,7 +76,7 @@ in
       bindkey '^p' history-search-backward
       bindkey '^n' history-search-forward
 
-      if ! [ $(tmux has-session -t dev) ]; then
+      if ! [ $(tmux has-session -t dev 2&> /dev/null) ]; then
         ${pkgs.tmux}/bin/tmux start-server
       fi
       ${pkgs.fastfetch}/bin/fastfetch

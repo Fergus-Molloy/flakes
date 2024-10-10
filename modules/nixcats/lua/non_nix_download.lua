@@ -90,6 +90,7 @@ require("nixCatsUtils.catPacker").setup({
 	{ "sindrets/diffview.nvim" },
 	{ "tpop/vim-fugitive" },
 	{ "samharju/yeet.nvim" },
+	{ "abecodes/tabout.nvim" },
 	{
 		"folke/noice.nvim",
 		requires = {

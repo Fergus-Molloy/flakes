@@ -8,6 +8,7 @@ require("conform").setup({
 		javacriptreact = { "prettier" },
 		javascript = { "prettier" },
 		go = { "gofmt", "goimports" },
+		cpp = { "clang-format" },
 		erlang = { "erlfmt" },
 	},
 	format_on_save = function(bufnr)
