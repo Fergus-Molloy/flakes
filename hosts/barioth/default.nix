@@ -54,16 +54,16 @@ in
 
   time.hardwareClockInLocalTime = true;
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Bootloader
-  # boot.loader.grub = {
-  #   enable = true;
-  #   devices = [ "nodev" ];
-  #   useOSProber = true;
-  #   efiSupport = true;
-  # };
+  boot.loader.grub = {
+    enable = true;
+    devices = [ "nodev" ];
+    useOSProber = true;
+    efiSupport = true;
+  };
   # boot.loader.efi.canTouchEfiVariables = true;
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -114,6 +114,8 @@ in
     monero-gui
     p2pool
 
+    grub2
+
     gnupg
     pinentry-qt
     pinentry-tty
@@ -135,7 +137,7 @@ in
     serviceConfig.Type = "oneshot";
     path = [ pkgs.bash ];
     script = ''
-      ${pkgs.rclone}/bin/rclone bisync gCloud: /home/fergus/gDrive --create-empty-src-dirs --compare size,modtime,checksum --slow-hash-sync-only --resilient -MvP --drive-skip-gdocs --fix-case --resync --config /home/fergus/.config/rclone/rclone.conf
+      ${pkgs.rclone}/bin/rclone bisync gCloud: /home/fergus/gDrive --create-empty-src-dirs --compare size,modtime,checksum --no-slow-hash --resilient -MvP --drive-skip-gdocs --fix-case --config /home/fergus/.config/rclone/rclone.conf
     '';
   };
   systemd.timers."rclone-sync" = {
