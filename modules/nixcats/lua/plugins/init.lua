@@ -24,27 +24,21 @@ require("toggleterm").setup({
 	open_mapping = [[<c-\>]], -- unused mapping
 	shade_terminals = false,
 })
-vim.keymap.set({ "n", "t" }, "<leader>tt", "<cmd>ToggleTerm<cr>", { nowait = true, desc = "Toggle last terminal" })
+vim.keymap.set({ "n" }, "<leader>tt", "<cmd>ToggleTerm<cr>", { nowait = true, desc = "Toggle last terminal" })
+vim.keymap.set({ "t" }, "<esc>", "<c-\\><c-n>", { desc = "Escape terminal mode" })
+
 vim.keymap.set(
-	{ "n", "t" },
+	{ "n" },
 	"<leader>tv",
 	"<cmd>101ToggleTerm direction=vertical size=80<cr>",
 	{ nowait = true, desc = "Toggle vertical terminal" }
 )
 
--- require("fidget").setup({
--- 	progress = {
--- 		display = {
--- 			progress_ttl = 10000,
--- 		},
--- 	},
--- })
-
 -- vim sneak
 vim.keymap.set("n", "s", "<Plug>Sneak_s", { desc = "sneak forward" })
 vim.keymap.set("n", "S", "<Plug>Sneak_S", { desc = "sneak backward" })
 
-vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open lazygit" })
+vim.keymap.set("n", "<leader>gg", "<cmd>Git<cr>", { desc = "Open git" })
 
 require("plugins.cmp")
 require("plugins.conform")

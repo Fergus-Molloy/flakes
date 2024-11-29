@@ -108,7 +108,6 @@ let
           fzf
           ripgrep
           fd
-          lazygit
         ];
         lsps = with pkgs; [
           nix-doc
@@ -154,7 +153,6 @@ let
         ];
         gitPlugins = [
           gitsigns-nvim
-          lazygit-nvim
           diffview-nvim
           vim-fugitive
         ];

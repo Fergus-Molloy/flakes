@@ -24,6 +24,9 @@ vim.keymap.set("n", "<c-w>b", "<cmd>w<bar>%db<bar>e#<bar>bd#<CR>", { desc = "Del
 vim.keymap.set("x", "p", "pgvy", { silent = true })
 vim.keymap.set("x", "P", "Pgvy", { silent = true })
 
+-- disable annoying keybind
+vim.keymap.set("n", "q:", "<nop>", { silent = true })
+
 vim.api.nvim_create_autocmd({ "FileType", "BufReadPost" }, {
 	desc = "Add keymap for ticket based on git branch",
 	pattern = "gitcommit",

@@ -24,10 +24,11 @@
           # Note that local packages are automatically included in `packages`
           # (defined by `defaults.packages` option).
           #
-          # packages = { 
-          #   aeson.source = "1.5.0.0"; # Hackage version override
-          #   shower.source = inputs.shower; 
-          # };
+          packages = {
+            # aeson.source = "1.5.0.0"; # Hackage version override
+            # shower.source = inputs.shower; 
+            megaparsec.source = inputs.megaparsec;
+          };
           # settings = { 
           #   aeson = {
           #     check = false;
@@ -55,3 +56,4 @@
       };
     };
 }
+# vim: ts=2 sw=2

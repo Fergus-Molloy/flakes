@@ -1,5 +1,6 @@
 require("config.options")
 require("config.keymaps")
+require("config.languages")
 require("plugins")
 
 local colorschemeName = nixCats("colorscheme")

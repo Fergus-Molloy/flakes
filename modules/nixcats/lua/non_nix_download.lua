@@ -86,7 +86,6 @@ require("nixCatsUtils.catPacker").setup({
 	{ "akinsho/toggleterm.nvim" },
 	{ "justinmk/vim-sneak" },
 	{ "ibhagwan/fzf-lua" },
-	{ "kdheepak/lazygit.nvim" },
 	{ "sindrets/diffview.nvim" },
 	{ "tpop/vim-fugitive" },
 	{ "samharju/yeet.nvim" },

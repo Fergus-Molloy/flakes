@@ -6,6 +6,8 @@ require("luasnip").add_snippets("erlang", require("snippets.erlang"))
 luasnip.config.setup({ store_selection_keys = "<Tab>" })
 
 cmp.setup({
+	completion = { completeopt = "menuone,noselect,popup" },
+	preselect = cmp.PreselectMode.None,
 	snippet = {
 		expand = function(args)
 			luasnip.lsp_expand(args.body)

@@ -15,6 +15,10 @@ require("conform").setup({
 		if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
 			return
 		end
+		local cwd = vim.fn.getcwd()
+		if string.find(cwd, "cashout") then
+			return
+		end
 		return { timeout = 500, lsp_fallback = true }
 	end,
 })

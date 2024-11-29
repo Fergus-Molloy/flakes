@@ -9,7 +9,9 @@ fzf.setup({
 })
 
 vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "Find files" })
-vim.keymap.set("n", "<leader>fw", fzf.live_grep, { desc = "Find word" })
+vim.keymap.set("n", "<leader>fw", function()
+	fzf.live_grep_glob({ rg_glob = true })
+end, { desc = "Find word" })
 vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "Find buffer" })
 vim.keymap.set("n", "<leader>o", fzf.oldfiles, { desc = "Find recently opened" })
 
@@ -22,4 +24,4 @@ vim.keymap.set("n", "<leader>dw", fzf.diagnostics_workspace, { desc = "Find work
 -- dap
 vim.keymap.set("n", "<leader>dc", fzf.dap_configurations, { desc = "Run DAP configuration" })
 vim.keymap.set("n", "<leader>dq", fzf.dap_commands, { desc = "Send DAP command" })
-vim.keymap.set("n", "<leader>db", fzf.dap_breakpoints, { desc = "Find DAP breakpoint" })
+-- vim.keymap.set("n", "<leader>db", fzf.dap_breakpoints, { desc = "Find DAP breakpoint" })
