@@ -6,7 +6,7 @@ local function set_ts_sw(size)
 end
 
 local two = { "nix", "haskell", "rust", "erlang", "elixir" }
-local four = { "lua" }
+local four = { "lua", "cabal" }
 
 for _, pat in ipairs(two) do
 	vim.api.nvim_create_autocmd({ "FileType", "BufReadPost" }, {

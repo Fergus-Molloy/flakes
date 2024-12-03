@@ -117,7 +117,7 @@ let
           nixd
           gopls
           goimports-reviser
-          erlang-ls
+          elixir-ls
           erlfmt
         ];
       };
