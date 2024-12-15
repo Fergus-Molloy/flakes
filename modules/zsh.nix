@@ -64,7 +64,7 @@ in
       autoload -U promptinit; promptinit
       autoload -U compinit && compinit
 
-      source ${fzfTab}/fzf-tab.plugin.zsh
+      # source ${fzfTab}/fzf-tab.plugin.zsh
 
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       zstyle ':completion:*' list-colors "$\{(s.:.)LS_COLORS}"

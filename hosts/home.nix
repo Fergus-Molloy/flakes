@@ -32,6 +32,7 @@
     bat # prettier cat
     fd # faster find
     btop # better htop
+    waybar
   ];
 
   programs.vscode = {

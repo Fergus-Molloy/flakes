@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/desktop-environments/i3.nix
+    ../../modules/desktop-environments/hyprland.nix
     ../../modules/steam.nix
     ../../modules/nvidia.nix
     nixCats.nixosModules.default
@@ -20,7 +20,6 @@ in
   system.stateVersion = "24.05"; # Did you read the comment?
 
   services.xserver.videoDrivers = [ "nvidia" ];
-
 
   # wipe root on every boot
   boot.initrd.postDeviceCommands = lib.mkAfter ''
@@ -51,13 +50,11 @@ in
     { from = "8000"; to = "8010"; }
   ];
 
-
+  # keep time the same as windows
   time.hardwareClockInLocalTime = true;
-  # Use the systemd-boot EFI boot loader.
-  # boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   # Bootloader
+  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
     enable = true;
     devices = [ "nodev" ];
@@ -66,12 +63,6 @@ in
     configurationLimit = 10;
   };
   # boot.loader.efi.canTouchEfiVariables = true;
-
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -108,9 +99,13 @@ in
     element-desktop
     autorandr
 
+    # hyprland
+    hyprpolkitagent
+    hyprshot
+    wl-clipboard
+
     obsidian
     keepassxc
-    # rclone
 
     monero-gui
     p2pool
@@ -133,21 +128,6 @@ in
 
   # for mounting usb devices
   services.udisks2.enable = true;
-
-  # systemd.services."rclone-sync" = {
-  #   serviceConfig.Type = "oneshot";
-  #   path = [ pkgs.bash ];
-  #   script = ''
-  #     ${pkgs.rclone}/bin/rclone bisync gCloud: /home/fergus/gDrive --create-empty-src-dirs --compare size,modtime,checksum --no-slow-hash --resilient -MvP --drive-skip-gdocs --fix-case --config /home/fergus/.config/rclone/rclone.conf
-  #   '';
-  # };
-  # systemd.timers."rclone-sync" = {
-  #   wantedBy = [ "timers.target" ];
-  #   timerConfig = {
-  #     OnCalendar = "*:0/1";
-  #     Unit = "rclone-sync.service";
-  #   };
-  # };
 
   services.monero = {
     enable = false;

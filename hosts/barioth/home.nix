@@ -3,7 +3,7 @@
   imports = [
     ../../modules/kitty.nix
     ../../modules/neofetch.nix
-    ../../modules/i3.nix
+    ../../modules/hyprland.nix
     ../../modules/tmux.nix
   ];
   home.file.".xprofile".text = ''
