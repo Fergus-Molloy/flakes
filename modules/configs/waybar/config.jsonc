@@ -93,4 +93,7 @@
       },
       "on-click": "pavucontrol"
     },
+    "tray": {
+        "spacing": 10,
+    },
 }

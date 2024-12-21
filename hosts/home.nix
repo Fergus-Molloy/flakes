@@ -25,7 +25,6 @@
     firefox # browser of choice
     kitty # terminal of choice
     eza # better ls
-    flameshot # screenshot utility
     fastfetch # for fun :)
     ripgrep # blazingly fast grep
     xclip # command line copy-pasting
@@ -35,17 +34,12 @@
     waybar
   ];
 
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [ astro-build.astro-vscode vscodevim.vim mkhl.direnv ];
-  };
-
-
   # extra programs that utilise bat
   programs.bat.extraPackages = with pkgs.bat-extras; [
     batman
     batdiff
   ];
+
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;

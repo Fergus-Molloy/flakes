@@ -5,6 +5,6 @@ require("plugins")
 
 local colorschemeName = nixCats("colorscheme")
 if not require("nixCatsUtils").isNixCats then
-	colorschemeName = "yorumi"
+	colorschemeName = "kanagawa"
 end
 vim.cmd.colorscheme(colorschemeName)

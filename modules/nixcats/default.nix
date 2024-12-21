@@ -257,7 +257,7 @@ let
         generalBuildInputs = true;
         gitPlugins = true;
         test = true;
-        colorscheme = "yorumi";
+        colorscheme = "kanagawa";
         example = {
           youCan = "add more than just booleans";
           toThisSet = [
