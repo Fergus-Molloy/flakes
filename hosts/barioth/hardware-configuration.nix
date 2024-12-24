@@ -9,47 +9,17 @@
     ];
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  boot.supportedFilesystems = ["btrfs"];
-
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/e14a4b68-8dd2-4fa0-9449-4c67f5f67d7e";
-      fsType = "btrfs";
-      options = [ "subvol=root" "compress=zstd" "noatime" ];
-    };
-
-  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/bb338c5f-c60e-40c2-894d-23deb0a092d6";
-
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/e14a4b68-8dd2-4fa0-9449-4c67f5f67d7e";
-      fsType = "btrfs";
-      options = [ "subvol=home" "compress=zstd" "noatime"];
-    };
-
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/e14a4b68-8dd2-4fa0-9449-4c67f5f67d7e";
-      fsType = "btrfs";
-      options = [ "subvol=nix" "compress=zstd" "noatime"];
-    };
-
-  fileSystems."/persist" =
-    { device = "/dev/disk/by-uuid/e14a4b68-8dd2-4fa0-9449-4c67f5f67d7e";
-      fsType = "btrfs";
-      options = [ "subvol=persist" "compress=zstd" "noatime"];
-    };
-
-  fileSystems."/var/log" =
-    { device = "/dev/disk/by-uuid/e14a4b68-8dd2-4fa0-9449-4c67f5f67d7e";
-      fsType = "btrfs";
-      options = [ "subvol=log" "compress=zstd" "noatime"];
-      neededForBoot = true;
+    { device = "/dev/disk/by-uuid/8678b131-1f34-44cd-add3-68dc2b804476";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/8D4E-8C31";
+    { device = "/dev/disk/by-uuid/9274-2CBF";
       fsType = "vfat";
     };
 
