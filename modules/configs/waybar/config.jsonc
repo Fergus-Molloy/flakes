@@ -12,6 +12,7 @@
     "modules-right": [
     "pulseaudio",
     "network",
+        "custom",
     "memory",
     "cpu",
     "temperature",
@@ -19,6 +20,9 @@
     "clock",
     "tray",
     ],
+    "custom": {
+        "exec": ""
+    },
     "hyprland/window": {
       "format": "{}",
       "max-length": 35,

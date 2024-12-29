@@ -43,12 +43,11 @@ in
   # "schedutil" - scale speed based on kernel scheduler
   powerManagement.cpuFreqGovernor = lib.mkDefault "schedutil";
 
-  networking.hostName = "${host}";
-  networking.firewall.allowedTCPPorts = [ 80 443 18080 18081 18089 37889 37888 ];
-  networking.firewall.allowedUDPPortRanges = [
-    { from = "4000"; to = "4007"; }
-    { from = "8000"; to = "8010"; }
-  ];
+  networking = {
+    hostName = "${host}";
+    networkmanager.enable = true;
+  };
+
 
   # keep time the same as windows
   time.hardwareClockInLocalTime = true;
@@ -63,9 +62,6 @@ in
     configurationLimit = 10;
   };
   # boot.loader.efi.canTouchEfiVariables = true;
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # enable mullvad daemon
   services.mullvad-vpn.enable = true;
@@ -98,6 +94,9 @@ in
     tmuxinator
     element-desktop
     autorandr
+
+    qbittorrent
+    chromium
 
     # hyprland
     hyprpolkitagent

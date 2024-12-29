@@ -125,6 +125,9 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
+  networking.extraHosts = ''
+    192.168.0.2 rathalos
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
