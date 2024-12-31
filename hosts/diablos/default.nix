@@ -6,7 +6,7 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/desktop-environments/i3.nix
+    ../../modules/desktop-environments/hyprland.nix
     ../../modules/steam.nix
     nixCats.nixosModules.default
   ];
@@ -15,6 +15,13 @@ in
     enable = true;
     packageNames = [ "nixCats" ];
   };
+
+  fileSystems."/mnt/share" =
+    {
+      device = "rathalos:/srv/nfs/share";
+      fsType = "nfs";
+      options = [ "x-systemd.automount" "noauto" ];
+    };
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
@@ -80,6 +87,11 @@ in
     udisks # for mounting usb devices
     mullvad-vpn # mullvad vpn
     tmuxinator
+
+    # hyprland
+    hyprpolkitagent
+    hyprshot
+    wl-clipboard
   ];
   virtualisation.docker.enable = true;
   programs.zsh.enable = true;
