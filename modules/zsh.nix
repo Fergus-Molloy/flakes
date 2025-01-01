@@ -94,9 +94,8 @@ in
       ":q" = "exit";
       mux = "tmuxinator";
       # better tools
-      v = "nvim";
-      vf = "nvim $(fzf)";
-      vim = "nvim";
+      v = ''eval "$EDITOR"'';
+      vf = ''eval "$EDITOR" $(fzf)'';
       grep = "rg";
       top = "btop";
       cat = "bat";

@@ -15,6 +15,9 @@ in
     enable = true;
     packageNames = [ "nixCats" ];
   };
+  environment.variables = {
+    EDITOR = "nixCats";
+  };
 
   fileSystems."/mnt/share" =
     {

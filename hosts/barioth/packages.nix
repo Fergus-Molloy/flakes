@@ -11,31 +11,35 @@ in
     enable = true;
     packageNames = [ "nixCats" ];
   };
+  environment.variables = {
+    EDITOR = "nixCats";
+  };
 
   # Extra packages just for this system
-  environment.systemPackages = with pkgs; [
-    udisks # for mounting usb devices
-    mullvad-vpn
-    tmuxinator
-    autorandr
+  environment.systemPackages = with pkgs;
+    [
+      udisks # for mounting usb devices
+      mullvad-vpn
+      tmuxinator
+      autorandr
 
-    handbrake
-    vlc
+      handbrake
+      vlc
 
-    (pkgs.kodi.withPackages (kodiPkgs: with kodiPkgs; [
-      jellyfin
-    ]))
+      (pkgs.kodi.withPackages (kodiPkgs: with kodiPkgs; [
+        jellyfin
+      ]))
 
-    obsidian
-    keepassxc
+      obsidian
+      keepassxc
 
-    monero-gui
-    p2pool
+      monero-gui
+      p2pool
 
-    grub2
+      grub2
 
-    pavucontrol
-  ];
+      pavucontrol
+    ];
   virtualisation.docker.enable = true;
 
   # user shell
