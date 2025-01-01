@@ -43,6 +43,24 @@ in
       }
     ];
   };
+  # Server
+  barioth = lib.nixosSystem {
+    inherit system;
+    specialArgs = { inherit user inputs; };
+    modules = [
+      ./rathalos
+      ./configuration.nix
+      home-manager.nixosModules.home-manager
+      {
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.extraSpecialArgs = { inherit user; };
+        home-manager.users.${user} = {
+          imports = [ ./home.nix ./rathalos/home.nix ];
+        };
+      }
+    ];
+  };
   # vm
   kirin = lib.nixosSystem {
     inherit system;

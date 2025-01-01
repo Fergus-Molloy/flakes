@@ -16,7 +16,7 @@
   # You can update Home Manager without changing this value. See
   # the Home Manager release notes for a list of state version
   # changes in each release.
-  home.stateVersion = "22.11";
+  home.stateVersion = "24.11";
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -45,9 +45,6 @@
     nix-direnv.enable = true;
   };
 
-  home.file.".wallpaper".source = ../modules/wall-1440;
-  programs.feh.enable = true;
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -58,7 +55,5 @@
   imports = [
     ../modules/zsh.nix
     ../modules/scripts.nix
-    ../modules/cargo.nix
-    ../modules/lazygit.nix
   ];
 }
