@@ -87,11 +87,6 @@ in
     udisks # for mounting usb devices
     mullvad-vpn # mullvad vpn
     tmuxinator
-
-    # hyprland
-    hyprpolkitagent
-    hyprshot
-    wl-clipboard
   ];
   virtualisation.docker.enable = true;
   programs.zsh.enable = true;

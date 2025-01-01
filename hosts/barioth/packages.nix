@@ -26,11 +26,6 @@ in
       jellyfin
     ]))
 
-    # hyprland
-    hyprpolkitagent
-    hyprshot
-    wl-clipboard
-
     obsidian
     keepassxc
 
