@@ -51,8 +51,8 @@
     wget
     curl
     unzip
-    keepassxc
     keybase # gpg identity verifier
+    gnupg
     killall
     neovim
     rclone
@@ -109,10 +109,11 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryPackage = pkgs.pinentry-qt;
+  };
   services.keybase.enable = true;
 
   # List services that you want to enable:
@@ -121,10 +122,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
+  networking.firewall.enable = true;
   # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
   networking.extraHosts = ''
     192.168.0.2 rathalos
   '';
