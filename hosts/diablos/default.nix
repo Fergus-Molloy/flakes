@@ -39,6 +39,9 @@ in
   powerManagement.cpuFreqGovernor = lib.mkDefault "conservative";
 
   networking.hostName = "${host}";
+  networking.extraHosts = ''
+    192.168.0.2 rathalos
+  '';
 
   time.hardwareClockInLocalTime = true;
   # Bootloader

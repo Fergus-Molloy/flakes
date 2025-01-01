@@ -33,6 +33,9 @@ in
     firewall.allowedTCPPorts = [
       2049 # nfs
     ];
+    extraHosts = ''
+      192.168.0.2 rathalos
+    '';
   };
 
   # keep time the same as windows
