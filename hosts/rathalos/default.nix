@@ -1,19 +1,13 @@
 { config, pkgs, lib, user, inputs, ... }:
 let
   host = "rathalos";
-  nixCats = import ../../modules/nixcats { inherit inputs; };
 in
 {
   imports = [
     ./hardware-configuration.nix
-    nixCats.nixosModules.default
+    ./services.nix
+    ./qsv.nix
   ];
-
-
-  nixCats = {
-    enable = true;
-    packageNames = [ "nixCats" ];
-  };
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
@@ -25,10 +19,26 @@ in
   # "schedutil" - scale speed based on kernel scheduler
   powerManagement.cpuFreqGovernor = lib.mkDefault "schedutil";
 
-  networking = {
-    hostName = "${host}";
-    networkmanager.enable = true;
-    firewall.enable = true;
+  networking =
+    let
+      ports = [
+        22 # ssh
+        51820 # mullvad
+        8080 # qbittorrent webui
+        9637 # qbittorrent connection
+      ];
+    in
+    {
+      hostName = "${host}";
+      networkmanager.enable = true;
+      firewall.enable = true;
+      firewall.allowedTCPPorts = ports;
+      firewall.allowedUDPPorts = ports;
+    };
+  # Enable the OpenSSH daemon.
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
   };
 
   # Bootloader
@@ -40,15 +50,12 @@ in
     efiSupport = true;
     configurationLimit = 10;
   };
-  # boot.loader.efi.canTouchEfiVariables = true;
 
-  # enable mullvad daemon
-  services.mullvad-vpn.enable = false;
 
   # Extra packages just for this system
   environment.systemPackages = with pkgs; [
-    # mullvad-vpn # mullvad vpn
-    # qbittorrent
+    neovim
+    mullvad-vpn # mullvad vpn
   ];
   virtualisation.docker.enable = true;
 

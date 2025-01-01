@@ -44,7 +44,7 @@ in
     ];
   };
   # Server
-  barioth = lib.nixosSystem {
+  rathalos = lib.nixosSystem {
     inherit system;
     specialArgs = { inherit user inputs; };
     modules = [

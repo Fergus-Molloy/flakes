@@ -10,7 +10,7 @@
     nixCats.url = "github:BirdeeHub/nixCats-nvim";
     nixCats.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nixpkgs, home-manager, ...}@inputs:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       user = "fergus";
     in

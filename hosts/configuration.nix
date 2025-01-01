@@ -31,7 +31,7 @@
   };
 
   environment.variables = {
-    EDITOR = "nixCats";
+    EDITOR = "nvim";
     SHELL = "zsh";
     TERM = "kitty";
     TERMINAL = "kitty";
@@ -54,7 +54,6 @@
     keybase # gpg identity verifier
     gnupg
     killall
-    neovim
     rclone
 
     # git tools
@@ -115,8 +114,6 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.enable = true;
