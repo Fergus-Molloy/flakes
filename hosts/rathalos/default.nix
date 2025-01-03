@@ -22,14 +22,20 @@ in
   networking =
     let
       ports = [
-        22 # ssh
+        69 # ssh
         51820 # mullvad
         8080 # qbittorrent webui
         9637 # qbittorrent connection
+        80
+        443
       ];
     in
     {
       hostName = "${host}";
+      extraHosts = ''
+        127.0.0.1   local.com
+        127.0.0.1   qbittorrent.local.com
+      '';
       networkmanager.enable = true;
       firewall.enable = true;
       firewall.allowedTCPPorts = ports;
@@ -38,7 +44,12 @@ in
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
-    passwordAuthentication = false;
+    openFirewall = false;
+    settings = {
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
+      Port = 69;
+    };
   };
 
   # Bootloader
@@ -58,6 +69,10 @@ in
     mullvad-vpn # mullvad vpn
   ];
   virtualisation.docker.enable = true;
+  environment.variables = {
+    # some commands require a full path to the shell
+    SHELL = "/run/current-system/sw/bin/zsh";
+  };
 
   programs.gnupg.agent = {
     enable = true;

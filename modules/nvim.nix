@@ -33,8 +33,12 @@ with lib;
       extraLuaConfig =
         #lua
         ''
-                vim.cmd.colorscheme("gruvbox-material")
-          			-- Better searching
+          vim.g.mapleader  = " "
+          vim.g.maplocalleader  = " "
+
+          vim.cmd.colorscheme("gruvbox-material")
+
+          -- Better searching
           vim.o.hlsearch = true
           vim.o.smartcase = true
           vim.o.ignorecase = true
