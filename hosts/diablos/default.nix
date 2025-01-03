@@ -8,6 +8,7 @@ in
     ./hardware-configuration.nix
     ../../modules/desktop-environments/hyprland.nix
     ../../modules/steam.nix
+    ./wireguard.nix
     nixCats.nixosModules.default
   ];
 
@@ -38,9 +39,11 @@ in
   # "schedutil" - scale speed based on kernel scheduler
   powerManagement.cpuFreqGovernor = lib.mkDefault "conservative";
 
+  networking.firewall.enable = true;
   networking.hostName = "${host}";
   networking.extraHosts = ''
     192.168.0.2 rathalos
+    10.0.0.1 rathalos
   '';
 
   time.hardwareClockInLocalTime = true;
@@ -136,4 +139,6 @@ in
       });
     })
   ];
+
+  services.tailscale.enable = false;
 }
