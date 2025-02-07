@@ -21,24 +21,22 @@ in
       udisks # for mounting usb devices
       mullvad-vpn
       tmuxinator
-      autorandr
-
-      handbrake
-      vlc
-
-      (pkgs.kodi.withPackages (kodiPkgs: with kodiPkgs; [
-        jellyfin
-      ]))
-
-      obsidian
-      keepassxc
 
       monero-gui
       p2pool
-
-      grub2
+      librespot
 
       pavucontrol
+
+      wireguard-tools
+
+      (wrapOBS {
+        plugins = with pkgs.obs-studio-plugins; [
+          wlrobs
+          obs-backgroundremoval
+          obs-pipewire-audio-capture
+        ];
+      })
     ];
   virtualisation.docker.enable = true;
 

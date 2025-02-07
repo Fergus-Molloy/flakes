@@ -68,15 +68,17 @@ let
           sha256 = "P1yV7vSiNNQgl7ZEKw7F8PwD7nfujNUkfl7XvPt1Hsw=";
         };
       };
-      neotest-golang = pkgs.vimUtils.buildVimPlugin {
-        name = "neotest-golang";
-        src = pkgs.fetchFromGitHub {
-          owner = "fredrikaverpil";
-          repo = "neotest-golang";
-          rev = "baa2cf4be671a368c6b75eccbc78672df8b0c124";
-          sha256 = "I6YeTDTs0xnJlB4Sy1rKd7/TuHV9JTdvzYhNFS9apjg=";
-        };
-      };
+      # this is failing to build
+      # neotest-golang = pkgs.vimUtils.buildVimPlugin {
+      #   name = "neotest-golang";
+      #   src = pkgs.fetchFromGitHub {
+      #     owner = "fredrikaverpil";
+      #     repo = "neotest-golang";
+      #     rev = "247ffd9de9f8b86bd426b7bd6686902ae500b506";
+      #     sha256 = "AaOteL7rN9rlC5KCjaKv2kbpv8arBqcu7wtPhBnDiZE=";
+      #   };
+      #   buildInputs = with pkgs; [ vimPlugins.neotest vimPlugins.nvim-dap go ];
+      # };
       persistent-breakpoints-nvim = pkgs.vimUtils.buildVimPlugin {
         name = "persistent-breakpoints-nvim";
         src = pkgs.fetchFromGitHub {
@@ -85,6 +87,7 @@ let
           rev = "4b199b1dcfd136cac8b0fa9c8dbbdeb81463f7a9";
           sha256 = "euwc9XD02g8W52Z8SzjSInLnatS3aGLY44Frvd+yDTc=";
         };
+        buildInputs = with pkgs; [ vimPlugins.nvim-dap ];
       };
       yeet-nvim = pkgs.vimUtils.buildVimPlugin {
         name = "yeet-nvim";
@@ -180,7 +183,7 @@ let
           persistent-breakpoints-nvim
           neotest
           plenary-nvim
-          neotest-golang
+          # neotest-golang
         ];
         format = [
           conform-nvim

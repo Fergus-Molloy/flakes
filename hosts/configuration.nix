@@ -1,4 +1,5 @@
-{ config, pkgs, user, ... }: {
+{ config, pkgs, user, lib, ... }: {
+
   # Set your time zone.
   time.timeZone = "Europe/London";
 
@@ -81,13 +82,12 @@
 
   # Fonts
   fonts.packages = with pkgs; [
-    fira-code
-    jetbrains-mono
     noto-fonts
     noto-fonts-emoji
     font-awesome
     twemoji-color-font
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
   ];
 
   # setup mouse and keyboard for xserver
@@ -115,7 +115,7 @@
 
 
   # Open ports in the firewall.
-  networking.firewall.enable = true;
+  networking.firewall.enable = lib.mkDefault true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

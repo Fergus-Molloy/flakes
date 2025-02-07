@@ -33,6 +33,7 @@ in
     firewall.allowedTCPPorts = [
       2049 # nfs
     ];
+    firewall.enable =false;
     extraHosts = ''
       192.168.0.2 rathalos
     '';
