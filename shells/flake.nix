@@ -18,12 +18,13 @@
         with pkgs; {
           devShells =
             {
+              c = mkShell{ buildInputs = [ autoconf automake ]; };
               nix = mkShellNoCC { buildInputs = [ nil nixpkgs-fmt ]; };
               lua = mkShellNoCC { buildInputs = [ lua-language-server stylua ]; };
               astro = mkShellNoCC { buildInputs = [ nodejs_18 nodePackages."vscode-langservers-extracted" nodePackages."@astrojs/language-server" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
               node = mkShellNoCC { buildInputs = [ nodejs_18 nodePackages."vscode-langservers-extracted" ]; };
               solid = mkShellNoCC { buildInputs = [ nodejs_18 nodePackages."prettier" nodePackages."vscode-langservers-extracted" nodePackages."typescript-language-server" nodePackages."typescript" ]; };
-              elixir = mkShell { buildInputs = [ beam.packages.erlang_27.elixir elixir-ls libnotify inotify-tools watchexec ]; };
+              elixir = mkShell { buildInputs = [ beam.packages.erlang_27.elixir elixir-ls libnotify inotify-tools watchexec beam.packages.erlang_27.erlang ]; };
               erlang = mkShellNoCC { buildInputs = [ beam.packages.erlang_27.erlang erlang-ls rebar3 ]; };
               go = mkShell { buildInputs = [ go gopls goimports-reviser ]; };
               ocaml = mkShell {

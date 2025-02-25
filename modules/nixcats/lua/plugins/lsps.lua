@@ -58,6 +58,7 @@ lspconfig.erlangls.setup({
 lspconfig.clangd.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	cmd = { "clangd", "--background-index", "--clang-tidy", "--log=verbose" },
 })
 lspconfig.hls.setup({
 	on_attach = on_attach,

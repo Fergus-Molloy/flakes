@@ -5,7 +5,7 @@ local function set_ts_sw(size)
 	vim.bo[0].shiftwidth = size
 end
 
-local two = { "nix", "haskell", "rust", "erlang", "elixir" }
+local two = { "nix", "haskell", "rust", "erlang", "elixir", "c" }
 local four = { "lua", "cabal" }
 
 for _, pat in ipairs(two) do

@@ -55,6 +55,7 @@
     gnupg
     killall
     rclone
+    tree
 
     # git tools
     gh
@@ -82,6 +83,8 @@
 
   # Fonts
   fonts.packages = with pkgs; [
+    fira-code
+    jetbrains-mono
     noto-fonts
     noto-fonts-emoji
     font-awesome
