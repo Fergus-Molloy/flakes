@@ -1,19 +1,9 @@
 { pkgs, user, inputs, ... }:
-let
-  nixCats = import ../../modules/nixcats { inherit inputs; };
-in
 {
-  imports = [
-    nixCats.nixosModules.default
-  ];
-
-  nixCats = {
-    enable = true;
-    packageNames = [ "nixCats" ];
-  };
-  environment.variables = {
-    EDITOR = "nixCats";
-  };
+imports = [
+../../modules/nvim.nix
+];
+  packages.nvim-custom.enable = true;
 
   # Extra packages just for this system
   environment.systemPackages = with pkgs;

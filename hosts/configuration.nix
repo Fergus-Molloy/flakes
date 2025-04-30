@@ -32,7 +32,6 @@
   };
 
   environment.variables = {
-    SHELL = "zsh";
     TERM = "kitty";
     TERMINAL = "kitty";
   };
@@ -50,6 +49,7 @@
   environment.systemPackages = with pkgs; [
     wget
     curl
+    vim
     unzip
     keybase # gpg identity verifier
     gnupg
