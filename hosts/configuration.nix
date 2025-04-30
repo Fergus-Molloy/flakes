@@ -56,6 +56,7 @@
     killall
     rclone
     tree
+    jq
 
     # git tools
     gh
