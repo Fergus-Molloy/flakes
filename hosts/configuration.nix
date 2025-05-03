@@ -1,4 +1,7 @@
 { config, pkgs, user, lib, ... }: {
+  imports = [
+    ../roles
+  ];
 
   # Set your time zone.
   time.timeZone = "Europe/London";

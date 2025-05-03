@@ -13,11 +13,13 @@
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
+  boot.supportedFilesystems = [ "btrfs" ];
 
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/2cbb2759-1031-4ec2-a75e-d1cc81c851a5";
       fsType = "ext4";
+      options = ["noatime"];
     };
 
   boot.initrd.luks.devices."luks-1e2fdd14-66ee-4ab1-b0f3-097a7eef24b6".device = "/dev/disk/by-uuid/1e2fdd14-66ee-4ab1-b0f3-097a7eef24b6";
@@ -32,6 +34,13 @@
     {
       device = "/dev/disk/by-uuid/7EC0F341C0F2FE69";
       fsType = "ntfs";
+    };
+
+  fileSystems."/mnt/void" =
+    {
+      device = "/dev/disk/by-uuid/4cb5994e-36a3-4642-9382-1fc84829c981";
+      fsType = "btrfs";
+      options = ["noatime"];
     };
 
   swapDevices = [ ];

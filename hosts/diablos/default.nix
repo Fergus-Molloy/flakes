@@ -7,7 +7,6 @@ in
   imports = [
     ./hardware-configuration.nix
     ../../modules/desktop-environments/hyprland.nix
-    ../../modules/steam.nix
     nixCats.nixosModules.default
   ];
 

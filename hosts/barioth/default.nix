@@ -9,13 +9,11 @@ in
     ./services.nix
     ./packages.nix
     ../../modules/desktop-environments/hyprland.nix
-    ../../modules/steam.nix
-    ../../modules/nvidia.nix
   ];
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  roles.gaming.enable = true;
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  system.stateVersion = "24.11"; # Did you read the comment?
 
   # set freq govenor 
   # "performance" - max speed all the time

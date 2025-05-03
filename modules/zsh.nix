@@ -56,7 +56,10 @@ in
       TERM = "xterm-kitty";
       GPG_TTY = "$(tty)";
     };
-    initContent = ''
+    initContent =
+    ''
+      [[ -f ~/.secrets.zsh ]] && source ~/.secrets.zsh
+
       fpath=(${pkgs.docker}/share/zsh/site-functions/_docker $fpath)
       fpath=(${pkgs.eza}/share/zsh/site-functions/_eza $fpath)
       fpath+=($HOME/.zsh/pure)

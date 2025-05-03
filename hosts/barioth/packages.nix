@@ -3,7 +3,13 @@
 imports = [
 ../../modules/nvim.nix
 ];
-  packages.nvim-custom.enable = true;
+  packages.nvim-custom = {
+  enable = true;
+  lsps = with pkgs; [
+    stylua
+    nixpkgs-fmt
+  ];
+  };
 
   # Extra packages just for this system
   environment.systemPackages = with pkgs;
