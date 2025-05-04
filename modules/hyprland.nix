@@ -19,6 +19,9 @@ with lib;
       withUWSM = true;
     };
 
+    # let hyprlock perform authentication
+    security.pam.services.hyprlock = { };
+
     environment.systemPackages = with pkgs; [
       hyprpolkitagent
       hyprshot
