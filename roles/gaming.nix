@@ -50,8 +50,9 @@ with lib;
       dedicatedServer.openFirewall = true;
     };
 
-    # enable minecraft launcher
-    environment.systemPackages = optionals cfg.minecraft [ pkgs.prismlauncher ];
+    environment.systemPackages = [
+      pkgs.discord
+    ] ++ optionals cfg.minecraft [ pkgs.prismlauncher ];
 
     nixpkgs.overlays = [
       # This overlay will pull the latest version of Discord
