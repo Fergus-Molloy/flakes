@@ -19,6 +19,14 @@ with lib;
       type = types.bool;
       default = true;
     };
+    amd = mkOption {
+      type = types.bool;
+      default = false;
+    };
+    nvidia = mkOption {
+      type = types.bool;
+      default = false;
+    };
   };
 
   config = mkIf cfg.enable {
@@ -44,4 +52,6 @@ with lib;
       })
     ];
   };
+
+  #TODO: setup nvidia/amd drivers and such
 }

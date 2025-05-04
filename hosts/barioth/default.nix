@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 let
   host = "barioth";
 in
@@ -7,7 +7,6 @@ in
     ./hardware-configuration.nix
     ./boot.nix
     ./monitors.nix
-    ./packages.nix
     ../../modules/hyprland.nix
   ];
 
