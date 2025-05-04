@@ -103,7 +103,6 @@ in
       top = "btop";
       cat = "bat";
       find = "fd";
-      lg = "lazygit";
       #better ls
       ls = "eza -lh -s=name --git --group-directories-first --no-permissions --icons --no-user";
       lsa = "eza -lha -s=name --git --group-directories-first --no-permissions --icons --no-user";
