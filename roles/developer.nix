@@ -9,8 +9,5 @@ with lib;
 	};
 
 	config = mkIf cfg.enable {
-		imports = [ ../modules/nvim.nix ];
-
-		packages.nvim-custom.enable = true;
 	};
 }

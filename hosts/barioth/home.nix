@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
-    ../../modules/kitty.nix
-    ../../modules/neofetch.nix
-    ../../modules/hyprland.nix
-    ../../modules/tmux.nix
+    ../../modules/home/kitty.nix
+    ../../modules/home/neofetch.nix
+    ../../modules/home/hyprland.nix
+    ../../modules/home/tmux.nix
    ];
   home.file.".xprofile".text = ''
     autorandr --load multi

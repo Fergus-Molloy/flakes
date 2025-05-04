@@ -53,7 +53,7 @@
   };
 
   imports = [
-    ../modules/zsh.nix
-    ../modules/scripts.nix
+    ../modules/home/zsh.nix
+    ../modules/home/scripts.nix
   ];
 }

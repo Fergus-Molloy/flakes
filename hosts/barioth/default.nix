@@ -8,7 +8,7 @@ in
     ./boot.nix
     ./services.nix
     ./packages.nix
-    ../../modules/desktop-environments/hyprland.nix
+    ../../modules/hyprland.nix
   ];
 
   roles.gaming.enable = true;
