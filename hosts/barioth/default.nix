@@ -2,7 +2,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./monitors.nix
   ];
 
   desktops.hyprland.enable = true;
