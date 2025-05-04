@@ -112,9 +112,11 @@ in
       gau = "git add -u";
       gst = "git status";
       gc = "git commit";
+      gca = "git commit --amend --no-edit";
       gC = "git commit -m";
       gp = "git pull";
       gP = "git push";
+      gPf = "git push --force-with-lease";
       gs = "git switch";
       gS = "git switch -c";
       gr = "git rebase";
