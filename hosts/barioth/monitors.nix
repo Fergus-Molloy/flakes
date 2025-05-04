@@ -1,55 +1,5 @@
 { ... }:
 {
-  # enable mullvad daemon
-  services.mullvad-vpn.enable = true;
-
-  # enable keybase daemon
-  services.kbfs.enable = true;
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # for mounting usb devices
-  services.udisks2.enable = true;
-
-  services.monero = {
-    enable = false;
-    extraConfig = ''
-      # RPC configuration
-      public-node=1                             # Advertise the RPC-restricted port over p2p peer lists
-      rpc-restricted-bind-ip=0.0.0.0            # Bind restricted RPC to all interfaces
-      rpc-restricted-bind-port=18089            # Bind restricted RPC on custom port to differentiate from default unrestricted RPC (18081)
-      no-igd=1                                  # Disable UPnP port mapping
-
-      # ZMQ configuration
-      zmq-pub=tcp://127.0.0.1:18083
-
-      out-peers=32
-      in-peers=64
-      add-priority-node=p2pmd.xmrvsbeast.com:18080
-      add-priority-node=nodes.hashvault.pro:18080
-      disable-dns-checkpoints=1
-
-      # Block known-malicious nodes from a DNSBL
-      enable-dns-blocklist=1
-    '';
-  };
-
   # setup screens
   services.autorandr = {
     enable = true;
@@ -98,5 +48,4 @@
       };
     };
   };
-
 }

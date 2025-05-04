@@ -6,36 +6,26 @@ in
   imports = [
     ./hardware-configuration.nix
     ./boot.nix
-    ./services.nix
+    ./monitors.nix
     ./packages.nix
     ../../modules/hyprland.nix
   ];
 
   roles.gaming.enable = true;
+  roles.developer.enable = true;
+  roles.vpn.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    (wrapOBS {
+      plugins = with pkgs.obs-studio-plugins; [
+        wlrobs
+        obs-backgroundremoval
+        obs-pipewire-audio-capture
+      ];
+    })
+  ];
 
   system.stateVersion = "24.11"; # Did you read the comment?
-
-  # set freq govenor
-  # "performance" - max speed all the time
-  # "powersave" - min speed all the time
-  # "ondemand" - scale speed based on load
-  # "conservative" - scale speed but in increments rather than big jumps
-  # "schedutil" - scale speed based on kernel scheduler
-  powerManagement.cpuFreqGovernor = "schedutil";
-
-  networking = {
-    hostName = "${host}";
-
-    networkmanager.enable = true;
-
-    firewall.allowedTCPPorts = [
-      2049 # nfs
-    ];
-    firewall.enable = false;
-    extraHosts = ''
-      192.168.0.2 rathalos
-    '';
-  };
 
   # keep time the same as windows
   time.hardwareClockInLocalTime = true;

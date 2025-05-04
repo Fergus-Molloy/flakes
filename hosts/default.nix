@@ -17,10 +17,13 @@ in
   # Desktop
   barioth = lib.nixosSystem {
     inherit system;
-    specialArgs = { inherit user inputs; };
+    specialArgs = {
+      inherit user inputs;
+      host = "barioth";
+    };
     modules = [
       ./barioth
-      ./configuration.nix
+      ./configuration
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
@@ -41,7 +44,7 @@ in
     specialArgs = { inherit user inputs; };
     modules = [
       ./diablos
-      ./configuration.nix
+      ./configuration
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
