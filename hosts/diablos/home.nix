@@ -1,4 +1,4 @@
-{ pkgs, user, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/kitty.nix

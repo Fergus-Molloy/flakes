@@ -1,13 +1,11 @@
 {
   lib,
   home-manager,
-  user,
   nixpkgs,
-  inputs,
   ...
 }:
 let
-  system = "x86_64";
+  system = "x86_64-linux";
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
@@ -16,20 +14,16 @@ in
 {
   # Desktop
   barioth = lib.nixosSystem {
-    inherit system;
-    specialArgs = {
-      inherit user inputs;
-      host = "barioth";
-    };
     modules = [
+      { nixpkgs.hostPlatform = system; }
+      { networking.hostName = "barioth"; }
       ./barioth
-      ./configuration
+      ./common
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user; };
-        home-manager.users.${user} = {
+        home-manager.users."fergus" = {
           imports = [
             ./home.nix
             ./barioth/home.nix
@@ -40,17 +34,16 @@ in
   };
   # laptop
   diablos = lib.nixosSystem {
-    inherit system;
-    specialArgs = { inherit user inputs; };
     modules = [
+      { nixpkgs.hostPlatform = system; }
+      { networking.hostName = "diablos"; }
       ./diablos
-      ./configuration
+      ./common
       home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
-        home-manager.extraSpecialArgs = { inherit user; };
-        home-manager.users.${user} = {
+        home-manager.users."fergus" = {
           imports = [
             ./home.nix
             ./diablos/home.nix

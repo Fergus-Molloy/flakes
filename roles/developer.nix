@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  user,
   ...
 }:
 let
@@ -13,6 +12,11 @@ with lib;
   imports = [ ../modules/nvim.nix ];
   options.roles.developer = {
     enable = mkEnableOption "Development/coding modules";
+    lsps = mkOption {
+      type = with types; listOf package;
+      default = [ ];
+      description = "lsps and formatters to install";
+    };
   };
 
   config = mkIf cfg.enable {
@@ -27,10 +31,13 @@ with lib;
 
     packages.nvim-custom = {
       enable = true;
-      lsps = with pkgs; [
-        stylua
-        nixfmt-rfc-style
-      ];
+      lsps =
+        with pkgs;
+        [
+          stylua
+          nixfmt-rfc-style
+        ]
+        ++ cfg.lsps;
     };
 
     programs.git = {
@@ -55,7 +62,7 @@ with lib;
         };
         # create this manually on each machine, to store gpg stuff
         include = {
-          path = "/home/${user}/.gituser";
+          path = "/home/fergus/.gituser";
         };
       };
     };

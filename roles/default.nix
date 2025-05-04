@@ -10,5 +10,6 @@
     ./developer.nix
     ./vpn.nix
     ./monero.nix
+    ./streamer.nix
   ];
 }

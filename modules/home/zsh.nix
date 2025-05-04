@@ -1,4 +1,4 @@
-{ user, pkgs, ... }:
+{ pkgs, ... }:
 let
   # pure zsh prompt
   pure = pkgs.stdenv.mkDerivation {
@@ -42,7 +42,7 @@ in
     syntaxHighlighting.enable = true;
     autocd = true;
     history = {
-      path = "/home/${user}/.cache/zsh/histfile";
+      path = "/home/fergus/.cache/zsh/histfile";
       ignoreAllDups = true;
       ignoreDups = true;
       ignoreSpace = true;
@@ -51,7 +51,7 @@ in
       size = 1000;
     };
     sessionVariables = {
-      PATH = "/home/${user}/.local/bin:/home/${user}/.cargo/bin:$PATH";
+      PATH = "/home/fergus/.local/bin:/home/fergus/.cargo/bin:$PATH";
       TIMEFMT = "$'\n================\nCPU\t%P\nuser\t%*U\nsystem\t%*S\ntotal\t%*E\n'";
       TERM = "xterm-kitty";
       GPG_TTY = "$(tty)";

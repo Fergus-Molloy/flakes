@@ -9,8 +9,19 @@ let
 in
 with lib;
 {
+  imports = [
+    ../modules/nvidia.nix
+    ../modules/amd.nix
+  ];
   options.roles.gaming = {
     enable = mkEnableOption "Gaming modules";
+    graphics = mkOption {
+      type = types.enum [
+        "nvidia"
+        "amd"
+      ];
+      default = "";
+    };
     steam = mkOption {
       type = types.bool;
       default = true;
@@ -30,6 +41,8 @@ with lib;
   };
 
   config = mkIf cfg.enable {
+    graphics."${cfg.graphics}".enable = true;
+
     # enable steam
     programs.steam = {
       enable = cfg.steam;

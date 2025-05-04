@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  host,
   ...
 }:
 {
@@ -9,6 +8,5 @@
   networking = {
     firewall.enable = lib.mkDefault true;
     networkmanager.enable = lib.mkDefault true;
-    hostName = "${host}";
   };
 }

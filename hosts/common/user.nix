@@ -1,19 +1,18 @@
 {
   config,
   pkgs,
-  user,
   ...
 }:
 {
-  # Define a user account. Don't forget to the password with ‘passwd’.
-  users.users.${user} = {
+  users.users."fergus" = {
     isNormalUser = true;
-    description = "${user}";
+    description = "fergus";
     extraGroups = [
       "networkmanager"
       "wheel"
       "docker"
     ];
+    # Don't forget to the password with ‘passwd’.
     initialPassword = "password";
     shell = pkgs.zsh;
     packages = with pkgs; [ ];

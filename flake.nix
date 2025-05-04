@@ -14,10 +14,7 @@
       nixpkgs,
       home-manager,
       ...
-    }@inputs:
-    let
-      user = "fergus";
-    in
+    }:
     {
       nixosConfigurations = (
         import ./hosts {
@@ -25,8 +22,6 @@
           inherit
             nixpkgs
             home-manager
-            user
-            inputs
             ;
         }
       );

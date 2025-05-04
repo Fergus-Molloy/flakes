@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   ...
 }:
@@ -13,6 +12,7 @@
     ./packages.nix
     ./peripherals.nix
     ./user.nix
+    ./boot.nix
   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "schedutil";
@@ -24,8 +24,6 @@
     enable = true;
     enableSSHSupport = true;
   };
-
-  # List services that you want to enable:
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
