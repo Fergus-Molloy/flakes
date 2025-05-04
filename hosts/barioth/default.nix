@@ -3,8 +3,9 @@
   imports = [
     ./hardware-configuration.nix
     ./monitors.nix
-    ../../modules/hyprland.nix
   ];
+
+  desktops.hyprland.enable = true;
 
   roles.gaming = {
     enable = true;
