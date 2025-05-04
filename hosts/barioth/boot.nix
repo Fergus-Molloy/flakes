@@ -1,4 +1,5 @@
-{ config, ... }: {
+{ config, ... }:
+{
 
   # Bootloader
   boot.loader.efi.canTouchEfiVariables = true;
@@ -14,7 +15,10 @@
     device = "rathalos:/srv/nfs/share";
     fsType = "nfs";
     # mount only when we try to access the drive
-    options = [ "x-systemd.automount" "noauto" ];
+    options = [
+      "x-systemd.automount"
+      "noauto"
+    ];
   };
 
   # enable virtual camera

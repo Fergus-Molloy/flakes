@@ -1,8 +1,17 @@
-{ pkgs, user, inputs, ... }: {
+{
+  pkgs,
+  user,
+  inputs,
+  ...
+}:
+{
   imports = [ ../../modules/nvim.nix ];
   packages.nvim-custom = {
     enable = true;
-    lsps = with pkgs; [ stylua nixfmt-rfc-style ];
+    lsps = with pkgs; [
+      stylua
+      nixfmt-rfc-style
+    ];
   };
 
   # Extra packages just for this system

@@ -1,4 +1,11 @@
-{ lib, home-manager, user, nixpkgs, inputs, ... }:
+{
+  lib,
+  home-manager,
+  user,
+  nixpkgs,
+  inputs,
+  ...
+}:
 let
   system = "x86_64";
   pkgs = import nixpkgs {
@@ -20,7 +27,10 @@ in
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit user; };
         home-manager.users.${user} = {
-          imports = [ ./home.nix ./barioth/home.nix ];
+          imports = [
+            ./home.nix
+            ./barioth/home.nix
+          ];
         };
       }
     ];
@@ -38,7 +48,10 @@ in
         home-manager.useUserPackages = true;
         home-manager.extraSpecialArgs = { inherit user; };
         home-manager.users.${user} = {
-          imports = [ ./home.nix ./diablos/home.nix ];
+          imports = [
+            ./home.nix
+            ./diablos/home.nix
+          ];
         };
       }
     ];

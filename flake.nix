@@ -8,7 +8,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }@inputs:
     let
       user = "fergus";
     in
@@ -16,7 +22,12 @@
       nixosConfigurations = (
         import ./hosts {
           inherit (nixpkgs) lib;
-          inherit nixpkgs home-manager user inputs;
+          inherit
+            nixpkgs
+            home-manager
+            user
+            inputs
+            ;
         }
       );
     };

@@ -1,13 +1,18 @@
-{config, pkgs, lib, ...}:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
-cfg = config.roles.developer;
+  cfg = config.roles.developer;
 in
 with lib;
 {
-	options.roles.developer = {
-		enable = mkEnableOption "Development/coding modules";
-	};
+  options.roles.developer = {
+    enable = mkEnableOption "Development/coding modules";
+  };
 
-	config = mkIf cfg.enable {
-	};
+  config = mkIf cfg.enable {
+  };
 }

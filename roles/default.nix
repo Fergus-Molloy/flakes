@@ -1,6 +1,12 @@
-{config, pkgs, lib, ...}: {
-	imports = [
-		./gaming.nix
-		./developer.nix
-	];
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  imports = [
+    ./gaming.nix
+    ./developer.nix
+  ];
 }

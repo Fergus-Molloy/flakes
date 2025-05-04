@@ -1,4 +1,10 @@
-{ pkgs, lib, user, inputs, ... }:
+{
+  pkgs,
+  lib,
+  user,
+  inputs,
+  ...
+}:
 let
   host = "diablos";
   nixCats = import ../../modules/nixcats { inherit inputs; };
@@ -18,18 +24,20 @@ in
     EDITOR = "nixCats";
   };
 
-  fileSystems."/mnt/share" =
-    {
-      device = "rathalos:/srv/nfs/share";
-      fsType = "nfs";
-      options = [ "x-systemd.automount" "noauto" ];
-    };
+  fileSystems."/mnt/share" = {
+    device = "rathalos:/srv/nfs/share";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "noauto"
+    ];
+  };
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
   # services.xserver.videoDrivers = [ "nvidia" ];
 
-  # set freq govenor 
+  # set freq govenor
   # "performance" - max speed all the time
   # "powersave" - min speed all the time
   # "ondemand" - scale speed based on load
@@ -69,8 +77,6 @@ in
 
   # enable mullvad daemon
   services.mullvad-vpn.enable = true;
-
-
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;

@@ -15,7 +15,7 @@ in
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
-  # set freq govenor 
+  # set freq govenor
   # "performance" - max speed all the time
   # "powersave" - min speed all the time
   # "ondemand" - scale speed based on load

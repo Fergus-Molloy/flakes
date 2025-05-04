@@ -1,4 +1,9 @@
-{ config, pkgs, user, ... }:
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
 
 # Global home-manager configuration
 

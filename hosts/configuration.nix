@@ -1,4 +1,11 @@
-{ config, pkgs, user, lib, ... }: {
+{
+  config,
+  pkgs,
+  user,
+  lib,
+  ...
+}:
+{
   imports = [
     ../roles
   ];
@@ -28,10 +35,14 @@
   users.users.${user} = {
     isNormalUser = true;
     description = "${user}";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
     initialPassword = "password";
     shell = pkgs.zsh;
-    packages = with pkgs;[ ];
+    packages = with pkgs; [ ];
   };
 
   environment.variables = {
@@ -39,10 +50,11 @@
     TERMINAL = "kitty";
   };
 
-
   # need both shells otherwise weird things can happen with user accounts
-  environment.shells = with pkgs;
-    [ bashInteractive zsh ];
+  environment.shells = with pkgs; [
+    bashInteractive
+    zsh
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -65,7 +77,6 @@
     gh
   ];
 
-
   programs.git = {
     enable = true;
     config = {
@@ -77,11 +88,19 @@
         defaultRemote = "origin";
         guess = true;
       };
-      init = { defaultBranch = "main"; };
-      branch = { autoSetupRebase = "always"; };
-      push = { autoSetupRemote = true; };
+      init = {
+        defaultBranch = "main";
+      };
+      branch = {
+        autoSetupRebase = "always";
+      };
+      push = {
+        autoSetupRemote = true;
+      };
       # create this manually on each machine, to store gpg stuff
-      include = { path = "/home/${user}/.gituser"; };
+      include = {
+        path = "/home/${user}/.gituser";
+      };
     };
   };
 
@@ -120,7 +139,6 @@
 
   # List services that you want to enable:
 
-
   # Open ports in the firewall.
   networking.firewall.enable = lib.mkDefault true;
 
@@ -140,5 +158,8 @@
   };
   nix.settings.auto-optimise-store = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }

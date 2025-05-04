@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 let
   cfg = config.desktops.hyprland;
@@ -47,7 +52,7 @@ in
     # where n is an incrementing number starting from 0
     home.file.".config/hypr/rotate-lockscreen.sh" = mkIf cfg.enableLocking {
       executable = true;
-      text = #bash
+      text = # bash
         ''
           #!/usr/bin/env bash
           DIR="/home/fergus/.config/hypr"
@@ -55,7 +60,7 @@ in
           for file in $(ls $DIR/*.png | sort -r); do
             num=$(echo $file | sed 's/.*\([0-9]\)\+.png/\1/') # wall0.png -> 0
             new_num=$(echo $num | awk '{$1=$1+1;print}') # 0 -> 1
-      
+
             if [[ -z $FIRST ]]; then
               FIRST=$DIR/wall$${new_num}.png
             fi
@@ -128,4 +133,3 @@ in
     };
   };
 }
-
