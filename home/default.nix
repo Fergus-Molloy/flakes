@@ -1,12 +1,14 @@
+{ pkgs, ... }:
 {
-  config,
-  pkgs,
-  ...
-}:
+  imports = [
+    ./hyprland.nix
+    ./kitty.nix
+    ./neofetch.nix
+    ./scripts.nix
+    ./tmux.nix
+    ./zsh.nix
+  ];
 
-# Global home-manager configuration
-
-{
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "fergus";
@@ -55,9 +57,4 @@
     defaultCommand = "fd --type f --strip-cwd-prefix --hidden --follow --exclude .git";
     tmux.enableShellIntegration = true;
   };
-
-  imports = [
-    ../modules/home/zsh.nix
-    ../modules/home/scripts.nix
-  ];
 }

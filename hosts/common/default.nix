@@ -5,7 +5,7 @@
 {
   imports = [
     ../../roles
-    ../../desktops
+    ../../modules
     ./audio.nix
     ./locales.nix
     ./networking.nix

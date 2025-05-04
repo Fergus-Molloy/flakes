@@ -16,20 +16,6 @@ let
     '';
   };
 
-  fzfTab = pkgs.stdenv.mkDerivation {
-    name = "fzf-tab";
-    version = "1.1.2";
-    src = pkgs.fetchFromGitHub {
-      owner = "aloxaf";
-      repo = "fzf-tab";
-      rev = "refs/tags/v1.1.2";
-      hash = "sha256-Qv8zAiMtrr67CbLRrFjGaPzFZcOiMVEFLg1Z+N6VMhg=";
-    };
-    installPhase = ''
-      mkdir -p $out
-      cp -r . $out/
-    '';
-  };
 in
 {
   # comp warns that /nix/store is insecure so link to somewhere secure
@@ -66,8 +52,6 @@ in
       autoload -U promptinit; promptinit
       autoload -U compinit && compinit
 
-      # source ${fzfTab}/fzf-tab.plugin.zsh
-
       zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
       zstyle ':completion:*' list-colors "$\{(s.:.)LS_COLORS}"
       zstyle ':completion:*' menu no
@@ -94,7 +78,6 @@ in
       c = "cargo";
       cr = "cargo run";
       ":q" = "exit";
-      mux = "tmuxinator";
       # better tools
       v = ''eval "$EDITOR"'';
       vf = ''eval "$EDITOR" $(fzf)'';

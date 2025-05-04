@@ -25,7 +25,7 @@ in
         home-manager.useUserPackages = true;
         home-manager.users."fergus" = {
           imports = [
-            ./home.nix
+            ../home
             ./barioth/home.nix
           ];
         };
@@ -45,7 +45,7 @@ in
         home-manager.useUserPackages = true;
         home-manager.users."fergus" = {
           imports = [
-            ./home.nix
+            ../home
             ./diablos/home.nix
           ];
         };

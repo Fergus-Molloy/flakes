@@ -1,12 +1,5 @@
-{ pkgs, ... }:
+{ ... }:
 {
-  imports = [
-    ../../modules/kitty.nix
-    ../../modules/neofetch.nix
-    ../../modules/hyprland.nix
-    ../../modules/tmux.nix
-  ];
-
   desktops.hyprland = {
     enable = true;
     extraConfig = ''
