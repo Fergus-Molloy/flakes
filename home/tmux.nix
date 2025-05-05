@@ -1,14 +1,15 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs.tmux = {
     enable = true;
     baseIndex = 1;
     clock24 = true;
-    historyLimit = 100000;
+    historyLimit = 1000000;
     mouse = true;
     terminal = "tmux-256color";
     prefix = "C-Space";
-    plugins = with pkgs; [ ];
+    plugins = with pkgs.tmuxPlugins; [
+    ];
     extraConfig = ''
       set -as terminal-features ",xterm-256color:RGB"
 
@@ -26,8 +27,6 @@
       bind c new-window -c "#{pane_current_path}"
       bind \" split-pane -c "#{pane_current_path}"
       bind % split-pane -h -c "#{pane_current_path}"
-
-      new-session -d -s dev
     '';
   };
 }
