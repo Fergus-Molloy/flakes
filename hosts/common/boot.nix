@@ -95,6 +95,7 @@ in
     useOSProber = true;
     efiSupport = true;
     configurationLimit = 10;
+    splashImage = ./nix-wallpaper-dracula.png;
     timeoutStyle = lib.mkDefault "hidden";
     extraFiles = {
       "31_hold_shift" = "${hold_shift}/bin/31_hold_shift";
