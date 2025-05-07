@@ -6,10 +6,11 @@
 }:
 {
   imports = [
-    ./gaming.nix
     ./developer.nix
-    ./vpn.nix
+    ./gaming.nix
+    ./llm.nix
     ./monero.nix
     ./streamer.nix
+    ./vpn.nix
   ];
 }
