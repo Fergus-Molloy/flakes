@@ -98,13 +98,13 @@ in
 
           listener = [
             {
-              timeout = 300;
+              timeout = 900;
               on-timeout = ''
                 loginctl lock-session
               '';
             }
             {
-              timeout = 420;
+              timeout = 1200;
               on-timeout = ''
                 hyprctl dispatch dpms off
               '';
