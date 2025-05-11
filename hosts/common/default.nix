@@ -13,7 +13,7 @@
     ./packages.nix
     ./peripherals.nix
     ./user.nix
-    ./boot.nix
+    # ./boot.nix
   ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "schedutil";

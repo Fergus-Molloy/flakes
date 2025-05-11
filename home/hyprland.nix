@@ -121,6 +121,59 @@ in
       # launcher
       wofi = {
         enable = true;
+        style = ''
+          window {
+          margin: 0px;
+          border: 1px solid #7E9CD8;
+          background-color: #16161D;
+          }
+
+          #input {
+          margin: 5px;
+          border: 1px solid #7E9CD8;
+          color: #C8C093;
+          background-color: #1F1F28;
+          }
+
+          #inner-box {
+          margin: 5px;
+          border: none;
+          background-color: #16161D;
+          }
+
+          #outer-box {
+          margin: 5px;
+          border: none;
+          background-color: #16161D;
+          }
+
+          #scroll {
+          margin: 0px;
+          border: none;
+          }
+
+          #text {
+          margin: 5px;
+          border: none;
+          color: #C8C093;
+          } 
+
+          #entry.activatable #text {
+          color: #16161D;
+          }
+
+          #entry > * {
+          color: #C8C093;
+          }
+
+          #entry:selected {
+          background-color: #1F1F28;
+          }
+
+          #entry:selected #text {
+          font-weight: bold;
+          }
+        '';
       };
       # status bar
       waybar = {
