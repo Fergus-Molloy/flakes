@@ -1,6 +1,8 @@
 {
   config,
   lib,
+  pkgs,
+  lanzaboote,
   ...
 }:
 let
@@ -10,6 +12,11 @@ with lib;
 {
   options.bootloader = {
     enable = mkEnableOption "Enable automatic bootloader configuration";
+    secureBoot = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable lanzaboote and secure boot tools?";
+    };
     windows = mkOption {
       default = { };
       example = {
@@ -28,11 +35,18 @@ with lib;
   };
 
   config = mkIf cfg.enable {
+    environment.systemPackages = optionals cfg.secureBoot [
+      pkgs.sbctl
+    ];
+    boot.lanzaboote = {
+      enable = cfg.secureBoot;
+      pkiBundle = "/var/lib/sbctl";
+    };
     boot.loader.systemd-boot = {
-      enable = true;
+      enable = !cfg.secureBoot;
       configurationLimit = 10;
-      edk2-uefi-shell.enable = cfg.windows == { };
-      windows = cfg.windows;
+      edk2-uefi-shell.enable = cfg.windows == { } && !cfg.secureBoot;
+      windows = mkIf (cfg.window != { } && !cfg.secureBoot) cfg.windows;
     };
     boot.loader.efi.canTouchEfiVariables = true;
   };

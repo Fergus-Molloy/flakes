@@ -2,6 +2,7 @@
   lib,
   home-manager,
   nixpkgs,
+  lanzaboote,
   ...
 }:
 let
@@ -15,6 +16,7 @@ in
   # Desktop
   barioth = lib.nixosSystem {
     modules = [
+      lanzaboote.nixosModules.lanzaboote
       { nixpkgs.hostPlatform = system; }
       { networking.hostName = "barioth"; }
       ./barioth

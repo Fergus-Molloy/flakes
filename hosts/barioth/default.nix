@@ -17,12 +17,14 @@
   # NOTE: not boot.loader
   bootloader = {
     enable = true;
-    windows = {
-      "11-win" = {
-        title = "Window 11";
-        efiDeviceHandle = "HD1b";
-      };
-    };
+    secureBoot = true;
+    # windows doesn't work with secure boot enabled
+    # windows = {
+    #   "11-win" = {
+    #     title = "Window 11";
+    #     efiDeviceHandle = "HD1b";
+    #   };
+    # };
   };
 
   system.stateVersion = "24.11"; # Did you read the comment?
