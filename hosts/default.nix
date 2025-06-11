@@ -3,6 +3,7 @@
   home-manager,
   nixpkgs,
   lanzaboote,
+  nur,
   ...
 }:
 let
@@ -17,6 +18,7 @@ in
   barioth = lib.nixosSystem {
     modules = [
       lanzaboote.nixosModules.lanzaboote
+      nur.modules.nixos.default
       { nixpkgs.hostPlatform = system; }
       { networking.hostName = "barioth"; }
       ./barioth

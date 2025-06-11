@@ -17,17 +17,17 @@
   # NOTE: not boot.loader
   bootloader = {
     enable = true;
-    secureBoot = true;
+    secureBoot = false;
     # windows doesn't work with secure boot enabled
-    # windows = {
-    #   "11-win" = {
-    #     title = "Window 11";
-    #     efiDeviceHandle = "HD1b";
-    #   };
-    # };
+    windows = {
+      "11-win" = {
+        title = "Windows 11";
+        efiDeviceHandle = "HD1b";
+      };
+    };
   };
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
   # keep time the same as windows
   time.hardwareClockInLocalTime = true;

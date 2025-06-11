@@ -22,33 +22,72 @@
     "usb_storage"
     "sd_mod"
   ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "btrfs" ];
 
   fileSystems."/" = {
-    device = "/dev/disk/by-uuid/2cbb2759-1031-4ec2-a75e-d1cc81c851a5";
-    fsType = "ext4";
-    options = [ "noatime" ];
+    device = "/dev/disk/by-uuid/7c9b7af7-abbc-40d4-bbc6-4f17ae50ff85";
+    fsType = "btrfs";
+    options = [
+      "subvol=root"
+      "noatime"
+      "compress=zstd"
+    ];
   };
 
-  boot.initrd.luks.devices."luks-1e2fdd14-66ee-4ab1-b0f3-097a7eef24b6".device =
-    "/dev/disk/by-uuid/1e2fdd14-66ee-4ab1-b0f3-097a7eef24b6";
+  boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/528a3326-9fd2-4dd6-8023-9cafd8efba0f";
+
+  fileSystems."/nix" = {
+    device = "/dev/disk/by-uuid/7c9b7af7-abbc-40d4-bbc6-4f17ae50ff85";
+    fsType = "btrfs";
+    options = [
+      "subvol=nix"
+      "noatime"
+      "compress=zstd"
+    ];
+  };
+
+  fileSystems."/home" = {
+    device = "/dev/disk/by-uuid/7c9b7af7-abbc-40d4-bbc6-4f17ae50ff85";
+    fsType = "btrfs";
+    options = [
+      "subvol=home"
+      "noatime"
+      "compress=zstd"
+    ];
+  };
+
+  fileSystems."/persist" = {
+    device = "/dev/disk/by-uuid/7c9b7af7-abbc-40d4-bbc6-4f17ae50ff85";
+    fsType = "btrfs";
+    options = [
+      "subvol=persist"
+      "noatime"
+      "compress=zstd"
+    ];
+    neededForBoot = true;
+  };
+
+  fileSystems."/var/log" = {
+    device = "/dev/disk/by-uuid/7c9b7af7-abbc-40d4-bbc6-4f17ae50ff85";
+    fsType = "btrfs";
+    options = [
+      "subvol=log"
+      "noatime"
+      "compress=zstd"
+    ];
+    neededForBoot = true;
+  };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/E312-E9FF";
+    device = "/dev/disk/by-uuid/2418-350E";
     fsType = "vfat";
-  };
-
-  fileSystems."/mnt/win" = {
-    device = "/dev/disk/by-uuid/7EC0F341C0F2FE69";
-    fsType = "ntfs";
-  };
-
-  fileSystems."/mnt/void" = {
-    device = "/dev/disk/by-uuid/4cb5994e-36a3-4642-9382-1fc84829c981";
-    fsType = "btrfs";
-    options = [ "noatime" ];
+    options = [
+      "fmask=0022"
+      "dmask=0022"
+    ];
   };
 
   swapDevices = [ ];
@@ -58,7 +97,7 @@
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
   networking.useDHCP = lib.mkDefault true;
-  # networking.interfaces.enp5s0.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlo1.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

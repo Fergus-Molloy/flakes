@@ -46,7 +46,7 @@ with lib;
       enable = !cfg.secureBoot;
       configurationLimit = 10;
       edk2-uefi-shell.enable = cfg.windows == { } && !cfg.secureBoot;
-      windows = mkIf (cfg.window != { } && !cfg.secureBoot) cfg.windows;
+      windows = mkIf (cfg.windows != { } && !cfg.secureBoot) cfg.windows;
     };
     boot.loader.efi.canTouchEfiVariables = true;
   };

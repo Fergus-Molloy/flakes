@@ -60,7 +60,7 @@ with lib;
         discord = super.discord.overrideAttrs (_: {
           src = builtins.fetchTarball {
             url = "https://discord.com/api/download?platform=linux&format=tar.gz";
-            sha256 = "1ivcw1cdxgms7dnqy46zhvg6ajykrjg2nkg91pibv60s5zqjqnj2";
+            sha256 = "1mc4qxx8wc46cxzxjlydwp18v29biqfb8bnh39insphdqql2pkq8";
           };
         });
       })

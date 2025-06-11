@@ -3,6 +3,7 @@
   imports = [
     ./hyprland.nix
     ./kitty.nix
+    ./firefox.nix
     ./neofetch.nix
     ./scripts.nix
     ./tmux.nix
@@ -28,7 +29,7 @@
   programs.home-manager.enable = true;
 
   home.packages = with pkgs; [
-    firefox # browser of choice
+    # firefox # browser of choice
     kitty # terminal of choice
     eza # better ls
     fastfetch # for fun :)
