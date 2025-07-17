@@ -23,19 +23,19 @@ with lib;
       enable = true;
       extraConfig = ''
         # RPC configuration
-        public-node=1                             # Advertise the RPC-restricted port over p2p peer lists
-        rpc-restricted-bind-ip=0.0.0.0            # Bind restricted RPC to all interfaces
-        rpc-restricted-bind-port=18089            # Bind restricted RPC on custom port to differentiate from default unrestricted RPC (18081)
-        no-igd=1                                  # Disable UPnP port mapping
+        public-node=0                             # Advertise the RPC-restricted port over p2p peer list
+        # rpc-restricted-bind-ip=0.0.0.0            # Bind restricted RPC to all interfaces
+        # rpc-restricted-bind-port=18089            # Bind restricted RPC on custom port to differentiate from default unrestricted RPC (18081)
+        # no-igd=1                                  # Disable UPnP port mapping
 
         # ZMQ configuration
-        zmq-pub=tcp://127.0.0.1:18083
+        # zmq-pub=tcp://127.0.0.1:18083
 
-        out-peers=32
-        in-peers=64
-        add-priority-node=p2pmd.xmrvsbeast.com:18080
-        add-priority-node=nodes.hashvault.pro:18080
-        disable-dns-checkpoints=1
+        out-peers=128
+        in-peers=512
+        # add-priority-node=p2pmd.xmrvsbeast.com:18080
+        # add-priority-node=nodes.hashvault.pro:18080
+        # disable-dns-checkpoints=1
 
         # Block known-malicious nodes from a DNSBL
         enable-dns-blocklist=1
