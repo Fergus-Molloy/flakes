@@ -3,6 +3,7 @@
   imports = [
     ./hardware-configuration.nix
   ];
+  services.btrfs.autoScrub.enable = true;
 
   desktops.hyprland.enable = true;
 
@@ -12,7 +13,7 @@
   };
   roles.developer.enable = true;
   roles.streamer.enable = true;
-  roles.vpn.enable = true;
+  roles.monero.enable = true;
 
   # NOTE: not boot.loader
   bootloader = {

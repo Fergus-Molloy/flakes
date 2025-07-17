@@ -11,6 +11,8 @@
       "networkmanager"
       "wheel"
       "docker"
+      "video"
+      "audio"
     ];
     # Don't forget to the password with ‘passwd’.
     initialPassword = "password";
