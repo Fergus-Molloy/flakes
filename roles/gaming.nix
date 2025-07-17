@@ -28,14 +28,6 @@ with lib;
     };
     minecraft = mkOption {
       type = types.bool;
-      default = true;
-    };
-    amd = mkOption {
-      type = types.bool;
-      default = false;
-    };
-    nvidia = mkOption {
-      type = types.bool;
       default = false;
     };
   };
@@ -49,7 +41,7 @@ with lib;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
-
+    #
     environment.systemPackages = [
       pkgs.discord
     ] ++ optionals cfg.minecraft [ pkgs.prismlauncher ];
