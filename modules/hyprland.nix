@@ -26,10 +26,11 @@ with lib;
       hyprpolkitagent
       hyprshot
       wl-clipboard
+      libnotify # notify-send
     ];
 
-    services.xserver = {
-      enable = true;
+    services = {
+      xserver.enable = true;
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = false;
     };
