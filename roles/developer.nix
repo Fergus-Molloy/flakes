@@ -27,6 +27,7 @@ with lib;
       keybase # gpg identity verifier
       gnupg
       gh
+      docker-buildx
     ];
 
     packages.nvim-custom = {

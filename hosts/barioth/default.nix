@@ -4,6 +4,7 @@
     ./hardware-configuration.nix
   ];
   services.btrfs.autoScrub.enable = true;
+  virtualisation.docker.storageDriver = "btrfs";
 
   desktops.hyprland.enable = true;
 
