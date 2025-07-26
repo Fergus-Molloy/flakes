@@ -20,10 +20,10 @@ with lib;
       librespot
     ];
     services.monero = {
-      enable = true;
+      enable = false;
       extraConfig = ''
         # RPC configuration
-        public-node=0                             # Advertise the RPC-restricted port over p2p peer list
+        # public-node=0                             # Advertise the RPC-restricted port over p2p peer list
         # rpc-restricted-bind-ip=0.0.0.0            # Bind restricted RPC to all interfaces
         # rpc-restricted-bind-port=18089            # Bind restricted RPC on custom port to differentiate from default unrestricted RPC (18081)
         # no-igd=1                                  # Disable UPnP port mapping

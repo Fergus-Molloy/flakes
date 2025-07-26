@@ -44,7 +44,8 @@ with lib;
     #
     environment.systemPackages = [
       pkgs.discord
-    ] ++ optionals cfg.minecraft [ pkgs.prismlauncher ];
+    ]
+    ++ optionals cfg.minecraft [ pkgs.prismlauncher ];
 
     nixpkgs.overlays = [
       # This overlay will pull the latest version of Discord

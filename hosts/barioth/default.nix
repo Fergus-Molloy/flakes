@@ -11,6 +11,7 @@
   roles.gaming = {
     enable = true;
     graphics = "amd";
+    minecraft = true;
   };
   roles.developer.enable = true;
   roles.streamer.enable = true;
