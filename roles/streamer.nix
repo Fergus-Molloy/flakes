@@ -6,9 +6,6 @@
 }:
 let
   cfg = config.roles.streamer;
-  davinci-amd = pkgs.runCommand "davinci-amd" { buildInputs = [ pkgs.makeWrapper ]; } ''
-    makeWrapper ${pkgs.davinci-resolve}/bin/davinci-resolve $out/bin/davinci-amd --set  RUSTICL_ENABLE "amdgpu,amdgpu-pro,radv,radeon,radeonsi"
-  '';
 in
 with lib;
 {
@@ -23,7 +20,8 @@ with lib;
 
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
-      davinci-amd
+      ffmpeg
+      kdePackages.kdenlive
       (wrapOBS {
         plugins =
           with pkgs.obs-studio-plugins;

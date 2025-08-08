@@ -15,7 +15,7 @@
   };
   roles.developer.enable = true;
   roles.streamer.enable = true;
-  roles.monero.enable = true;
+  roles.vpn.enable = true;
 
   # NOTE: not boot.loader
   bootloader = {
