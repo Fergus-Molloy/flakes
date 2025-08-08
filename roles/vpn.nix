@@ -15,10 +15,12 @@ with lib;
   };
 
   config = mkIf cfg.enable {
-    # enable mullvad daemon
-    services.mullvad-vpn.enable = true;
     environment.systemPackages = with pkgs; [
-      mullvad-vpn
+      wireguard-tools
+      (pkgs.writeShellScriptBin "vpn" ''
+        #!/usr/bin/env bash
+        echo "todo"
+      '')
     ];
   };
 }

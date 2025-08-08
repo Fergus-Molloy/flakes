@@ -1,5 +1,6 @@
 { ... }:
 {
+  roles.streamer.enable = true;
   desktops.hyprland = {
     enable = true;
     enableLocking = true;
