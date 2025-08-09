@@ -20,14 +20,16 @@
   # NOTE: not boot.loader
   bootloader = {
     enable = true;
-    secureBoot = false;
+    secureBoot = true;
+    plymouth = true;
     # windows doesn't work with secure boot enabled
-    windows = {
-      "11-win" = {
-        title = "Windows 11";
-        efiDeviceHandle = "HD1b";
-      };
-    };
+    # enabled by copying \EFI\Microsoft into /boot/EFI/
+    # windows = {
+    #   "11-win" = {
+    #     title = "Windows 11";
+    #     efiDeviceHandle = "HD1b";
+    #   };
+    # };
   };
 
   system.stateVersion = "25.05"; # Did you read the comment?

@@ -24,6 +24,9 @@
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
+  boot.plymouth = {
+    enable = true;
+  };
   boot.extraModulePackages = [ ];
   boot.supportedFilesystems = [ "btrfs" ];
 

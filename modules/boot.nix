@@ -15,7 +15,12 @@ with lib;
     secureBoot = mkOption {
       type = types.bool;
       default = false;
-      description = "Enable lanzaboote and secure boot tools?";
+      description = "Enable lanzaboote and secure boot tools";
+    };
+    plymouth = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Enable plymouth splash screen";
     };
     windows = mkOption {
       default = { };
@@ -35,6 +40,8 @@ with lib;
   };
 
   config = mkIf cfg.enable {
+    boot.plymouth.enable = cfg.plymouth;
+
     environment.systemPackages = optionals cfg.secureBoot [
       pkgs.sbctl
     ];
@@ -42,6 +49,7 @@ with lib;
       enable = cfg.secureBoot;
       pkiBundle = "/var/lib/sbctl";
     };
+
     boot.loader.systemd-boot = {
       enable = !cfg.secureBoot;
       configurationLimit = 10;
