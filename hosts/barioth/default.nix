@@ -1,13 +1,5 @@
 { pkgs, ... }:
 let
-  kanagawa-theme = pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-    mktplcRef = {
-      name = "kanagawa";
-      publisher = "qufiwefefwoyn";
-      version = "1.5.1";
-      hash = "sha256-AGGioXcK/fjPaFaWk2jqLxovUNR59gwpotcSpGNbj1c=";
-    };
-  };
 in
 {
   imports = [
