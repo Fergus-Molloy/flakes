@@ -4,11 +4,10 @@
     ./hyprland.nix
     ./kitty.nix
     ./firefox.nix
-    ./neofetch.nix
+    ./fastfetch.nix
     ./scripts.nix
     ./tmux.nix
     ./zsh.nix
-    ./davinci-resolve.nix
   ];
 
   # Home Manager needs a bit of information about you and the

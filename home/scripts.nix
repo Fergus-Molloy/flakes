@@ -1,7 +1,7 @@
 { ... }:
 {
-  home.file.".local/bin/direnv-create" = {
-    source = ./configs/direnv-create;
-    executable = true;
+  home.file.".local/bin" = {
+    source = ./configs/scripts;
+    recursive = true;
   };
 }

@@ -15,7 +15,12 @@ with lib;
     lsps = mkOption {
       type = with types; listOf package;
       default = [ ];
-      description = "lsps and formatters to install";
+      description = "global lsps and formatters to install";
+    };
+    claude = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Add extra packages for working with claude";
     };
   };
 
@@ -23,12 +28,15 @@ with lib;
     virtualisation.docker.enable = true;
     # enable keybase daemon for gpg keys
     services.kbfs.enable = true;
-    environment.systemPackages = with pkgs; [
-      keybase # gpg identity verifier
-      gnupg
-      gh
-      docker-buildx
-    ];
+    environment.systemPackages =
+      with pkgs;
+      [
+        keybase # gpg identity verifier
+        gnupg
+        gh
+        docker-buildx
+      ]
+      ++ optionals (cfg.claude) [ pkgs.claude-code ];
 
     packages.nvim-custom = {
       enable = true;

@@ -15,6 +15,8 @@
 
       set -g renumber-window on
 
+      bind * setw synchronize-panes
+
       unbind l
       unbind k
       unbind j
@@ -24,9 +26,13 @@
       bind k select-pane -U
       bind l select-pane -R
 
+      bind O new-session
+
       bind c new-window -c "#{pane_current_path}"
       bind \" split-pane -c "#{pane_current_path}"
       bind % split-pane -h -c "#{pane_current_path}"
+
+      bind p run-shell /home/fergus/.local/bin/tmuxpopup
     '';
   };
 }
