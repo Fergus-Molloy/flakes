@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  home.file.".config/starship.toml" = {
+    source = ./configs/starship.toml;
+  };
   programs.zsh = {
     enable = true;
     defaultKeymap = "emacs";
