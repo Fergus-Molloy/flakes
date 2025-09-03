@@ -41,7 +41,9 @@ with lib;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
     };
-    #
+
+    hardware.xone.enable = true;
+
     environment.systemPackages = [
       pkgs.discord
     ]
