@@ -43,6 +43,13 @@ with lib;
     };
 
     hardware.xone.enable = true;
+    programs.gamemode.enable = true;
+
+    users.users."fergus" = {
+      extraGroups = [
+        "gamemode"
+      ];
+    };
 
     environment.systemPackages = [
       pkgs.discord
