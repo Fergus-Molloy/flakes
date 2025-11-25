@@ -16,7 +16,7 @@
   # Fonts
   fonts.packages = with pkgs; [
     noto-fonts
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     font-awesome
     twemoji-color-font
     nerd-fonts.fira-code
