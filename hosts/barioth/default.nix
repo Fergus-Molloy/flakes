@@ -10,6 +10,10 @@ in
 
   desktops.hyprland.enable = true;
 
+  roles.ai = {
+    enable = true;
+    pkgOverride = pkgs.ollama-rocm;
+  };
   roles.gaming = {
     enable = true;
     graphics = "amd";

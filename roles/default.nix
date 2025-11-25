@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ./ai.nix
     ./developer.nix
     ./gaming.nix
     ./monero.nix
