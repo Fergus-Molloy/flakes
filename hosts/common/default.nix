@@ -13,7 +13,6 @@
     ./packages.nix
     ./peripherals.nix
     ./user.nix
-    ./share.nix
     # ./boot.nix
   ];
 

@@ -32,7 +32,6 @@
       "separate-outputs": true,
     },
     "hyprland/workspaces": {
-      "separate-outputs": true,
       "disable-scroll": true,
       "all-outputs": false,
       "warp-on-scroll": false,
@@ -40,10 +39,11 @@
       "on-click": "activate",
       "format-icons": {
         "active": " ",
+        "unfocused": " ",
       },
       "sort-by-number": true,
       "persistent-workspaces": {
-        "*": 4, // 4 workspaces by default on every monitor
+        "DP-1": 4, // 4 workspaces by default on every monitor
       },
     },
     "clock": {
