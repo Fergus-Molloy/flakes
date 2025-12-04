@@ -41,13 +41,6 @@ in
     # };
   };
 
-  share.enable = true;
-  bluetooth.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    obsidian
-  ];
-
   system.stateVersion = "25.05"; # Did you read the comment?
 
   # keep time the same as windows
