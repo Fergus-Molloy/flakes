@@ -44,6 +44,21 @@
 
       eval "$(${pkgs.starship}/bin/starship init zsh)"
 
+      tmux start-server 2>&1 > /dev/null
+      if [ -z "$TMUX" ]; then
+        if tmux has-session -t dev 2>/dev/null; then
+          client_count="$(tmux list-clients -t dev 2>/dev/null | wc -l)"
+
+          if [ "$client_count" -eq 0 ]; then
+            tmux attach-session -t dev
+          else
+            tmux new-session
+          fi
+        else
+          tmux new-session -s dev
+        fi
+      fi
+
       ${pkgs.fastfetch}/bin/fastfetch
     '';
     shellAliases = {
