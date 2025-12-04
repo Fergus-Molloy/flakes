@@ -121,7 +121,7 @@
               nodejs
               neovim
               tree-sitter
-              (python39.withPackages (
+              (python313.withPackages (
                 pp: with pp; [
                   pynvim
                 ]
