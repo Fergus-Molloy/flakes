@@ -2,7 +2,8 @@
   description = "My personal flake for all my devices";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +23,7 @@
       nixpkgs,
       home-manager,
       lanzaboote,
+      determinate,
       nur,
       ...
     }:
@@ -33,6 +35,7 @@
             nixpkgs
             home-manager
             lanzaboote
+            determinate
             nur
             ;
         }

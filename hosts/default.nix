@@ -3,6 +3,7 @@
   home-manager,
   nixpkgs,
   lanzaboote,
+  determinate,
   nur,
   ...
 }:
@@ -17,6 +18,7 @@ in
   # Desktop
   barioth = lib.nixosSystem {
     modules = [
+      determinate.nixosModules.default
       lanzaboote.nixosModules.lanzaboote
       nur.modules.nixos.default
       { nixpkgs.hostPlatform = system; }
