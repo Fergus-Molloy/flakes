@@ -44,7 +44,7 @@ with lib;
         with pkgs;
         [
           stylua
-          nixfmt-rfc-style
+          nixfmt
         ]
         ++ cfg.lsps;
     };

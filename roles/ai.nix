@@ -27,7 +27,6 @@ with lib;
     services.ollama = {
       enable = true;
       package = cfg.pkgOverride;
-      acceleration = if config.roles.gaming.graphics == "amd" then "rocm" else "cuda";
       loadModels = cfg.models;
     };
   };
