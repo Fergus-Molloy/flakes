@@ -42,6 +42,7 @@
       bindkey '^p' history-search-backward
       bindkey '^n' history-search-forward
 
+      eval "$(${pkgs.just}/bin/just --completions zsh)"
       eval "$(${pkgs.starship}/bin/starship init zsh)"
 
       tmux start-server 2>&1 > /dev/null
