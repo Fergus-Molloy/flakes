@@ -101,6 +101,7 @@
       gprc = "gh pr create";
       gd = "git diff -w";
       gD = "git diff --staged -w";
+      gl = "git log";
     };
   };
 }
