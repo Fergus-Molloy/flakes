@@ -21,7 +21,8 @@ with lib;
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       ffmpeg
-      kdePackages.kdenlive
+      # see https://github.com/nixos/nixpkgs/issues/483540
+      (kdePackages.kdenlive.override { ffmpeg-full = pkgs.ffmpeg_7-full; })
       (wrapOBS {
         plugins =
           with pkgs.obs-studio-plugins;
