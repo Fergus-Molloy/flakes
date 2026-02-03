@@ -45,7 +45,7 @@
           };
           astro = mkShellNoCC {
             buildInputs = [
-              nodejs_18
+              nodejs
               nodePackages."vscode-langservers-extracted"
               nodePackages."@astrojs/language-server"
               nodePackages."typescript-language-server"
@@ -54,13 +54,13 @@
           };
           node = mkShellNoCC {
             buildInputs = [
-              nodejs_18
+              nodejs
               nodePackages."vscode-langservers-extracted"
             ];
           };
           solid = mkShellNoCC {
             buildInputs = [
-              nodejs_18
+              nodejs
               nodePackages."prettier"
               nodePackages."vscode-langservers-extracted"
               nodePackages."typescript-language-server"
@@ -111,7 +111,7 @@
             buildInputs = [
               csharp-ls
               dotnetCorePackages.sdk_7_0
-              nodejs_20
+              nodejs
               vscode-extensions.ms-dotnettools.csharp
             ];
           };
@@ -169,7 +169,7 @@
             buildInputs = [
               openssl
               pkg-config
-              nodejs_20
+              nodejs
               rust-bin.stable.latest.default
               rust-analyzer
             ];
