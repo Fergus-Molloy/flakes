@@ -79,6 +79,7 @@
       top = "btop";
       cat = "bat";
       find = "fd";
+      k = "kubectl";
       #better ls
       ls = "eza -lh -s=name --git --group-directories-first --no-permissions --icons --no-user";
       lsa = "eza -lha -s=name --git --group-directories-first --no-permissions --icons --no-user";
