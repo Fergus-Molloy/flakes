@@ -11,8 +11,7 @@ in
   desktops.hyprland.enable = true;
 
   roles.ai = {
-    enable = true;
-    pkgOverride = pkgs.ollama-rocm;
+    enable = false;
   };
   roles.gaming = {
     enable = true;

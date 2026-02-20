@@ -17,19 +17,20 @@ with lib;
     boot.initrd.kernelModules = [ "amdgpu" ];
     services.xserver.videoDrivers = [ "amdgpu" ];
     hardware.graphics.enable32Bit = true;
-    systemd.tmpfiles.rules =
-      let
-        rocmEnv = pkgs.symlinkJoin {
-          name = "rocm-combined";
-          paths = with pkgs.rocmPackages; [
-            rocblas
-            hipblas
-            clr
-          ];
-        };
-      in
-      [
-        "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
-      ];
+    # disabled because building hipblas freezes PC
+    # systemd.tmpfiles.rules =
+    #   let
+    #     rocmEnv = pkgs.symlinkJoin {
+    #       name = "rocm-combined";
+    #       paths = with pkgs.rocmPackages; [
+    #         rocblas
+    #         hipblas
+    #         clr
+    #       ];
+    #     };
+    #   in
+    #   [
+    #     "L+    /opt/rocm   -    -    -     -    ${rocmEnv}"
+    #   ];
   };
 }
