@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
 in
 {
@@ -51,4 +51,5 @@ in
 
   # keep time the same as windows
   time.hardwareClockInLocalTime = true;
+
 }
