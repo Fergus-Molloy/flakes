@@ -37,7 +37,7 @@ with lib;
         [
           "${automount_opts},credentials=/etc/nixos/smb-secrets"
           "uid=${toString config.users.users.fergus.uid},gid=${toString config.users.groups.samba.gid}"
-          "iocharset=utf-8,noperm"
+          "file_mode=0766,dir_mode=0777"
         ];
     };
   };
