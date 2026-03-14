@@ -41,7 +41,10 @@ in
   };
 
   share.enable = true;
-  bluetooth.enable = true;
+  bluetooth = {
+    enable = true;
+    devices = [ "F8:D3:F0:62:94:00" ];
+  };
 
   environment.systemPackages = with pkgs; [
     obsidian
