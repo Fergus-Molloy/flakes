@@ -35,6 +35,8 @@
             buildInputs = [
               nil
               nixpkgs-fmt
+              lua-language-server
+              stylua
             ];
           };
           lua = mkShellNoCC {

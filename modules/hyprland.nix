@@ -18,6 +18,7 @@ with lib;
       enable = true;
       withUWSM = true;
     };
+    environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
     # let hyprlock perform authentication
     security.pam.services.hyprlock = { };

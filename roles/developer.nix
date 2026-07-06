@@ -27,7 +27,7 @@ with lib;
   config = mkIf cfg.enable {
     virtualisation.docker.enable = true;
     # enable keybase daemon for gpg keys
-    services.kbfs.enable = true;
+    services.kbfs.enable = false;
     environment.systemPackages =
       with pkgs;
       [

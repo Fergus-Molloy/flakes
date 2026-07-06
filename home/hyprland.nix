@@ -30,8 +30,8 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.file.".config/hypr/hyprland.conf" = {
-      text = (builtins.readFile ./configs/hyprland.conf) + cfg.extraConfig;
+    home.file.".config/hypr/hyprland.lua" = {
+      text = (builtins.readFile ./configs/hyprland.lua) + cfg.extraConfig;
       # hyprland automatically creates this file, we want to overwrite it
       force = true;
     };

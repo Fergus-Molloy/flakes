@@ -47,10 +47,11 @@ in
   };
 
   environment.systemPackages = with pkgs; [
+    kitty
     obsidian
   ];
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "26.11"; # Did you read the comment?
 
   # keep time the same as windows
   time.hardwareClockInLocalTime = true;
