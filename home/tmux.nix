@@ -11,7 +11,10 @@
     plugins = with pkgs.tmuxPlugins; [
     ];
     extraConfig = ''
-      set -as terminal-features ",xterm-256color:RGB"
+      set -as terminal-features ",*:RGB"
+
+      # tmux 3.8+: use terminal ANSI colours instead of built-in theme colours
+      set -g theme terminal
 
       set -g renumber-window on
 
