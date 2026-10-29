@@ -4,16 +4,14 @@
     enable = true;
     enableLocking = true;
     extraConfig = ''
-      local mon1 = "DP-2"
-      local mon2 = "HDMI-A-1"
       hl.monitor({
-        output = "$mon1",
+        output = "desc:Acer Technologies XB271HU #ASPKrvWZC2vd",
         mode = "2560x1440@144",
         position = "auto",
         scale = "auto",
       })
       hl.monitor({
-        output = "$mon2",
+        output = "desc:Dell Inc. DELL SE2422HX FS5KWB3",
         mode = "1920x1080@60",
         position = "-1920x0",
         scale = "auto",
